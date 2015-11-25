@@ -204,10 +204,10 @@ gulp.task('scripts:vendor', () =>
 var series = require('stream-series');
 gulp.task('inject:head', () =>
   gulp.src('src/_includes/head.html')
-    .pipe($.inject(
-      series(gulp.src('.tmp/assets/stylesheets/vendor*.css', {read: false}),
-        gulp.src('.tmp/assets/stylesheets/style*.css', {read: false})),
-      {ignorePath: '.tmp'}))
+    .pipe($.inject(series(
+      gulp.src('.tmp/assets/stylesheets/vendor*.css', {read: false}),
+      gulp.src('.tmp/assets/stylesheets/style*.css', {read: false})),
+      { ignorePath: '.tmp', addPrefix: "{{site.baseurl}}", addRootSlash: false }))
     .pipe(gulp.dest('src/_includes'))
 );
 
@@ -218,7 +218,7 @@ gulp.task('inject:footer', () =>
     .pipe($.inject(
         series(gulp.src('.tmp/assets/javascript/vendor*.js', {read: false}),
         gulp.src('.tmp/assets/javascript/main*.js', {read: false})),
-      {ignorePath: '.tmp'}))
+      { ignorePath: '.tmp', addPrefix: "{{site.baseurl}}", addRootSlash: false }))
     .pipe(gulp.dest('src/_includes'))
 );
 
