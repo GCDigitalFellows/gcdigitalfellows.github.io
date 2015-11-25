@@ -1,0 +1,40 @@
+<section id="contact" class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>Contact The Digital Fellows</h2>
+      <div class="row">
+        <form id="contactform" action="//formspree.io/{{site.author.email}}" method="POST">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Enter name" required="required" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-group">
+                <input type="email" class="form-control" name="_replyto" placeholder="Enter email" required="required" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" class="form-control" id="subject" placeholder="Subject" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="name">Message</label>
+              <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary pull-right">Send Message</button>
+          </div>
+          <input type="text" name="_gotcha" style="display:none" />
+          <input type="hidden" name="_subject" value="GCDRB Inquiry" />
+          <input type="hidden" name="_next" value="/thanks/" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

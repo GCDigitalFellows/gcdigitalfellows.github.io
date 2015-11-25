@@ -1,0 +1,5 @@
+{% for link in site.menus.[include.menu] %}
+<li class="nav-item">
+  <a class="nav-link page-scroll" href="{{ link.href }}">{{ link.name }}</a>
+</li>
+{% endfor %}
