@@ -4,7 +4,8 @@ import gulp from 'gulp';
 // Loads the plugins without having to list all of them, but you need
 // to call them as $.pluginname
 import gulpLoadPlugins from 'gulp-load-plugins';
-const $ = gulpLoadPlugins();
+var $ = gulpLoadPlugins(),
+    streamSeries = require('stream-series');
 // Delete stuff
 import del from 'del';
 // Used to run shell commands
@@ -62,6 +63,30 @@ gulp.task('styles', () =>
     .pipe($.sass({
       precision: 10
     }).on('error', $.sass.logError))
+    .pipe($.uncss({
+      ignore: [/\w\.in/,
+        '.active',
+        '.fade',
+        '.collapse',
+        '.collapsing',
+        /(#|\.)navbar(\-[a-zA-Z]+)?/,
+        /(#|\.)dropdown(\-[a-zA-Z]+)?/,
+        /(#|\.)(open)/,
+        '.modal',
+        '.modal.fade.in',
+        '.modal-dialog',
+        '.modal-document',
+        '.modal-scrollbar-measure',
+        '.modal-backdrop.fade',
+        '.modal-backdrop.in',
+        '.modal.fade.modal-dialog',
+        '.modal.in.modal-dialog',
+        '.modal-open',
+        '.in',
+        '.modal-backdrop'],
+      html: [
+        'src/**/*.html'
+      ]}))
     .pipe($.postcss([
       autoprefixer({browsers: 'last 1 version'})
     ]))
@@ -201,10 +226,9 @@ gulp.task('scripts:vendor', () =>
 
 
 // 'gulp inject:head' -- injects our style.css file into the head of our HTML
-var series = require('stream-series');
 gulp.task('inject:head', () =>
   gulp.src('src/_includes/head.html')
-    .pipe($.inject(series(
+    .pipe($.inject(streamSeries(
       gulp.src('.tmp/assets/stylesheets/vendor*.css', {read: false}),
       gulp.src('.tmp/assets/stylesheets/style*.css', {read: false})),
       { ignorePath: '.tmp', addPrefix: "{{site.baseurl}}", addRootSlash: false }))
@@ -212,12 +236,11 @@ gulp.task('inject:head', () =>
 );
 
 // 'gulp inject:footer' -- injects our index.js file into the end of our HTML
-var series = require('stream-series');
 gulp.task('inject:footer', () =>
   gulp.src('src/_includes/scripts.html')
-    .pipe($.inject(
-        series(gulp.src('.tmp/assets/javascript/vendor*.js', {read: false}),
-        gulp.src('.tmp/assets/javascript/main*.js', {read: false})),
+    .pipe($.inject(streamSeries(
+      gulp.src('.tmp/assets/javascript/vendor*.js', {read: false}),
+      gulp.src('.tmp/assets/javascript/main*.js', {read: false})),
       { ignorePath: '.tmp', addPrefix: "{{site.baseurl}}", addRootSlash: false }))
     .pipe(gulp.dest('src/_includes'))
 );
