@@ -5,8 +5,11 @@
 
   <body id="page-top">
     {% include nav.html menu="main" %}
-    {{ content }}
-    {% include footer.html %}
+    <main>
+      {% include header.html %}
+      {{ content }}
+      {% include footer.html %}
+    </main>
     {% include scripts.html %}
   </body>
 </html>

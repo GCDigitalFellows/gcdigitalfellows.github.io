@@ -1,4 +1,4 @@
-/* globals WOW:false window*/
+/* globals WOW:false window document*/
 (function ($) {
   'use strict';
 
@@ -41,8 +41,10 @@
   );
 
   $(function () {
-    var contactform =  document.getElementById('contactform');
-    contactform.setAttribute('action', '//formspree.io/' + 'gc.digitalfellows' + '@' + 'gm' + 'ail' + '.' + 'com');
+    var contactform = document.getElementById('contactform');
+    if (contactform) {
+      contactform.setAttribute('action', '//formspree.io/' + 'gc.digitalfellows' + '@' + 'gm' + 'ail' + '.' + 'com');
+    }
   });
 
   // Initialize WOW.js Scrolling Animations

@@ -1,0 +1,128 @@
+- day: 1
+  am1:
+    - title: Command Line 1
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-command-line
+  am2:
+    - title: Command Line 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-command-line
+  pm1:
+    - title: Version Control 1
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+- day: 2
+  am1:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm1:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am1b:
+  am2b:
+  pm1b:
+  pm2b:
+- day: 3
+  am1:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm1:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am1b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am2b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm1b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm2b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+- day: 4
+  am1:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm1:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm2:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am1b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  am2b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm1b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git
+  pm2b:
+    - title: Version Control 2
+      room: Science Center
+      instructor:
+      repo: http://github.com/gcdigitalfellows/gcdrb-git

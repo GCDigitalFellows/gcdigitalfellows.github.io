@@ -1,0 +1,30 @@
+- title: "*nix Command Line"
+  description: Open up new possibilities for completing complex tasks with just a few keystrokes. And look like a hacker while you're at it!
+  link: terminal
+  icon: fa-terminal
+  repo: http://github.com/gcdigitalfellows/gcdrb-command-line
+- title: Version Control with Git
+  description: Version control systems allow teams and individuals to track changes in a project and collaborate with others.
+  link: git
+  icon: fa-code-fork
+  repo: http://github.com/gcdigitalfellows/gcdrb-git
+- title: Python
+  description: Python is a programming language that can be used for a wide range of tasks, from collecting data to analysis to building web applications.
+  link: python
+  icon: icon-python
+  repo: http://github.com/gcdigitalfellows/gcdrb-python
+- title: Digital Identity
+  description: Gain some control over how people encounter you and your research on the web.
+  link: Identity
+  icon: fa-user-secret
+  repo: http://github.com/gcdigitalfellows/gcdrb-digital-identity
+- title: Data Visualization
+  description: Create aesthetically appealing narratives to share the results of your research.
+  link: visualization
+  icon: fa-area-chart
+  repo: http://github.com/gcdigitalfellows/gcdrb-data-visualization
+- title: Databases
+  description: Data are essential to many digital projects, so managing that data and learning how to seamlessly integrate it into your projects is foundational to digital research.
+  link: databases
+  icon: fa-database
+  repo: http://github.com/gcdigitalfellows/gcdrb-databases

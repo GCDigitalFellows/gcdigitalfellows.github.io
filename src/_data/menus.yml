@@ -1,0 +1,37 @@
+home:
+  - name: About
+    href: '#about'
+    class: page-scroll
+  - name: Workshops
+    href: '/workshops/'
+  - name: Schedule
+    href: '/schedule/'
+  - name: Apply
+    href: '/apply/'
+  - name: Contact
+    href: '#contact'
+    class: page-scroll
+main:
+  - name: Home
+    href: '/'
+  - name: About
+    href: '/#about'
+  - name: Workshops
+    href: '/workshops/'
+  - name: Schedule
+    href: '/schedule/'
+  - name: Apply
+    href: '/apply/'
+  - name: Contact
+    href: '/#contact'
+footer:
+  - name: Home
+    href: '/'
+  - name: About
+    href: '/#about'
+  - name: Topics
+    href: '/#topics'
+  - name: Apply
+    href: '/apply/'
+  - name: Contact
+    href: '/#contact'

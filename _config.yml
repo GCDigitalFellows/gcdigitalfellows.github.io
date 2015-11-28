@@ -67,37 +67,3 @@ jekyll-archives:
     month: '/archive/:year/:month/'
     category: '/category/:name/'
     tags: '/tag/:name/'
-
-# Menu configuration
-menus:
-  home:
-    - name: About
-      href: '/#about'
-    - name: Topics
-      href: '/#topics'
-    - name: Apply
-      href: '/apply/'
-    - name: Contact
-      href: '/#contact'
-  main:
-    - name: Home
-      href: '/'
-    - name: About
-      href: '/#about'
-    - name: Topics
-      href: '/#topics'
-    - name: Apply
-      href: '/apply/'
-    - name: Contact
-      href: '/#contact'
-  footer:
-    - name: Home
-      href: '/'
-    - name: About
-      href: '/#about'
-    - name: Topics
-      href: '/#topics'
-    - name: Apply
-      href: '/apply/'
-    - name: Contact
-      href: '/#contact'

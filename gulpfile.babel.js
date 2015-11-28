@@ -63,7 +63,7 @@ gulp.task('styles', () =>
     .pipe($.sass({
       precision: 10
     }).on('error', $.sass.logError))
-    .pipe($.uncss({
+/*    .pipe($.uncss({
       ignore: [/\w\.in/,
         '.active',
         '.fade',
@@ -84,9 +84,9 @@ gulp.task('styles', () =>
         '.modal-open',
         '.in',
         '.modal-backdrop'],
-      html: [
-        'src/**/*.html'
-      ]}))
+      html: [*/
+        //'src/**/*.html'
+      //]}))
     .pipe($.postcss([
       autoprefixer({browsers: 'last 1 version'})
     ]))
