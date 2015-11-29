@@ -29,8 +29,10 @@ footer:
     href: '/'
   - name: About
     href: '/#about'
-  - name: Topics
-    href: '/#topics'
+  - name: Workshops
+    href: '/workshops/'
+  - name: Schedule
+    href: '/schedule/'
   - name: Apply
     href: '/apply/'
   - name: Contact

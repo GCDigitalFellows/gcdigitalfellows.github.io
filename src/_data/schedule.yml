@@ -1,128 +1,269 @@
-- day: 1
-  am1:
-    - title: Command Line 1
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-command-line
-  am2:
-    - title: Command Line 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-command-line
-  pm1:
-    - title: Version Control 1
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-- day: 2
-  am1:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm1:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am1b:
-  am2b:
-  pm1b:
-  pm2b:
-- day: 3
-  am1:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm1:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am1b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am2b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm1b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm2b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-- day: 4
-  am1:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm1:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm2:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am1b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  am2b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm1b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
-  pm2b:
-    - title: Version Control 2
-      room: Science Center
-      instructor:
-      repo: http://github.com/gcdigitalfellows/gcdrb-git
+- date: Tuesday, January 18, 2016
+  day: Day 1
+  timeslots:
+  - room: sc
+    session: Coffee
+    time: 9:30 - 10:00
+    track: 0
+  - instructor: test1
+    link: terminal
+    room: sc
+    session: '1'
+    time: 10:00 - 11:30
+    title: Command Line 1
+    track: 1
+  - room: ''
+    session: Break
+    time: 11:15 - 11:30
+    track: 0
+  - instructor: test2
+    link: terminal
+    room: sc
+    session: '2'
+    time: 11:30 - 12:45
+    title: Command Line 2
+    track: 1
+  - room: ''
+    session: Lunch + Presentations
+    time: 12:45 - 2:00
+    track: 0
+  - instructor: ''
+    link: git
+    room: sc
+    session: '3'
+    time: 2:00 - 3:15
+    title: Git 1
+    track: 1
+  - room: ''
+    session: Break
+    time: 3:15 - 3:30
+    track: 0
+  - instructor: ''
+    link: git
+    room: sc
+    session: '4'
+    time: 3:30 - 4:45
+    title: Git 2
+    track: 1
+  - room: ''
+    session: Office Hours
+    time: 4:45 - 6:00
+    track: 0
+  - room: ''
+    session: ''
+    time: ''
+    track: 0
+- date: Wednesday, January 19, 2016
+  day: Day 2
+  timeslots:
+  - room: sc
+    session: Coffee
+    time: 9:30 - 10:00
+    track: 0
+  - instructor: ''
+    link: python
+    room: sc
+    session: '5'
+    time: 10:00 - 11:30
+    title: Python 1
+    track: 1
+  - room: ''
+    session: Break
+    time: 11:15 - 11:30
+    track: 0
+  - instructor: ''
+    link: python
+    room: sc
+    session: '6'
+    time: 11:30 - 12:45
+    title: Python 2
+    track: 1
+  - room: ''
+    session: Lunch + Presentations
+    time: 12:45 - 2:00
+    track: 0
+  - instructor: ''
+    link: databases
+    room: sc
+    session: '7'
+    time: 2:00 - 3:15
+    title: Databases 1
+    track: 1
+  - room: ''
+    session: Break
+    time: 3:15 - 3:30
+    track: 0
+  - instructor: ''
+    link: databases
+    room: sc
+    session: '8'
+    time: 3:30 - 4:45
+    title: Databases 2
+    track: 1
+  - room: ''
+    session: Office Hours
+    time: 4:45 - 6:00
+    track: 0
+  - room: ''
+    session: ''
+    time: ''
+    track: 0
+- date: Thursday, January 20, 2016
+  day: Day 3
+  timeslots:
+  - room: sc
+    session: Coffee
+    time: 9:30 - 10:00
+    track: 0
+  - instructor: ''
+    link: identity
+    room: ml
+    session: '9'
+    time: 10:00 - 11:30
+    title: Academic Identity 1
+    track: 1
+  - instructor: ''
+    link: scipy
+    room: sc
+    session: '9'
+    time: 10:00 - 11:30
+    title: Scientific Python
+    track: 2
+  - room: ''
+    session: Break
+    time: 11:15 - 11:30
+    track: 0
+  - instructor: ''
+    link: identity
+    room: ml
+    session: '10'
+    time: 11:30 - 12:45
+    title: Academic Identity 2
+    track: 1
+  - instructor: ''
+    link: scipy
+    room: sc
+    session: '10'
+    time: 11:30 - 12:45
+    title: Scientific Python
+    track: 2
+  - room: ''
+    session: Lunch + Presentations
+    time: 12:45 - 2:00
+    track: 0
+  - instructor: ''
+    link: html
+    room: sc
+    session: '11'
+    time: 2:00 - 3:15
+    title: HTML/CSS
+    track: 1
+  - instructor: ''
+    link: data
+    room: ml
+    session: '11'
+    time: 2:00 - 3:15
+    title: Data Management
+    track: 2
+  - room: ''
+    session: Break
+    time: 3:15 - 3:30
+    track: 0
+  - instructor: ''
+    link: html
+    room: sc
+    session: '12'
+    time: 3:30 - 4:45
+    title: HTML/CSS
+    track: 1
+  - instructor: ''
+    link: data
+    room: ml
+    session: '12'
+    time: 3:30 - 4:45
+    title: Data Management
+    track: 2
+  - room: ''
+    session: Office Hours
+    time: 4:45 - 6:00
+    track: 0
+  - room: ''
+    session: ''
+    time: ''
+    track: 0
+- date: Friday, January 21, 2016
+  day: Day 4
+  timeslots:
+  - room: sc
+    session: Coffee
+    time: 9:30 - 10:00
+    track: 0
+  - instructor: ''
+    link: viz1
+    room: ''
+    session: '13'
+    time: 10:00 - 11:30
+    title: Data Viz A
+    track: 1
+  - instructor: ''
+    link: viz2
+    room: ''
+    session: '13'
+    time: 10:00 - 11:30
+    title: Data Viz B
+    track: 2
+  - room: ''
+    session: Break
+    time: 11:15 - 11:30
+    track: 0
+  - instructor: ''
+    link: viz1
+    room: ''
+    session: '14'
+    time: 11:30 - 12:45
+    title: Data Viz A
+    track: 1
+  - instructor: ''
+    link: viz2
+    room: ''
+    session: '14'
+    time: 11:30 - 12:45
+    title: Data Viz B
+    track: 2
+  - room: ''
+    session: Lunch + Presentations
+    time: 12:45 - 2:00
+    track: 0
+  - instructor: ''
+    link: nltk
+    room: ''
+    session: '15'
+    time: 2:00 - 3:15
+    title: NLTK
+    track: 1
+  - instructor: ''
+    link: census
+    room: ''
+    session: '15'
+    time: 2:00 - 3:15
+    title: Census Data + PUMAs
+    track: 2
+  - room: ''
+    session: Break
+    time: 3:15 - 3:30
+    track: 0
+  - instructor: ''
+    link: nltk
+    room: ''
+    session: '16'
+    time: 3:30 - 4:45
+    title: NLTK
+    track: 1
+  - room: ''
+    session: Office Hours
+    time: 4:45 - 6:00
+    track: 0
+  - room: ''
+    session: Happy Hour
+    time: 6:00 - 8:00
+    track: 0
