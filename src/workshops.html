@@ -26,7 +26,7 @@ permalink: /workshops/
           <td>{{topic.title}}</td>
           <td><a href="#{{topic.link}}" class="page-scroll">info</a></td>
           <td><a href="{{topic.repo}}" target="_blank">repo</a></td>
-          <td><a href="/schedule/#{{topic.session}}">schedule</a></td>
+          <td><a href="{{site.baseurl}}/schedule/#{{topic.session}}">schedule</a></td>
         </tr>
         {% endfor %}
       </table>
@@ -41,7 +41,7 @@ permalink: /workshops/
         <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{topic.title}}">
           <a href="#top" class="btn btn-primary"><i class="fa fa-chevron-up"></i></a>
           <a href="{{topic.repo}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
-          <a href="/schedule/#{{topic.link}}" class="btn btn-primary"><i class="fa fa-calendar"></i></a>
+          <a href="{{site.baseurl}}/schedule/#{{topic.link}}" class="btn btn-primary"><i class="fa fa-calendar"></i></a>
         </div>
         <h4 class="card-title">{{topic.title}}</h4>
         <p class="card-text">{{topic.description}}</p>

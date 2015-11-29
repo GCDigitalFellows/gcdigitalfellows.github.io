@@ -41,11 +41,11 @@ regenerate: true
           {% endif %}
           {% if timeslot.track != 0 %}
           <td class="hidden-xs-down">{{timeslot.session}}</td>
-          <td><a href="/workshops/#{{timeslot.link}}">{{timeslot.title}}</a></td>
+          <td><a href="{{site.baseurl}}/workshops/#{{timeslot.link}}">{{timeslot.title}}</a></td>
           {% else %}
           <td colspan=2>{{timeslot.session}}</td>
           {% endif %}
-          <td><a href="/rooms/#{{timeslot.room}}">{{site.data.rooms[timeslot.room].title}}</a></td>
+          <td><a href="{{site.baseurl}}/rooms/#{{timeslot.room}}">{{site.data.rooms[timeslot.room].title}}</a></td>
           <td class="hidden-xs-down">{{timeslot.instructor}}</td>
           {% if timeslot.track != 0 %}
           <td class="hidden-xs-down"><a href="{{timeslot.repo}}">repo</a></td>

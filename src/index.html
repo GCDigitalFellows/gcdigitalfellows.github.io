@@ -17,7 +17,7 @@ headerclass: home
           and methods for doing digital research. There are multiple tracks
           targeted at different skillsets and disciplinary focuses.
         </p>
-        <a href="#apply" class="btn btn-default btn-xl">Apply Now!</a>
+        <a href="{{site.baseurl}}/apply" class="btn btn-default btn-xl">Apply Now!</a>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@ headerclass: home
         </span>
         <h4 class="card-title">{{topic.title}}</h4>
         <p class="card-text">{{topic.tagline}}</p>
-        <a class="btn btn-primary" href="workshops/#{{topic.link}}">More</a>
+        <a class="btn btn-primary" href="{{site.baseurl}}/workshops/#{{topic.link}}">More</a>
       </div>
       {% endfor %}
     </div>
