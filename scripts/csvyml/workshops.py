@@ -1,7 +1,6 @@
 import yaml
 import csv
 import sys
-import pprint
 import urllib2
 
 # try:
