@@ -1,0 +1,61 @@
+---
+layout: default
+title: Schedule
+permalink: /schedule/
+regenerate: true
+---
+
+<section id="content" class="container">
+  <div class="row">
+    <div class="col-xl-10 col-offset-xl-1">
+      <p>Each day of the Bootcamp, there will be four workshop sessions--two in the
+      morning and two in the afternoon, with breaks between each session. Workshop
+      topics are scaffolded so that successive workshops will use skills developed
+      in earlier workshops. All attendees will participate in the same core workshops,
+      and then will be able to choose between different tracks for the advanced
+      workshops. The following table lists all of the topics that will be covered
+      over the course of the Bootcamp, with links to additional information, workshop
+      materials, and the schedule.</p>
+      {% for day in site.data.schedule %}
+      <table class="table table-striped">
+        <thead class="thead-inverse"><th colspan=6>{{day.day}}: {{day.date}}</th></thead>
+        <thead>
+          <th>Time</th>
+          <th class="hidden-xs-down">Session</th>
+          <th>Topic</th>
+          <th>Room</th>
+          <th class="hidden-xs-down">Instructor</th>
+          <th class="hidden-xs-down">Materials</th>
+        </thead>
+        {% for timeslot in day.timeslots %}
+        {% if timeslot.track == 0 %}
+        <tr>
+        {% else %}
+        <tr id="{{timeslot.link}}">
+        {% endif %}
+          {% comment %}Don't print duplicate time slots{% endcomment %}
+          {% if timeslot.track == 2 %}
+          <td></td>
+          {% else %}
+          <td>{{timeslot.time}}</td>
+          {% endif %}
+          {% if timeslot.track != 0 %}
+          <td class="hidden-xs-down">{{timeslot.session}}</td>
+          <td><a href="/workshops/#{{timeslot.link}}">{{timeslot.title}}</a></td>
+          {% else %}
+          <td colspan=2>{{timeslot.session}}</td>
+          {% endif %}
+          <td><a href="/rooms/#{{timeslot.room}}">{{site.data.rooms[timeslot.room].title}}</a></td>
+          <td class="hidden-xs-down">{{timeslot.instructor}}</td>
+          {% if timeslot.track != 0 %}
+          <td class="hidden-xs-down"><a href="{{timeslot.repo}}">repo</a></td>
+          {% else %}
+          <td></td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+      {% endfor %}
+    </div>
+  </div>
+</section>
