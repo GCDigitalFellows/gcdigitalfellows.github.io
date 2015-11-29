@@ -68,32 +68,34 @@ gulp.task('styles', () =>
   gulp.src('src/assets/scss/style.scss')
     .pipe($.if(!argv.prod, $.sourcemaps.init()))
     .pipe($.sass({
-      precision: 10
+      precision: 10,
+      includePaths: ['bower_components/bootstrap/scss']
     }).on('error', $.sass.logError))
-/*    .pipe($.uncss({
-      ignore: [/\w\.in/,
-        '.active',
-        '.fade',
-        '.collapse',
-        '.collapsing',
-        /(#|\.)navbar(\-[a-zA-Z]+)?/,
-        /(#|\.)dropdown(\-[a-zA-Z]+)?/,
-        /(#|\.)(open)/,
-        '.modal',
-        '.modal.fade.in',
-        '.modal-dialog',
-        '.modal-document',
-        '.modal-scrollbar-measure',
-        '.modal-backdrop.fade',
-        '.modal-backdrop.in',
-        '.modal.fade.modal-dialog',
-        '.modal.in.modal-dialog',
-        '.modal-open',
-        '.in',
-        '.modal-backdrop'],
-      html: [*/
-        //'src/**/*.html'
-      //]}))
+//    .pipe($.uncss({
+//      ignore: [/\w\.in/,
+//        '.active',
+//        '.fade',
+//        '.collapse',
+//        '.collapsing',
+//        /(#|\.)navbar(\-[a-zA-Z]+)?/,
+//        /(#|\.)dropdown(\-[a-zA-Z]+)?/,
+//        /(#|\.)(open)/,
+//        '.modal',
+//        '.modal.fade.in',
+//        '.modal-dialog',
+//        '.modal-document',
+//        '.modal-scrollbar-measure',
+//        '.modal-backdrop.fade',
+//        '.modal-backdrop.in',
+//        '.modal.fade.modal-dialog',
+//        '.modal.in.modal-dialog',
+//        '.modal-open',
+//        '.in',
+//        '.modal-backdrop',
+//        /\.header\-*/],
+//      html: [
+//        'src/**/*.html'
+//      ]}))
     .pipe($.postcss([
       autoprefixer({browsers: 'last 1 version'})
     ]))
