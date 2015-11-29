@@ -47,6 +47,13 @@ gulp.task('jekyll', done => {
   }
 });
 
+// 'gulp data' -- generates yml data files from google sheets
+gulp.task('data', done => {
+  shell.exec('python scripts/csvyml/schedule.py src/_data/schedule.yml');
+  shell.exec('python scripts/csvyml/workshops.py src/_data/workshops.yml');
+  done();
+});
+
 // 'gulp doctor' -- literally just runs jekyll doctor
 gulp.task('jekyll:doctor', done => {
   shell.exec('jekyll doctor');
@@ -330,7 +337,7 @@ gulp.task('serve', () => {
 // production settings
 gulp.task('assets', gulp.series(
   gulp.series('clean:assets'),
-  gulp.parallel('styles:vendor', 'styles', 'scripts:vendor', 'scripts', 'fonts', 'images')
+  gulp.parallel('styles:vendor', 'styles', 'scripts:vendor', 'scripts', 'fonts', 'images', 'data')
 ));
 
 // 'gulp assets:copy' -- copes the assets into the dist folder, needs to be
