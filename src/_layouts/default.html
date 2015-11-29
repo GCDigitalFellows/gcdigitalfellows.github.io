@@ -4,12 +4,10 @@
   {% include head.html %}
 
   <body id="page-top">
-    {% include nav.html menu="main" %}
-    <main>
+    {% include nav.html menu=page.menu %}
       {% include header.html %}
-      {{ content }}
+      <main>{{ content }}</main>
       {% include footer.html %}
-    </main>
     {% include scripts.html %}
   </body>
 </html>

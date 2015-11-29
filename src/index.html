@@ -1,23 +1,52 @@
 ---
-layout: home
+layout: default
 title: Welcome to the GC Digital Research Bootcamp
 subtitle: Learn skills to jumpstart your next digital research project.
 regenerate: true
+menu: home
+headerclass: home
 ---
-<div class="home">
-  <h1 class="page-heading">Posts</h1>
+<section class="bg-primary" id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">Four Days of Hands-On Workshops</h2>
+        <hr class="light">
+        <p class="text-faded">The GC Digital Research Bootcamp is a four
+          day workshop where you will learn how to use a range of tools
+          and methods for doing digital research. There are multiple tracks
+          targeted at different skillsets and disciplinary focuses.
+        </p>
+        <a href="#apply" class="btn btn-default btn-xl">Apply Now!</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+<section id="topics">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Topics</h2>
+        <hr class="primary">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card-columns">
+      {% for topic in site.data.workshops %}
+      <div class="card card-block text-center">
+        <span class="fa-stack fa-2x wow bounceIn text-primary">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="card-title">{{topic.title}}</h4>
+        <p class="card-text">{{topic.tagline}}</p>
+        <a class="btn btn-primary" href="workshops/#{{topic.link}}">More</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-        <h2>
-          <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "feed.xml" }}">via RSS</a></p>
-</div>
+{% include contact.html %}

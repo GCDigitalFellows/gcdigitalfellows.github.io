@@ -1,4 +1,8 @@
-<header class="header-{{page.layout}}">
+{% if page.headerclass %}
+<header class="header-{{page.headerclass}}">
+{% else %}
+<header class="header-default">
+{% endif %}
   <div class="header-content">
     <div class="header-content-inner">
     <h1><a class="site-title" href="/">{{ page.title }}</a></h1>
