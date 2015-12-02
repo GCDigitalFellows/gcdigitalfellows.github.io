@@ -32,63 +32,71 @@
     digital research.
   title: Databases
 - description: long description
-  icon: fa-user-secret
-  link: identity
-  repo: gcdrb-academic-identity
-  session: '9'
-  tagline: Gain some control over how people encounter you and your research on the
-    web.
-  title: Academic Identity
-- description: long description
   icon: fa-flask
   link: scipy
   repo: gcdrb-scipy
-  session: '9'
+  session: '11'
   tagline: scipy tagline
   title: Scientific Python
 - description: long description
-  icon: fa-code
+  icon: icon-html
   link: html
   repo: gcdrb-html
-  session: '11'
+  session: '14'
   tagline: Learn the basics of web development and start building sites to share your
     research.
-  title: HTML/CSS
-- description: long description
+  title: HTML/CSS/Javascript
+- description: 'File types, file conversion, metadata, '
   icon: fa-tasks
   link: data
-  repo: gcdrb-data-management
-  session: '11'
+  repo: gcdrb-data-cleaning
+  session: '9'
   tagline: data management tagline
-  title: Data Management
-- description: long description
+  title: Data Cleaning
+- description: Programmatic data visualization using Python and Javascript, including
+    basic geospatial visualization
   icon: fa-area-chart
   link: viza
   repo: gcdrb-data-viz-a
-  session: '13'
+  session: '15'
   tagline: Create aesthetically appealing narratives to share the results of your
     research.
   title: Data Viz A
-- description: long description
+- description: Data visualization using interactive tools, including basic mapping
+    tools
   icon: fa-map
   link: vizb
   repo: gcdrb-data-viz-b
-  session: '13'
+  session: '15'
   tagline: data viz b tagline
   title: Data Viz B
 - description: long description
   icon: fa-book
   link: nltk
   repo: gcdrb-nltk
-  session: '15'
+  session: '11'
   tagline: NLTK has been called "a wonderful tool for teaching, and working in, computational
     linguistics using Python,"and "an amazing library to play with natural language."
   title: NLTK
 - description: long description
   icon: fa-users
-  link: census
-  repo: gcdrb-census
-  session: '15'
-  tagline: Learn how to start analyzing and mapping the incredibly rich data collected
-    by the US Census Bureau.
-  title: Census Data
+  link: identity
+  repo: gcdrb-digital-identity
+  session: '13'
+  tagline: Gain some control over how people encounter you and your research on the
+    web.
+  title: Digital Identity/Wordpress
+- description: Hadoop, etc.
+  icon: icon-hadoop
+  link: bigdata
+  repo: gcdrb-big-data
+  session: '14'
+  tagline: big data tagline
+  title: Big Data Management
+- description: long description
+  icon: fa-magic
+  link: ml
+  repo: gcdrb-machine-learning
+  session: '13'
+  tagline: machine learning tagline
+  title: Machine Learning

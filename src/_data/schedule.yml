@@ -116,72 +116,58 @@
     time: 9:30 - 10:00
     track: 0
   - instructor: ''
-    link: identity
+    link: data
     room: ml
     session: '9'
     time: 10:00 - 11:30
-    title: Academic Identity 1
+    title: Data Cleaning 1
     track: 1
-  - instructor: ''
-    link: scipy
-    room: sc
-    session: '9'
-    time: 10:00 - 11:30
-    title: Scientific Python
-    track: 2
   - room: ''
     session: Break
     time: 11:15 - 11:30
     track: 0
   - instructor: ''
-    link: identity
+    link: data
     room: ml
     session: '10'
     time: 11:30 - 12:45
-    title: Academic Identity 2
+    title: Data Cleaning 2
     track: 1
-  - instructor: ''
-    link: scipy
-    room: sc
-    session: '10'
-    time: 11:30 - 12:45
-    title: Scientific Python
-    track: 2
-  - room: ''
+  - room: sc
     session: Lunch + Presentations
     time: 12:45 - 2:00
     track: 0
   - instructor: ''
-    link: html
+    link: nltk
     room: sc
     session: '11'
     time: 2:00 - 3:15
-    title: HTML/CSS
+    title: NLTK 1
     track: 1
   - instructor: ''
-    link: data
+    link: scipy
     room: ml
     session: '11'
     time: 2:00 - 3:15
-    title: Data Management
+    title: NumPy/SciPy 2
     track: 2
   - room: ''
     session: Break
     time: 3:15 - 3:30
     track: 0
   - instructor: ''
-    link: html
+    link: nltk
     room: sc
     session: '12'
     time: 3:30 - 4:45
-    title: HTML/CSS
+    title: NLTK 2
     track: 1
   - instructor: ''
-    link: data
+    link: scipy
     room: ml
     session: '12'
     time: 3:30 - 4:45
-    title: Data Management
+    title: NumPy/SciPy 2
     track: 2
   - room: ''
     session: Office Hours
@@ -199,71 +185,78 @@
     time: 9:30 - 10:00
     track: 0
   - instructor: ''
-    link: viz1
+    link: ml
     room: ''
     session: '13'
     time: 10:00 - 11:30
-    title: Data Viz A
+    title: Machine Learning
     track: 1
   - instructor: ''
-    link: viz2
+    link: identity
     room: ''
     session: '13'
     time: 10:00 - 11:30
-    title: Data Viz B
+    title: Digital Identity/Wordpress
     track: 2
   - room: ''
     session: Break
     time: 11:15 - 11:30
     track: 0
   - instructor: ''
-    link: viz1
+    link: bigdata
     room: ''
     session: '14'
     time: 11:30 - 12:45
-    title: Data Viz A
+    title: Big Data Management/Hadoop
     track: 1
   - instructor: ''
-    link: viz2
+    link: html
     room: ''
     session: '14'
     time: 11:30 - 12:45
-    title: Data Viz B
+    title: HTML/CSS/JS
     track: 2
-  - room: ''
+  - room: sc
     session: Lunch + Presentations
     time: 12:45 - 2:00
     track: 0
   - instructor: ''
-    link: nltk
+    link: viza
     room: ''
     session: '15'
     time: 2:00 - 3:15
-    title: NLTK
+    title: Data Visualization (Programmatic) 1
     track: 1
   - instructor: ''
-    link: census
+    link: vizb
     room: ''
     session: '15'
     time: 2:00 - 3:15
-    title: Census Data + PUMAs
+    title: Data Visualization (WYSIWYG) 2
     track: 2
   - room: ''
     session: Break
     time: 3:15 - 3:30
     track: 0
   - instructor: ''
-    link: nltk
+    link: viza
     room: ''
     session: '16'
     time: 3:30 - 4:45
-    title: NLTK
+    title: Data Visualization (Programmatic) 2
     track: 1
+  - instructor: ''
+    link: vizb
+    room: ''
+    session: '16'
+    time: 3:30 - 4:45
+    title: Data Visualization (WYSIWYG) 2
+    track: 2
   - room: ''
-    session: Office Hours
+    session: Presentations
     time: 4:45 - 6:00
     track: 0
   - room: ''
-    session: Happy Hour
+    session: Reception
     time: 6:00 - 8:00
     track: 0
