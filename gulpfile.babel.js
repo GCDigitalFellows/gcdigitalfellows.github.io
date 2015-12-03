@@ -166,8 +166,8 @@ gulp.task('styles:vendor', () =>
 gulp.task('scripts', () =>
   // NOTE: The order here is important since it's concatenated in order from
   // top to bottom, so you want vendor scripts etc on top
-  gulp.src('src/assets/javascript/main.js')
-    .pipe($.newer('.tmp/assets/javascript/main.js', {dest: '.tmp/assets/javascript', ext: '.js'}))
+  gulp.src('src/assets/javascript/*.js')
+    .pipe($.newer('.tmp/assets/javascript/*.js', {dest: '.tmp/assets/javascript', ext: '.js'}))
     .pipe($.if(!argv.prod, $.sourcemaps.init()))
     .pipe($.concat('main.js'))
     .pipe($.size({
@@ -205,6 +205,7 @@ gulp.task('scripts:vendor', () =>
     'bower_components/wow/dist/wow.min.js',
     'bower_components/tether/dist/js/tether.js',
     'bower_components/bootstrap/dist/js/bootstrap.js',
+    'bower_components/jquery.serializeJSON/jquery.serializejson.min.js',
     //'bower_components/bootstrap/dist/js/umd/scrollspy.js'
   ])
     .pipe($.newer('.tmp/assets/javascript/vendor.js', {dest: '.tmp/assets/javascript', ext: '.js'}))

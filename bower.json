@@ -22,6 +22,8 @@
     "font-awesome": "~4.5.0",
     "animated-header": "~1.0.3",
     "tether": "~1.1.1",
-    "font-mfizz": "~2.0.1"
+    "font-mfizz": "~2.0.1",
+    "jquery-serialize-object": "~2.5.0",
+    "jquery.serializeJSON": "~2.7.0"
   }
 }
