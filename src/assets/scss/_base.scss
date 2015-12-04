@@ -25,6 +25,7 @@ a {
   &:hover,
   &:focus {
     color: darken($theme-primary, 10%);
+    text-decoration: none;
   }
 }
 
@@ -66,6 +67,17 @@ aside {
 
 .no-padding {
   padding: 0;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
 
 // Navigation
@@ -149,6 +161,11 @@ aside {
   }
 }
 
+.site-logo {
+  height: 2rem;
+  width: auto;
+}
+
 // Header
 header {
   position: relative;
@@ -219,6 +236,11 @@ main {
     position: relative;
     top: 0;
   }
+}
+
+footer {
+  background-color: $theme-dark;
+  color: $gray-lightest;
 }
 
 // Sections
@@ -365,6 +387,13 @@ body {
   -webkit-tap-highlight-color: $theme-dark;
 }
 
-.form-secondary-text {
-  color: #999;
+.application-question {
+  font-weight: bold;
+}
+.table-question {
+  width: 50%;
+}
+.table-choices {
+  text-align: center;
+  width: 16.7%;
 }

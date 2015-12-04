@@ -5,7 +5,9 @@
       <i class="fa fa-bars"></i>
     </button>
     <div class="collapse navbar-toggleable-xs" id="bs-navbar-collapse-1">
-      <a class="navbar-brand page-scroll" href="#page-top">{{ site.description }}</a>
+      <a class="navbar-brand page-scroll" href="#page-top" title="{{ site.description }}">
+        <img class="site-logo" src="{{site.baseurl}}/assets/images/gcdrb-logo.png" alt="{{ site.title }}">
+      </a>
       <ul class="nav navbar-nav pull-right">
       {% include nav-menu.html menu=include.menu %}
       </ul>

@@ -126,7 +126,7 @@ gulp.task('styles', () =>
 gulp.task('styles:vendor', () =>
   gulp.src([
     'bower_components/animate.css/animate.min.css',
-    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    //'bower_components/bootstrap/dist/css/bootstrap.min.css',
     'bower_components/font-awesome/css/font-awesome.min.css',
     'bower_components/font-mfizz/css/font-mfizz.css'
   ])
@@ -206,6 +206,7 @@ gulp.task('scripts:vendor', () =>
     'bower_components/tether/dist/js/tether.js',
     'bower_components/bootstrap/dist/js/bootstrap.js',
     'bower_components/jquery.serializeJSON/jquery.serializejson.min.js',
+    'bower_components/bootstrap-validator/dist/validator.min.js',
     //'bower_components/bootstrap/dist/js/umd/scrollspy.js'
   ])
     .pipe($.newer('.tmp/assets/javascript/vendor.js', {dest: '.tmp/assets/javascript', ext: '.js'}))
