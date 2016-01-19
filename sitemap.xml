@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>gcdigitalfellows.github.io/jekyll/2015/02/03/welcome-to-jekyll/</loc>
-    <lastmod>2015-02-03T00:00:00-08:00</lastmod>
+    <lastmod>2015-02-03T00:00:00-05:00</lastmod>
   </url>
   <url>
     <loc>gcdigitalfellows.github.io/404/</loc>
@@ -12,6 +12,12 @@
   </url>
   <url>
     <loc>gcdigitalfellows.github.io/</loc>
+  </url>
+  <url>
+    <loc>gcdigitalfellows.github.io/instructors/</loc>
+  </url>
+  <url>
+    <loc>gcdigitalfellows.github.io/partners/</loc>
   </url>
   <url>
     <loc>gcdigitalfellows.github.io/rooms/</loc>
