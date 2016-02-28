@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<generator uri="http://jekyllrb.com" version="3.0.1">Jekyll</generator>
+<link href="gcdigitalfellows.github.io/feed.xml" rel="self" type="application/atom+xml" />
+<link href="gcdigitalfellows.github.io/" rel="alternate" type="text/html" />
+<updated>2016-01-22T12:26:18-05:00</updated>
+<id>gcdigitalfellows.github.io/</id>
+<title>GC Digital Research Bootcamp</title>
+<subtitle>GC Digital Research Bootcamp</subtitle>
+<author>
+<name>GC Digital Fellows</name>
+<email>gc.digitalfellows@gmail.com</email>
+<uri>http://digitalfellows.commons.gc.cuny.edu</uri>
+</author>
+<entry>
+<title>Welcome to Jekyll!</title>
+<link href="gcdigitalfellows.github.io/jekyll/2015/02/03/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" />
+<published>2015-02-03T00:00:00-05:00</published>
+<updated>2015-02-03T00:00:00-05:00</updated>
+<id>gcdigitalfellows.github.io/jekyll/2015/02/03/welcome-to-jekyll</id>
+<content type="html" xml:base="gcdigitalfellows.github.io/jekyll/2015/02/03/welcome-to-jekyll/">&lt;p&gt;You&amp;rsquo;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build
+(or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes! To add new posts, simply add
+a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention:
+YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;We&amp;rsquo;ve also added a lot of different settings for &lt;a href=&quot;https://github.com/vmg/redcarpet&quot;&gt;Redcarpet&lt;/a&gt;,
+including being able to &lt;sup&gt;superscript,&lt;/sup&gt; &lt;u&gt;underline&lt;/u&gt;, &lt;mark&gt;highlight&lt;/mark&gt;,
+&lt;del&gt;strikethrough&lt;/del&gt;, and footnotes.&lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; It even automatically makes links into
+URLs: &lt;a href=&quot;http://www.jekyllrb.com&quot;&gt;www.jekyllrb.com&lt;/a&gt; and you can put multiple underscores in words without
+them leaning all over the place: this_word_has_underscores. It&amp;rsquo;ll also make your
+quotes look nice, like this: &amp;ldquo;hoho&amp;rdquo;, your dashes and hypens will be dashing too:
+&amp;mdash;/&amp;ndash;.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+def print_hi(name)
+  puts &amp;ldquo;Hi, #{name}&amp;rdquo;
+end
+print_hi(&amp;lsquo;Tom&amp;rsquo;)&lt;/p&gt;
+
+&lt;h1&gt;=&amp;gt; prints &amp;#39;Hi, Tom&amp;rsquo; to STDOUT.&lt;/h1&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home/&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of
+Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&amp;rsquo;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id=&quot;fn1&quot;&gt;
+&lt;p&gt;Who are quite handy&amp;nbsp;&lt;a href=&quot;#fnref1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+<summary>You&amp;rsquo;ll find this post in your _posts directory - edit this post and re-build(or run with the -w switch) to see your changes! To add new posts, simply adda file in the _posts directory that follows the convention:YYYY-MM-DD-name-of-post.ext.</summary>
+</entry>
+</feed>
