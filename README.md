@@ -8,11 +8,11 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 
 1. Open a terminal window and execute the following command then follow the instructions:
     ```sh
-    bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup.sh)\"
+    bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdigitalfellows.github.io/master/setup.sh)\"
     ```
 2. After the first script finishes, close the terminal window, open a new terminal, then run the following command:
     ```sh
-      bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup2.sh)\"
+      bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdigitalfellows.github.io/master/setup2.sh)\"
     ```
 3. If both scripts complete successfully, you're all set up and ready to start development.
 4. To run the development server: `npm run serve`
@@ -36,8 +36,8 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 4. Install [Bundler](http://bundler.io/) (might need to use sudo)
 5. Clone this repo and `cd` into the new repo directory:
     ```sh
-    git clone git@github.com:GCDigitalFellows/gcdrb.git
-    cd gcdrb
+    git clone git@github.com:GCDigitalFellows/gcdigitalfellows.github.io.git
+    cd gcdigitalfellows.github.io
     ```
 6. Install node, bower, and ruby components:
     ```sh
@@ -94,3 +94,4 @@ The following build scripts are included in package.json (you can view these by 
 ## Deploying
 
 - To deploy, use git to push this repo to the `gcdigitalfellows.github.io` master branch. Github should take care of building Jekyll. Just make sure that you at least run `npm run assets` prior to pushing.
+- Be forewarned, any changes you push to the Master branch of this repo will immediately be published on the main branch. I therefore urge you to work on a separate branch so you can push changes without affecting the live website.
