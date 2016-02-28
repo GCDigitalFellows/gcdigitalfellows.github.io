@@ -1,0 +1,20 @@
+<div class="container">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggler hidden-lg-up pull-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand page-scroll pull-left hidden-md-down" href="#page-top" title="{{ site.description }}">
+      <img class="site-logo" src="{{ '/images/gcdrb-logo.png' | prepend: site.baseurl }}" alt="{{ site.title }}">
+    </a>
+    <a class="navbar-brand page-scroll pull-left hidden-lg-up" href="#page-top" title="{{ site.description }}">
+      <img class="site-logo" src="{{ '/images/gcdrb-logo-mobile.png' | prepend: site.baseurl }}" alt="{{ site.title }}">
+    </a>
+
+    <div class="collapse navbar-toggleable-md pull-right" id="bs-navbar-collapse-1" aria-expanded="false">
+      <ul class="nav navbar-nav">
+      {% include nav-menu.html menu=include.menu %}
+      </ul>
+    </div>
+  </nav>
+</div>

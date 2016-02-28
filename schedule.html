@@ -1,0 +1,64 @@
+---
+layout: default
+title: Schedule
+permalink: /schedule/
+regenerate: true
+---
+
+<section id="content" class="container-fluid">
+  <div class="row m-b-3">
+    <div class="col-md-8 offset-md-2">
+      <p>Each day of the Bootcamp, there will be four workshop sessions--two in the
+      morning and two in the afternoon, with breaks between each session. Workshop
+      topics are scaffolded so that successive workshops will use skills developed
+      in earlier workshops. All attendees will participate in the same core workshops,
+      and then will be able to choose between different tracks for the advanced
+      workshops. The following table lists all of the topics that will be covered
+      over the course of the Bootcamp, with links to additional information, workshop
+      materials, and the schedule.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      {% for day in site.data.schedule %}
+        <h4 class="table-info" id="{{day.day | slugify}}">{{day.day}}: {{day.date}}</h4>
+        <table class="table table-striped">
+          <thead class="thead-inverse">
+            <th>Time</th>
+            <th class="hidden-md-down">Session</th>
+            <th>Topic</th>
+            <th>Room</th>
+            <th class="hidden-xs-down">Instructor(s)</th>
+            <!-- <th class="hidden&#45;xs&#45;down">Materials</th> -->
+          </thead>
+          {% for timeslot in day.timeslots %}
+            <tr>
+            {% if timeslot.time and lasttimeslot != timeslot.time %}
+              <td>{{timeslot.time}}</td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            {% if timeslot.session %}
+              <td class="hidden-md-down">{{timeslot.session}}</td>
+              <td><a href="{{ '/workshops/#' | append: timeslot.link | prepend: site.baseurl }}">{{timeslot.title}}</a></td>
+            {% else %}
+              <td class="hidden-md-down"></td>
+              <td>{{timeslot.title}}</td>
+            {% endif %}
+            <td><a
+                href="{{ '/rooms/#' | append: timeslot.room | prepend: site.baseurl }}">{{site.data.rooms[timeslot.room].name}}</a></td>
+            <td class="hidden-xs-down">{{timeslot.instructorlink | replace: '="/',
+              '="zzzz/' | replace: 'zzzz', site.baseurl}}</td>
+            {% if timeslot.repo %}
+              <td class="hidden-xs-down"><a href="{{timeslot.repo}}">repo</a></td>
+            {% else %}
+              <td></td>
+            {% endif %}
+          </tr>
+          {% assign lasttimeslot = timeslot.time %}
+          {% endfor %}
+        </table>
+      {% endfor %}
+    </div>
+  </div>
+</section>
