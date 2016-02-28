@@ -73,7 +73,7 @@ cdx () {
   fi
 }
 
-read -e -p "Please enter the *BASE* directory where you want to clone this project (it will create a new folder called gcdigitalfellows.github.io in this location): " CLONEDIR
+read -e -p "Please enter the *BASE* directory where you want to clone this project (it will create a new folder called gcdrb in this location): " CLONEDIR
 cdx $CLONEDIR
 
 # install homebrew on macs
@@ -204,4 +204,4 @@ else
   warning "ruby-install not found. Please double check your ruby installation to be sure everything is configured correctly. I recommend against using the system ruby just to keep things clean."
 fi
 
-warning "Finished installing the required tools to set up the development environment. Please open a *new* shell (needed to initialize some stuff) and run 'bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdigitalfellows.github.io/master/setup2.sh)\"'"
+warning "Finished installing the required tools to set up the development environment. Please open a *new* shell (needed to initialize some stuff) and run 'bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup2.sh)\"'"
