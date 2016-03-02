@@ -22,7 +22,7 @@ permalink: /workshops/
   <div class="row m-b-3">
     <div class="col-md-6 offset-md-3">
       <table class="table table-striped" id="top">
-        {% for topic in site.data.workshops %}
+        {% for topic in site.data.workshops | sort: 'sort' %}
         <tr>
           <td>{{topic.title}}</td>
           <td><a href="#{{topic.link}}" class="page-scroll">details</a></td>
@@ -39,7 +39,7 @@ permalink: /workshops/
   <div class="row">
     <h2 class="text-center p-a-2">Workshop Details</h2>
     <div class="col-md-8 offset-md-2">
-      {% for topic in site.data.workshops %}
+      {% for topic in site.data.workshops | sort: 'sort' %}
       <div class="card" id="{{topic.link}}">
         {% comment %}<img class="card-img-top" src="{{ '/images/header.jpg" alt="Card image cap' | prepend: site.baseurl }}">{% endcomment %}
         <div class="card-block">
