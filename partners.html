@@ -1,0 +1,39 @@
+---
+layout: default
+title: Partners
+regenerate: true
+permalink: /partners/
+---
+
+<section id="content" class="container">
+  <div class="row">
+    <p>
+      The following organizations have provided support for the Digital Research
+      Bootcamp:
+    </p>
+  </div>
+  <div class="row m-b-3">
+    {% for partner in site.data.partners %}
+      <div class="col-sm-4">
+        <div class="card">
+          <h3 class="card-title">{{partner.name}}</h3>
+          <p class="card-text">{{partner.description}}</p>
+          {% if partner.image != '' %}
+            <img class="card-img-top img-fluid" src="{{ '/images/logos/{{partner.image}}" alt="{{partner.name}}' | prepend: site.baseurl }}">
+          {% endif %}
+          <ul class="list-group list-group-flush">
+            {% if partner.website != '' %}
+              <li class="list-group-item"><a href="#{{partner.website}}">website</a></li>
+            {% endif %}
+            {% if partner.github != '' %}
+              <li class="list-group-item"><a href="#{{partner.github}}">github</a></li>
+            {% endif %}
+            {% if partner.twitter != '' %}
+              <li class="list-group-item"><a href="#{{partner.twitter}}">twitter</a></li>
+            {% endif %}
+            </ul>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

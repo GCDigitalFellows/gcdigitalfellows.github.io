@@ -1,0 +1,39 @@
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 offset-md-1 text-center">
+        <h2 class="section-heading center-block">Contact the Digital Fellows</h2>
+        <!-- <hr class="hr&#45;primary"> -->
+        <form class="m-t-3" id="contactform" action="//formspree.io/{{site.author.email}}" method="POST">
+          <div class="form-group row">
+            <label for="name" class="form-control-label col-sm-3 text-right">Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="name" placeholder="Enter name" required="required" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="form-control-label col-sm-3 text-right">Email Address</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" name="_replyto" placeholder="Enter email" required="required" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="name" class="form-control-label col-sm-3 text-right">Message</label>
+            <div class="col-sm-9">
+              <textarea name="message" id="message" class="form-control" rows="8" required="required" placeholder="Enter your message"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9 text-right">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </div>
+            </div>
+            <input type="text" name="_gotcha" style="display:none" />
+            <input type="hidden" name="_subject" value="GCDRB Inquiry" />
+            <input type="hidden" name="_next" value="/thanks/" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
