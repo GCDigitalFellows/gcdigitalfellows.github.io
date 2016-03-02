@@ -3,6 +3,7 @@ layout: default
 title: Schedule
 permalink: /schedule/
 regenerate: true
+show_materials: false
 ---
 
 <section id="content" class="container-fluid">
@@ -29,7 +30,9 @@ regenerate: true
             <th>Topic</th>
             <th>Room</th>
             <th class="hidden-xs-down">Instructor(s)</th>
-            <!-- <th class="hidden&#45;xs&#45;down">Materials</th> -->
+            {% if page.show_materials %}
+              <th class="hidden-xs-down">Materials</th>
+            {% endif %}
           </thead>
           {% for timeslot in day.timeslots %}
             <tr>
@@ -49,10 +52,12 @@ regenerate: true
                 href="{{ '/rooms/#' | append: timeslot.room | prepend: site.baseurl }}">{{site.data.rooms[timeslot.room].name}}</a></td>
             <td class="hidden-xs-down">{{timeslot.instructorlink | replace: '="/',
               '="zzzz/' | replace: 'zzzz', site.baseurl}}</td>
-            {% if timeslot.repo %}
-              <td class="hidden-xs-down"><a href="{{timeslot.repo}}">repo</a></td>
-            {% else %}
-              <td></td>
+            {% if page.show_materials %}
+              {% if timeslot.repo %}
+                <td class="hidden-xs-down"><a href="{{timeslot.repo}}">repo</a></td>
+              {% else %}
+                <td></td>
+              {% endif %}
             {% endif %}
           </tr>
           {% assign lasttimeslot = timeslot.time %}
