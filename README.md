@@ -27,7 +27,7 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 
 ### Manual Installation (all OSes)
 
-1. Install [Node.js](https://nodejs.org/en/https://nodejs.org/en/)
+1. Install [Node.js](https://nodejs.org/en/)
 2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer.
 3. Install [Bower](http://bower.io/#install-bower) globally (with the -g flag) from a terminal:
     ```sh
