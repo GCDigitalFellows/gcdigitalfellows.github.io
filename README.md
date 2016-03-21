@@ -30,21 +30,24 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 1. Install [Node.js](https://nodejs.org/en/)
 2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer.
 3. Install [Bower](http://bower.io/#install-bower) globally (with the -g flag) from a terminal:
-    ```sh
-    npm install -g bower
-    ```
+  
+  ```shell
+  npm install -g bower
+  ```
 4. Install [Bundler](http://bundler.io/) (might need to use sudo)
 5. Clone this repo and `cd` into the new repo directory:
-    ```sh
-    git clone git@github.com:GCDigitalFellows/gcdrb.git
-    cd gcdrb
-    ```
+  
+  ```shell
+  git clone git@github.com:GCDigitalFellows/gcdrb.git
+  cd gcdrb
+  ```
 6. Install node, bower, and ruby components:
-    ```sh
-    npm install
-    bower install
-    bundle install
-    ```
+
+  ```shell
+  npm install
+  bower install
+  bundle install
+  ```
 ## Details of the scripts
 
 The following build scripts are included in package.json (you can view these by running `npm run`). Run these from the command line `npm run [script name]`:
