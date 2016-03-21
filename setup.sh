@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd
 clear
 
 #
@@ -261,8 +261,8 @@ fi
 
 log " + Installing bower"
 warning "!  If it doesn't work, you might need to manually run 'sudo npm install bower -g'"
-# npm install -g bower
-npm install bower
+npm install -g bower
+# npm install bower
 
 log " + Trying to navigate to/create/clone the project directory"
 if [[ -d "./gcdigitalfellows.github.io" ]]; then
