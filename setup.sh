@@ -148,7 +148,8 @@ if ! type 'npm' > /dev/null 2>&1; then
     #   error 'Please manually install node.js: https://nodejs.org/en/download/'
     # fi
   else
-    error 'Please manually install node.js: https://nodejs.org/en/download/'
+    error "Please manually install node.js: https://nodejs.org/en/download/ and rerun this script"
+    exit 1
   fi
 else
   warning "Looks like n and npm are already installed. Please double check your system configuration to be sure that the correct versions of node/npm are being used and that it is included in your PATH."
