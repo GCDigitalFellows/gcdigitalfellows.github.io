@@ -48,28 +48,28 @@ function confirm () {
     esac
 }
 
-reload_env () {
-  #reload shell (first exit previous sub-shell)
-  if [[ -d "$HOME/.bashrc" ]]; then
-    source "$HOME/.bashrc"
-  fi
-  if [[ -d "$HOME/.profile" ]]; then
-    source "$HOME/.profile"
-  fi
-  if [[ -d "$HOME/.zprofile" ]]; then
-    source "$HOME/.zprofile"
-  fi
-  if [[ -d "$HOME/.zshrc" ]]; then
-    source "$HOME/.zshrc"
-  fi
-  if [[ -d "$HOME/.zshenv" ]]; then
-    source "$HOME/.zshenv"
-  fi
-}
+# reload_env () {
+#   #reload shell (first exit previous sub-shell)
+#   if [[ -d "$HOME/.bashrc" ]]; then
+#     source "$HOME/.bashrc"
+#   fi
+#   if [[ -d "$HOME/.profile" ]]; then
+#     source "$HOME/.profile"
+#   fi
+#   if [[ -d "$HOME/.zprofile" ]]; then
+#     source "$HOME/.zprofile"
+#   fi
+#   if [[ -d "$HOME/.zshrc" ]]; then
+#     source "$HOME/.zshrc"
+#   fi
+#   if [[ -d "$HOME/.zshenv" ]]; then
+#     source "$HOME/.zshenv"
+#   fi
+# }
 
 cdx () {
   if [[ -d "$1" ]]; then
-    cd "$1"
+    cd "$1" || exit
   else
     error "$1 does not exist. Exiting."
   fi
@@ -79,18 +79,18 @@ log " + This script will setup your computer to develop with Jekyll and Node.js"
 warning " + It will copy the source files to a new directory within the current path..."
 warning " + Your current path: $(pwd)"
 if (! confirm "Ok to use this path [y/N]"); then
-  read -e -p "Please enter the *BASE* directory where you want to clone this project: " CLONEDIR
-  cdx $CLONEDIR
+  read -e -p -r "Please enter the *BASE* directory where you want to clone this project: " CLONEDIR
+  cdx "$CLONEDIR"
 fi
 
 # install homebrew on macs
-if [[ `uname` == 'Darwin' ]]; then
+if [[ $(uname) == 'Darwin' ]]; then
   if ! type 'brew' > /dev/null 2>&1; then
     log ' + Installing Homebrew...'
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     brew update
   fi
-elif [[ `uname` == 'Linux' ]]; then
+elif [[ $(uname) == 'Linux' ]]; then
   log " + Trying to install linuxbrew + dependencies"
   if type 'apt-get' > /dev/null 2>&1; then
     sudo apt-get install build-essential curl git python-setuptools ruby
@@ -108,7 +108,7 @@ if ! type 'git' > /dev/null 2>&1; then
   if type 'brew' > /dev/null 2>&1; then
     log " + Installing git via homebrew"
     brew install git
-  elif [[ `uname` == 'Linux' ]]; then
+  elif [[ $(uname) == 'Linux' ]]; then
     if type 'apt-get' > /dev/null 2>&1; then
       log " + Installing git via apt-get"
       sudo apt-get update
@@ -117,22 +117,22 @@ if ! type 'git' > /dev/null 2>&1; then
       log " + Installing git via yum"
       sudo yum install git
     else
-      error '!E Please manually install git before proceeding'
+      error "!E Please manually install git before proceeding"
       exit 1
     fi
   else
-    error '!E Please manually install the git command line tool and rerun this script.'
+    error "!E Please manually install the git command line tool and rerun this script."
     exit 1
   fi
 fi
 
 # install n and nodejs
 if ! type 'npm' > /dev/null 2>&1; then
-	if [[ `uname` == 'Darwin']] || [ `uname` == 'Linux' ]]; then
+	if [[ $(uname) == 'Darwin' ]] || [[ $(uname) == 'Linux' ]]; then
 	  log " + Installing n and Node.js"
 		# curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
     curl -L http://git.io/n-install | bash
-	# elif [[ `uname` == 'Linux' ]]; then
+	# elif [[ $(uname) == 'Linux' ]]; then
   #   curl -L http://git.io/n-install | bash
 		# if type 'apt-get' > /dev/null 2>&1; then
 		# 	curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
@@ -149,13 +149,12 @@ if ! type 'npm' > /dev/null 2>&1; then
     error 'Please manually install node.js: https://nodejs.org/en/download/'
   fi
 else
-  warning 'Looks like n and npm are already installed. Please double check your system configuration to be sure that the correct versions of node/npm are being used and that it is included in your PATH.'
-  warning '`which npm` should return something like "/usr/local/bin/npm" '
-  warning 'Result of `which npm`:'
-  which npm
-  warning 'If the above output does not look correct, please uninstall npm and re-run this script.'
-  warning 'I suggest using this script to completely remove node: https://gist.github.com/TonyMtz/d75101d9bdf764c890ef'
-  warning 'After uninstalling node, re-run this script!'
+  warning "Looks like n and npm are already installed. Please double check your system configuration to be sure that the correct versions of node/npm are being used and that it is included in your PATH."
+  warning "'which npm' should return something like '/usr/local/bin/npm' "
+  warning "Result of 'which npm': $(which npm)"
+  warning "If the above output does not look correct, please uninstall npm and re-run this script."
+  warning "I suggest using this script to completely remove node: https://gist.github.com/TonyMtz/d75101d9bdf764c890ef"
+  warning "After uninstalling node, re-run this script!"
   if (! confirm "Continue [y/N]?"); then
     exit 1
   fi
@@ -164,7 +163,7 @@ fi
 if type 'brew' > /dev/null 2>&1; then
   brew install ruby
 else
-  warning 'You should manually install a ruby version manager or an updated version of ruby.'
+  warning "You should manually install a ruby version manager or an updated version of ruby."
 fi
 
 # install chruby and ruby
@@ -264,7 +263,7 @@ npm install bower
 
 log " + Trying to navigate to/create/clone the project directory"
 if [[ -d "./gcdigitalfellows.github.io" ]]; then
-  cd gcdigitalfellows.github.io
+  cd gcdigitalfellows.github.io || exit
 else
   git clone https://github.com/GCDigitalFellows/gcdigitalfellows.github.io.git
   cd gcdigitalfellows.github.io || error "!E Error trying to navigate to the project directory. Try manually cloning and 'cd'ing to it." && exit
