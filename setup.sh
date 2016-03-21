@@ -264,12 +264,19 @@ warning "!  If it doesn't work, you might need to manually run 'sudo npm install
 npm install -g bower
 # npm install bower
 
-log " + Trying to navigate to/create/clone the project directory"
-if [[ -d "./gcdigitalfellows.github.io" ]]; then
-  cd gcdigitalfellows.github.io || exit
+log " + Trying to create/clone the project directory"
+if [[ -d "gcdigitalfellows.github.io" ]]; then
+  log " + Directory exists. Switching directories to the project root"
+  cd gcdigitalfellows.github.io
+  git pull
 else
   git clone https://github.com/GCDigitalFellows/gcdigitalfellows.github.io.git
-  cd gcdigitalfellows.github.io || error "!E Error trying to navigate to the project directory. Try manually cloning and 'cd'ing to it." && exit
+  if [[ -d "gcdigitalfellows.github.io" ]]; then
+    cd gcdigitalfellows.github.io || 
+  else
+    error "!E Error trying to navigate to the project directory. Try manually cloning and 'cd'ing to it."
+    exit 1
+  fi
 fi
 
 log " + Installing NPM dependencies"
