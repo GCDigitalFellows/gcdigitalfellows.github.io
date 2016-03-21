@@ -8,13 +8,13 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 
 1. Open a terminal window and execute the following command then follow the instructions:
     ```sh
-    bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup.sh)\"
+    bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup.sh)”
     ```
-2. After the first script finishes, close the terminal window, open a new terminal, then run the following command:
-    ```sh
-      bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup2.sh)\"
-    ```
-3. If both scripts complete successfully, you're all set up and ready to start development.
+<!--- 2. After the first script finishes, close the terminal window, open a new terminal, then run the following command: --->
+<!---     ```sh --->
+<!---       bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup2.sh)\" --->
+<!---     ``` --->
+3. If the script completes successfully, you're all set up and ready to start development.
 4. To run the development server: `npm run serve`
 
 ## Manual Setup
