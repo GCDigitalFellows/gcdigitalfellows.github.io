@@ -259,10 +259,11 @@ fi
 #   log "Bundler was installed"
 # fi
 
-log " + Installing bower"
-warning "!  If it doesn't work, you might need to manually run 'sudo npm install bower -g'"
-npm install -g bower
-# npm install bower
+if ! type 'bower' > /dev/null 2>&1; then
+  log " + Installing bower"
+  warning "!  If it doesn't work, you might need to manually run 'sudo npm install bower -g'"
+  npm install -g bower
+fi
 
 log " + Trying to create/clone the project directory"
 if [[ -d "gcdigitalfellows.github.io" ]]; then
