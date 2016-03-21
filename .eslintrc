@@ -1,7 +1,9 @@
 {
-  "extends": "airbnb/base",
+  "extends": "xo-space",
   "parser": "babel-eslint",
   "globals": {
+    "$": false,
+    "jQuery": false,
     "describe": true,
     "before": true,
     "it": true
@@ -10,10 +12,5 @@
       "es6": true,
       "node": true,
       "mocha": true
-  },
-  "extends": "xo-space",
-  "globals": {
-    "$": false,
-    "jQuery": false
   }
 }
