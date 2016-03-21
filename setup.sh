@@ -272,7 +272,7 @@ if [[ -d "gcdigitalfellows.github.io" ]]; then
 else
   git clone https://github.com/GCDigitalFellows/gcdigitalfellows.github.io.git
   if [[ -d "gcdigitalfellows.github.io" ]]; then
-    cd gcdigitalfellows.github.io || 
+    cd gcdigitalfellows.github.io
   else
     error "!E Error trying to navigate to the project directory. Try manually cloning and 'cd'ing to it."
     exit 1
