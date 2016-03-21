@@ -48,24 +48,24 @@ function confirm () {
     esac
 }
 
-# reload_env () {
-#   #reload shell (first exit previous sub-shell)
-#   if [[ -d "$HOME/.bashrc" ]]; then
-#     source "$HOME/.bashrc"
-#   fi
-#   if [[ -d "$HOME/.profile" ]]; then
-#     source "$HOME/.profile"
-#   fi
-#   if [[ -d "$HOME/.zprofile" ]]; then
-#     source "$HOME/.zprofile"
-#   fi
-#   if [[ -d "$HOME/.zshrc" ]]; then
-#     source "$HOME/.zshrc"
-#   fi
-#   if [[ -d "$HOME/.zshenv" ]]; then
-#     source "$HOME/.zshenv"
-#   fi
-# }
+reload_env () {
+  #reload shell (first exit previous sub-shell)
+  if [[ -d "$HOME/.bashrc" ]]; then
+    source "$HOME/.bashrc"
+  fi
+  if [[ -d "$HOME/.profile" ]]; then
+    source "$HOME/.profile"
+  fi
+  if [[ -d "$HOME/.zprofile" ]]; then
+    source "$HOME/.zprofile"
+  fi
+  if [[ -d "$HOME/.zshrc" ]]; then
+    source "$HOME/.zshrc"
+  fi
+  if [[ -d "$HOME/.zshenv" ]]; then
+    source "$HOME/.zshenv"
+  fi
+}
 
 cdx () {
   if [[ -d "$1" ]]; then
@@ -129,9 +129,11 @@ fi
 # install n and nodejs
 if ! type 'npm' > /dev/null 2>&1; then
 	if [[ $(uname) == 'Darwin' ]] || [[ $(uname) == 'Linux' ]]; then
-	  log " + Installing n and Node.js"
+	  log " + Installing Node.js"
+    brew install nodejs
 		# curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
-    curl -L http://git.io/n-install | bash
+    # curl -L http://git.io/n-install | bash
+    # reload_env
 	# elif [[ $(uname) == 'Linux' ]]; then
   #   curl -L http://git.io/n-install | bash
 		# if type 'apt-get' > /dev/null 2>&1; then
@@ -257,7 +259,7 @@ fi
 # fi
 
 log " + Installing bower"
-warning "!  If it dooesn't work, you might need to manually run 'sudo npm install bower -g'"
+warning "!  If it doesn't work, you might need to manually run 'sudo npm install bower -g'"
 # npm install -g bower
 npm install bower
 
