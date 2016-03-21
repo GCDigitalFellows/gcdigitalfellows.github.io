@@ -9,7 +9,7 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 1. Open a terminal window and execute the following command then follow the instructions:
 
     ```sh
-    bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup.sh)"
+    bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdigitalfellows.github.io/master/setup.sh)"
     ```
 
 3. If the script completes successfully, you're all set up and ready to start development.
