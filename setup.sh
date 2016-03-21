@@ -129,6 +129,8 @@ else
   warning 'Result of `which npm`:'
   which npm
   warning 'If the above output does not look correct, please uninstall npm and re-run this script.'
+  info 'I suggest using this script to completely remove node: https://gist.github.com/TonyMtz/d75101d9bdf764c890ef'
+  info 'After uninstalling node, re-run this script!'
 fi
 
 # install chruby and ruby
