@@ -7,13 +7,11 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 ## Setup (OS X and Linux)
 
 1. Open a terminal window and execute the following command then follow the instructions:
+
     ```sh
-    bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup.sh)”
+    bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup.sh)"
     ```
-<!--- 2. After the first script finishes, close the terminal window, open a new terminal, then run the following command: --->
-<!---     ```sh --->
-<!---       bash -c \"$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdrb/master/setup2.sh)\" --->
-<!---     ``` --->
+
 3. If the script completes successfully, you're all set up and ready to start development.
 4. To run the development server: `npm run serve`
 
@@ -30,24 +28,27 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 1. Install [Node.js](https://nodejs.org/en/)
 2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer.
 3. Install [Bower](http://bower.io/#install-bower) globally (with the -g flag) from a terminal:
-  
-  ```shell
-  npm install -g bower
-  ```
+ 
+    ```shell
+    npm install -g bower
+    ```
+
 4. Install [Bundler](http://bundler.io/) (might need to use sudo)
 5. Clone this repo and `cd` into the new repo directory:
-  
-  ```shell
-  git clone git@github.com:GCDigitalFellows/gcdrb.git
-  cd gcdrb
-  ```
+
+    ```shell
+    git clone git@github.com:GCDigitalFellows/gcdrb.git
+    cd gcdrb
+    ```
+
 6. Install node, bower, and ruby components:
 
-  ```shell
-  npm install
-  bower install
-  bundle install
-  ```
+    ```shell
+    npm install
+    bower install
+    bundle install
+    ```
+
 ## Details of the scripts
 
 The following build scripts are included in package.json (you can view these by running `npm run`). Run these from the command line `npm run [script name]`:
@@ -84,6 +85,7 @@ The following build scripts are included in package.json (you can view these by 
 - The site is configured through the `_config.yml` file. Read the Jekyll docs to understand how this works. Of particular importance is the `baseurl` entry, which, when uncommented, will add the appropriate base directory to all of the links used throughout the site, needed when the site is not hosted on the root directory (e.g., http://gcdigitalfellows.github.io/gcdrb/apply instead of http://gcdigitalfellows.github.io/apply)
 - The site uses packages from Bower (e.g., Bootstrap). If you add additional packages using Bower (or npm for that matter), be sure to modify the `build_vendor.js` script to include the necessary scripts or stylesheets (and fonts if applicable). For example, if the package contains just one additional javascript file in its 'dist' folder, you would add the line 'some-new-package/dist/the-main-js-file.js' in the array of javascript includes, around line #7. Note that you don't need to include the 'bower_components' base directory since the script already assumes that as the base directory. To include something from the node_modules directory, you would either need to add the `.changeDir('../node_modules').concat('new-node/module/path.js')` or alternatively, you could just use the relative path in the existing bower_components list like `'../node_modules/new-node/module/path.js'`. See the [Buildify](https://github.com/powmedia/buildify) documentation for more info.
 - To add additional data sources to the `get_data.js` script, you can copy-paste one of the existing script blocks that looks like this:
+
     ```javascript
     new GDocData({
       gdocUrlBase: docurl,
@@ -92,6 +94,7 @@ The following build scripts are included in package.json (you can view these by 
       outDir: dataDir
     }).getData();
     ```
+
     and just change the `gdocSheet` to the sheet number of the new data source (found in the URL, the number after the `gid=`), and change the `outFile` to whatever you'd like the new file to be named. If you need to process the data before writing the file, add a the `processRows` function like the one used for `people.json`. Be sure to pass the `rows` variable (it's an array containing each row of the source spreadsheet), and return an array containing the modified data. Side note: yes, it's weird that I did this using a class, but it's because I originally used multiple methods with it, but got rid of them because I ran into problems using Node streams.
 
 ## Deploying
