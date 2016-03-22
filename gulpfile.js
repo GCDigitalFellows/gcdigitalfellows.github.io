@@ -5,26 +5,27 @@ var gulp = require('gulp');
 // to call them as $.pluginname
 var gulpLoadPlugins = require('gulp-load-plugins');
 var $ = gulpLoadPlugins();
-var streamseries = require('stream-series');
-var fs = require('fs-extra');
 var spawn = require('child_process').spawn;
-var escape = require('escape-html');
 var browserSync = require('browser-sync');
 var eslint = require('eslint');
 var argv = require('yargs').argv;
+var autoprefixer = require('autoprefixer');
+var mqpacker = require('css-mqpacker');
+var csswring = require('csswring');
+var del = require('del');
 
 var isProduction = ((argv._.indexOf('deploy') > -1) || (argv._.indexOf('stage') > -1) ? true : argv.prod);
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
 gulp.task('clean:assets', function () {
-  return $.del([
+  return del([
     'js/**/*.min.js',
     'css/**/*.min.css'
   ]);
 });
 gulp.task('clean:dist', function () {
-  return $.del([
+  return del([
     '_site/**/*'
   ]);
 });
@@ -43,7 +44,7 @@ gulp.task('fonts', function () {
   return gulp.src([
     'bower_components/font-awesome/fonts/*',
     'bower_components/font-mfizz/fonts/*'
-  ]).pipe(gulp.dest('assets/fonts'));
+  ]).pipe(gulp.dest('fonts'));
 });
 
 // gulp.task('images', require('./gulp-tasks/images')(gulp, $));
@@ -74,33 +75,93 @@ gulp.task('scripts:vendor', function () {
   .pipe($.concat('vendor.js'))
   .pipe($.rename({suffix: '.min'}))
   .pipe($.if(isProduction, $.if('*.js', $.uglify({preserveComments: 'some'}))))
-  .pipe($.if(isProduction, $.size({
-    title: 'minified vendor scripts',
-    showFiles: true
-  })))
   .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-  .pipe($.if(isProduction, gulp.dest('js/')))
+  .pipe($.if(isProduction, gulp.dest('js')))
   .pipe($.if(isProduction, $.if('*.js', $.gzip({append: true}))))
-  .pipe($.if(isProduction, $.size({
-    title: 'gzipped vendor scripts',
-    gzip: true,
-    showFiles: true
-  })))
-  .pipe(gulp.dest('js/'))
+  .pipe(gulp.dest('js'))
   .pipe($.if(!isProduction, browserSync.stream()));
 });
-// gulp.task('scripts', scripts.scripts);
-// gulp.task('serve', require('./gulp-tasks/serve')(gulp, $, browserSync));
-// var styles = require('./gulp-tasks/styles')(gulp, $, isProduction, browserSync, autoprefixer);
-// gulp.task('styles', styles.styles);
-// gulp.task('styles:vendor', styles.vendor);
+
+gulp.task('scripts', function () {
+  return gulp.src('js/main.js')
+    .pipe($.if(!isProduction, $.sourcemaps.init()))
+    .pipe($.concat('main.min.js'))
+    .pipe($.if(isProduction, $.uglify({preserveComments: 'some'})))
+    .pipe($.if(!isProduction, $.sourcemaps.write('.')))
+    .pipe($.if(isProduction, $.gzip({append: true})))
+    .pipe(gulp.dest('js/'))
+    .pipe($.if(!isProduction, browserSync.stream()));
+});
+
+gulp.task('styles', function () {
+  return gulp.src('_sass/style.scss')
+    .pipe($.if(!isProduction, $.sourcemaps.init()))
+    .pipe($.sass({
+      precision: 10,
+      includePaths: ['bower_components/bootstrap/scss']
+    }).on('error', $.sass.logError))
+    .pipe(gulp.dest('./css'))
+    .pipe($.postcss([
+      autoprefixer({browsers: 'last 1 version'}),
+      mqpacker,
+      csswring
+    ]))
+    .pipe($.rename({extname: '.min.css'}))
+    .pipe($.if(!isProduction, $.sourcemaps.write('.')))
+    .pipe($.if(isProduction, $.if('*.min.css', $.gzip({append: true}))))
+    .pipe(gulp.dest('./css'))
+    .pipe($.if(!isProduction, browserSync.stream()));
+});
+
+gulp.task('styles:vendor', function () {
+  return gulp.src([
+    'bower_components/animate.css/animate.min.css',
+    // 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+    'bower_components/font-awesome/css/font-awesome.min.css',
+    'bower_components/font-mfizz/css/font-mfizz.css'
+  ])
+  .pipe($.if(!isProduction, $.sourcemaps.init()))
+  .pipe($.concat('vendor.min.css'))
+  .pipe($.postcss([
+    autoprefixer({browsers: 'last 1 version'}),
+    mqpacker,
+    csswring
+  ]))
+  .pipe($.if(!isProduction, $.sourcemaps.write('.')))
+  .pipe($.if(isProduction, $.if('*.min.css', $.gzip({append: true}))))
+  .pipe(gulp.dest('css'))
+  .pipe($.if(!isProduction, browserSync.stream()));
+});
+gulp.task('serve', function (done) {
+  browserSync({
+    server: {
+      baseDir: ['_site']
+    }
+  });
+
+  gulp.watch([
+    './**/*.md',
+    './**/*.markdown',
+    './**/*.html',
+    './**/*.yml',
+    './**/*.json',
+    './**/*.txt'
+  ], [
+    'jekyll',
+    browserSync.reload
+  ]);
+  gulp.watch(['js/**/*.js', '!js/**/*.min.js'], ['scripts', browserSync.reload]);
+  gulp.watch('_scss/**/*.scss', ['styles', browserSync.reload]);
+  gulp.watch('images/**/*', browserSync.reload);
+  done();
+});
 
 // 'gulp lint' -- check your JS for formatting errors using XO Space
 gulp.task('lint', () =>
 gulp.src([
   'gulpfile.babel.js',
-  '.tmp/assets/javascript/*.js',
-  '!.tmp/assets/javascript/*.min.js'
+  'js/**/*.js',
+  '!js/**/*.min.js'
 ])
 .pipe(eslint())
 .pipe(eslint.formatEach())
@@ -111,24 +172,22 @@ gulp.src([
 // 'gulp assets --prod' -- cleans out your assets and rebuilds them with
 // production settings
 gulp.task('assets', [
-  'clean:assets'
-  // 'styles:vendor', 'styles', 'scripts:vendor', 'scripts', 'fonts', 'images', 'data'
+  'clean:assets',
+  'styles:vendor',
+  'styles',
+  'scripts:vendor',
+  'scripts',
+  'fonts',
+  // 'images',
+  'data'
 ]);
-
-// 'gulp assets:copy' -- copes the assets into the dist folder, needs to be
-// done this way because Jekyll overwrites the whole folder otherwise
-gulp.task('assets:copy', () =>
-gulp.src('.tmp/assets/**/*')
-.pipe(gulp.dest('dist/assets'))
-);
 
 // 'gulp build' -- same as 'gulp' but doesn't serve your site in your browser
 // 'gulp build --prod' -- same as above but with production settings
 gulp.task('build', [
   'clean:assets',
   'assets',
-  'jekyll',
-  'assets:copy'
+  'jekyll'
 ]);
 
 // // 'gulp deploy:push' -- pushes your dist folder to Github
