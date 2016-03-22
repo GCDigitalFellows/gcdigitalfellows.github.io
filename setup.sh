@@ -94,7 +94,7 @@ fi
 if [[ $(uname) == 'Darwin' ]]; then
   if ! type 'brew' > /dev/null 2>&1; then
     log ' + Installing Homebrew...'
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew update
   fi
 elif [[ $(uname) == 'Linux' ]]; then
