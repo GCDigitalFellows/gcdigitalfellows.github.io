@@ -75,6 +75,13 @@ cdx () {
   fi
 }
 
+if [[ $(uname) == 'Darwin' ]]; then
+  log " + Checking for xcode..."
+  if ! xcode-select -p > /dev/null 2>&1; then
+    xcode-select --install
+  fi
+fi
+
 log " + This script will setup your computer to develop with Jekyll and Node.js"
 warning " + It will copy the source files to a new directory within the current path..."
 warning " + Your current path: $(pwd)"
