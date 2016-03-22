@@ -2,7 +2,7 @@
 
 ## tl;dr
 
-Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm install`, `bower install`, `bundle install` and then `npm run serve` to set everything up and start the development server.
+Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm install`, `bower install`, `gem install jekyll jekyll-paginate github-pages` and then `npm run serve` to set everything up and start the development server.
 
 ## Setup (OS X and Linux)
 
@@ -12,8 +12,24 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
     bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdigitalfellows.github.io/master/setup.sh)"
     ```
 
-3. If the script completes successfully, you're all set up and ready to start development.
+3. If the script completes successfully, you're all set up and ready to start development. You might need to run the command multiple times if something in the script fails.
 4. To run the development server: `npm run serve`
+
+## Optional: Use Gulp instead of NPM for building
+
+Gulp runs a little more smoothly for building. If you want to try it, use the `gulp` branch of this repository:
+
+    ```shell
+    git checkout gulp
+    ```
+
+To build and run the development server, use the command:
+
+    ```shell
+    gulp
+    ```
+
+You can also compile assets using `gulp assets`, vendor files with `gulp assets:vendor`.
 
 ## Manual Setup
 
@@ -25,15 +41,14 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 
 ### Manual Installation (all OSes)
 
-1. Install [Node.js](https://nodejs.org/en/)
-2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer.
+1. Install [Node.js](https://nodejs.org/en/). It is recommended that you use [homebrew](https://brew.sh) to install node since it will help prevent permissions issues.
+2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer. You might want to install ruby using homebrew for the same reasons as above.
 3. Install [Bower](http://bower.io/#install-bower) globally (with the -g flag) from a terminal:
  
     ```shell
     npm install -g bower
     ```
 
-4. Install [Bundler](http://bundler.io/) (might need to use sudo)
 5. Clone this repo and `cd` into the new repo directory:
 
     ```shell
@@ -46,7 +61,7 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
     ```shell
     npm install
     bower install
-    bundle install
+    gem install jekyll jekyll-paginate github-pages
     ```
 
 ## Details of the scripts
