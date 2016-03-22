@@ -134,9 +134,19 @@ if ! type 'git' > /dev/null 2>&1; then
 fi
 
 # install n and nodejs
+if type 'npm' > /dev/null 2>&1; then
+  warning "! It appears you already have node.js installed. To avoid potential issues, it's suggested to do a fresh install."
+  warning "! This script can try cleaning your existing installation and starting fresh. Or to quit and fix it yourself hit ctrl-c"
+  if (confirm "Uninstall the existing node.js [y/N]?"); then
+    sudo npm uninstall npm -g
+    info " + Node should be uninstalled. If it failed, google is your friend..."
+  else
+    info "Skipping the uninstall. Cross your fingers..."
+  fi
+fi
 if ! type 'npm' > /dev/null 2>&1; then
-	if [[ $(uname) == 'Darwin' ]] || [[ $(uname) == 'Linux' ]]; then
-	  log " + Installing Node.js"
+	if type 'brew' > /dev/null 2>&1; then
+	  log " + Installing Node.js using homebrew"
     brew install nodejs
 		# curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
     # curl -L http://git.io/n-install | bash
@@ -171,6 +181,7 @@ else
 fi
 
 if type 'brew' > /dev/null 2>&1; then
+  log " + Installing ruby in userspace using homebrew"
   brew install ruby
 else
   warning "You should manually install a ruby version manager or an updated version of ruby."
@@ -250,15 +261,15 @@ fi
 # fi
 
 # install rubygems
-if ! type 'gem' > /dev/null 2>&1; then
-  log " + Installing rubygems"
-  git clone https://github.com/rubygems/rubygems.git
-  cdx rubygems
-  ruby setup.rb
-  cd .. > /dev/null 2>&1
-  rm -rf rubygems
-  log " + Rubygems was Installed"
-fi
+# if ! type 'gem' > /dev/null 2>&1; then
+#   log " + Installing rubygems"
+#   git clone https://github.com/rubygems/rubygems.git
+#   cdx rubygems
+#   ruby setup.rb
+#   cd .. > /dev/null 2>&1
+#   rm -rf rubygems
+#   log " + Rubygems was Installed"
+# fi
 # install bundler
 # if ! type 'bundle' > /dev/null 2>&1; then
 #   log "Installing bundler"
@@ -274,7 +285,7 @@ fi
 
 log " + Trying to create/clone the project directory"
 if [[ -d "gcdigitalfellows.github.io" ]]; then
-  log " + Directory exists. Switching directories to the project root"
+  log " + Directory exists. Switching directories to the project root and pulling the source"
   cd gcdigitalfellows.github.io
   git pull
 else
