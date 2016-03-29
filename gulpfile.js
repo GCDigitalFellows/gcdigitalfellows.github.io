@@ -21,7 +21,8 @@ var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 gulp.task('clean:assets', function () {
   return del([
     'js/**/*.min.js',
-    'css/**/*.min.css'
+    'css/**/*.map',
+    'css/**/*.css'
   ]);
 });
 gulp.task('clean:dist', function () {
@@ -100,16 +101,15 @@ gulp.task('styles', function () {
       precision: 10,
       includePaths: ['bower_components/bootstrap/scss']
     }).on('error', $.sass.logError))
-    .pipe(gulp.dest('./css'))
     .pipe($.postcss([
       autoprefixer({browsers: 'last 1 version'}),
       mqpacker,
       csswring
     ]))
-    .pipe($.rename({extname: '.min.css'}))
+    .pipe($.rename({suffix: '.min'}))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-    .pipe($.if(isProduction, $.if('*.min.css', $.gzip({append: true}))))
-    .pipe(gulp.dest('./css'))
+    .pipe($.if(isProduction, $.gzip({append: true})))
+    .pipe(gulp.dest('css'))
     .pipe($.if(!isProduction, browserSync.stream()));
 });
 
