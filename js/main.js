@@ -40,6 +40,14 @@
     }
   );
 
+  $('.scrambledmail').each(function () {
+    var my = $(this);
+    var link = '<a href="mailto:';
+    link += my.data('name') + '@' + my.data('domain') + '.' + my.data('ext');
+    link += '">' + my.html() + '</a>';
+    my.replaceWith(link);
+  });
+
   $(function () {
     var contactform = document.getElementById('contactform');
     var emailAddress = 'gc.digitalfellows';
