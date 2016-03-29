@@ -47,8 +47,6 @@
     "gulp-uglify": "^1.5.3",
     "js-yaml": "^3.5.5",
     "kid_process": "^0.5.4",
-    "livereload": "^0.4.1",
-    "mkdirp": "^0.5.1",
     "node-sass": "^3.4.2",
     "parallelshell": "^2.0.0",
     "request": "^2.69.0",
@@ -71,8 +69,8 @@
     "watch:styles": "node-sass -w --output-style compressed --include-path $npm_package_sass_includes --follow _sass/style.scss -o css",
     "watch:scripts": "watchify js/main.js -o 'uglifyjs -cm > js/main.min.js'",
     "jekyll:build": "bundle exec jekyll build",
-    "jekyll:serve": "bundle exec jekyll serve --port 9090",
-    "livereload": "livereload $npm_package_jekyll_dir -p 9091",
+    "jekyll:serve": "bundle exec jekyll serve --port 3000",
+    "livereload": "browser-sync start --proxy 127.0.0.1:3000 --files \"_site\"",
     "serve": "npm run assets && parallelshell \"npm run jekyll:serve\" \"npm run watch:scripts\" \"npm run watch:styles\" \"npm run livereload\"",
     "start": "npm run serve"
   }
