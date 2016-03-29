@@ -15,22 +15,6 @@ Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm in
 3. If the script completes successfully, you're all set up and ready to start development. You might need to run the command multiple times if something in the script fails.
 4. To run the development server: `npm run serve`
 
-## Optional: Use Gulp instead of NPM for building
-
-Gulp runs a little more smoothly for building. If you want to try it, use the `gulp` branch of this repository:
-
-    ```shell
-    git checkout gulp
-    ```
-
-To build and run the development server, use the command:
-
-    ```shell
-    gulp
-    ```
-
-You can also compile assets using `gulp assets`, vendor files with `gulp assets:vendor`.
-
 ## Manual Setup
 
 ### Requirements
@@ -64,9 +48,30 @@ You can also compile assets using `gulp assets`, vendor files with `gulp assets:
     gem install jekyll jekyll-paginate github-pages
     ```
 
-## Details of the scripts
+## Running the Development Server
+
+You have two options: gulp and node/npm. If you encounter problems with gulp, try running the node scripts. The gulp scripts should run a bit more quickly and smoothly, however.
+
+### Gulp
+
+```shell
+gulp # runs all of the scripts and starts the livereload server
+gulp assets # compiles all of the JS/SCSS assets
+gulp clean # cleans the compiled files
+gulp jekyll # runs the jekyll server
+gulp data # gets data from Google Drive
+gulp build # clean compile assets and jekyll, but don’t serve
+gulp serve # start the server but don’t recompile assets first
+```
+
+If the `--nomin` flag is used with any of the above commands (e.g., `gulp build --nomin`), scripts/stylesheets will not be minified and sourcemaps won’t be created. This is simply to speed up recompilation time.
+
+### NPM/Node
+
+Compile everything and start the live server: `npm start`
 
 The following build scripts are included in package.json (you can view these by running `npm run`). Run these from the command line `npm run [script name]`:
+
 - `clean`: cleans temporary files created by these scripts. Run this if something is being wonky and you suspect it might be due to leftover artifacts from earlier builds.
 - `data`: retrieves data from Google Sheets and saves it to the `_data` folder in yaml format.
 - `assets`: build all of the styles and scripts, and copies vendor stuff to the appropriate places. Also gets data from Google Docs.
@@ -106,11 +111,19 @@ The following build scripts are included in package.json (you can view these by 
       gdocUrlBase: docurl,
       gdocSheet: '585110058',
       outFile: 'workshops.yml',
-      outDir: dataDir
+      outDir: dataDir,
+      processRows: function (rows) {
+        // callback function to manipulate the data rows before saving
+        // ‘rows’ is an array, and each item is an array containing key:value pairs of column_name:value
+        // if the Worksheet contains columns ‘name’ and ‘age’:
+        // > rows[3].age = cell B5 (if the column names are in the first row, so this is the 4th data row)
+        // > rows[0] = { name: ‘name0’, age: ‘age0’ }
+        // this function should return essentially the same type of array as ‘rows’, with updated key:value pairs.
+      }
     }).getData();
     ```
 
-    and just change the `gdocSheet` to the sheet number of the new data source (found in the URL, the number after the `gid=`), and change the `outFile` to whatever you'd like the new file to be named. If you need to process the data before writing the file, add a the `processRows` function like the one used for `people.json`. Be sure to pass the `rows` variable (it's an array containing each row of the source spreadsheet), and return an array containing the modified data. Side note: yes, it's weird that I did this using a class, but it's because I originally used multiple methods with it, but got rid of them because I ran into problems using Node streams.
+  Just change the `gdocSheet` to the sheet number of the new data source (found in the URL, the number after the `gid=`), and change the `outFile` to whatever you'd like the new file to be named. If you need to process the data before writing the file, add a the `processRows` function like the one used for `people.json`. Be sure to pass the `rows` variable (it's an array containing each row of the source spreadsheet), and return an array containing the modified data. Side note: yes, it's weird that I did this using a class, but it's because I originally used multiple methods with it, but got rid of them because I ran into problems using Node streams.
 
 ## Deploying
 
