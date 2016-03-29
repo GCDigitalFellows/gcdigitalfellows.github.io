@@ -14,7 +14,7 @@ var mqpacker = require('css-mqpacker');
 var csswring = require('csswring');
 var del = require('del');
 
-var isProduction = ((argv._.indexOf('deploy') > -1) || (argv._.indexOf('stage') > -1) ? true : argv.prod);
+var isProduction = argv.nomin;
 
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
