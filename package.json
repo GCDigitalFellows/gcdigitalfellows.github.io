@@ -69,7 +69,7 @@
     "watch:styles": "node-sass -w --output-style compressed --include-path $npm_package_sass_includes --follow _sass/style.scss -o css",
     "watch:scripts": "watchify js/main.js -o 'uglifyjs -cm > js/main.min.js'",
     "jekyll:build": "bundle exec jekyll build",
-    "jekyll:serve": "bundle exec jekyll serve --port 3000",
+    "jekyll:serve": "bundle exec jekyll serve --incremental --port 3000",
     "livereload": "browser-sync start --proxy 127.0.0.1:3000 --files \"_site\"",
     "serve": "npm run assets && parallelshell \"npm run jekyll:serve\" \"npm run watch:scripts\" \"npm run watch:styles\" \"npm run livereload\"",
     "start": "npm run serve"
