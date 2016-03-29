@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"file": "style.min.css",
+	"file": "style.min.scss",
 	"sources": [
 		"../_sass/style.scss",
 		"../_sass/_override-mixins.scss",
