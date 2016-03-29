@@ -60,7 +60,7 @@ headerclass: home
         </span>
         <h4 class="card-title">{{topic.title}}</h4>
         <p class="card-text">{{topic.tagline}}</p>
-        <a class="btn btn-primary" href="{{ '/workshops/#{{topic.link}}' | prepend: site.baseurl }}">More</a>
+        <a class="btn btn-primary" href="{{ topic.link | prepend: '/workshops/#' | prepend: site.baseurl }}">More</a>
       </div>
     </div>
     {% endfor %}
