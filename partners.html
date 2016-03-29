@@ -19,7 +19,7 @@ permalink: /partners/
           <h3 class="card-title">{{partner.name}}</h3>
           <p class="card-text">{{partner.description}}</p>
           {% if partner.image != '' %}
-            <img class="card-img-top img-fluid" src="{{ '/images/logos/{{partner.image}}" alt="{{partner.name}}' | prepend: site.baseurl }}">
+            <img class="card-img-top img-fluid" src="{{ '/images/logos/' | append: partner.image | prepend: site.baseurl }}" alt="{{partner.name}}">
           {% endif %}
           <ul class="list-group list-group-flush">
             {% if partner.website != '' %}
