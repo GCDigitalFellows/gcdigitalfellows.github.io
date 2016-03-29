@@ -51,6 +51,15 @@ gulp.task('fonts', function () {
 // gulp.task('images', require('./gulp-tasks/images')(gulp, $));
 
 gulp.task('jekyll', function (done) {
+  spawn('bundle', ['exec', jekyll, 'build'], {
+    stdio: 'inherit'
+  })
+  .on('exit', function (code) {
+    done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
+  });
+});
+
+gulp.task('jekyll:incremental', function (done) {
   spawn('bundle', ['exec', jekyll, 'build', '--incremental'], {
     stdio: 'inherit'
   })
@@ -152,7 +161,7 @@ gulp.task('serve', function (done) {
     './**/*.txt',
     '!_site/*'
   ], [
-    'jekyll',
+    'jekyll:incremental',
     browserSync.reload
   ]);
   gulp.watch(['js/**/*.js'], ['scripts', browserSync.reload]);
