@@ -51,7 +51,7 @@ gulp.task('fonts', function () {
 // gulp.task('images', require('./gulp-tasks/images')(gulp, $));
 
 gulp.task('jekyll', function (done) {
-  spawn('bundle', ['exec', jekyll, 'build'], {
+  spawn('bundle', ['exec', jekyll, 'build', '--incremental'], {
     stdio: 'inherit'
   })
   .on('exit', function (code) {
@@ -72,15 +72,16 @@ gulp.task('scripts:vendor', function () {
     'bower_components/bootstrap-validator/dist/validator.min.js'
     // 'bower_components/bootstrap/dist/js/umd/scrollspy.js'
   ])
-  .pipe($.sourcemaps.init())
-  .pipe($.concat('vendor.js'))
-  .pipe($.rename({suffix: '.min'}))
-  .pipe($.if(isProduction, $.if('*.js', $.uglify({preserveComments: 'some'}))))
-  .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-  .pipe($.if(isProduction, gulp.dest('js')))
-  .pipe($.if(isProduction, $.if('*.js', $.gzip({append: true}))))
-  .pipe(gulp.dest('js'))
-  .pipe($.if(!isProduction, browserSync.stream()));
+    .pipe($.sourcemaps.init())
+    .pipe($.concat('vendor.js'))
+    .pipe($.rename({suffix: '.min'}))
+    .pipe($.if(isProduction, $.if('*.js', $.uglify({preserveComments: 'some'}))))
+    .pipe($.if(!isProduction, $.sourcemaps.write('.')))
+    .pipe($.if(isProduction, gulp.dest('js')))
+    .pipe($.if(isProduction, $.if('*.js', $.gzip({append: true}))))
+    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('_site/js'))
+    .pipe($.if(!isProduction, browserSync.stream()));
 });
 
 gulp.task('scripts', function () {
@@ -91,6 +92,7 @@ gulp.task('scripts', function () {
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe($.if(isProduction, $.gzip({append: true})))
     .pipe(gulp.dest('js/'))
+    .pipe(gulp.dest('_site/js'))
     .pipe($.if(!isProduction, browserSync.stream()));
 });
 
@@ -110,6 +112,7 @@ gulp.task('styles', function () {
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe($.if(isProduction, $.gzip({append: true})))
     .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('_site/css'))
     .pipe($.if(!isProduction, browserSync.stream()));
 });
 
@@ -130,6 +133,7 @@ gulp.task('styles:vendor', function () {
   .pipe($.if(!isProduction, $.sourcemaps.write('.')))
   .pipe($.if(isProduction, $.if('*.min.css', $.gzip({append: true}))))
   .pipe(gulp.dest('css'))
+  .pipe(gulp.dest('_site/css'))
   .pipe($.if(!isProduction, browserSync.stream()));
 });
 gulp.task('serve', function (done) {
@@ -145,13 +149,14 @@ gulp.task('serve', function (done) {
     './**/*.html',
     './**/*.yml',
     './**/*.json',
-    './**/*.txt'
+    './**/*.txt',
+    '!_site/*'
   ], [
     'jekyll',
     browserSync.reload
   ]);
-  gulp.watch(['js/**/*.js', '!js/**/*.min.js'], ['scripts', browserSync.reload]);
-  gulp.watch('_scss/**/*.scss', ['styles', browserSync.reload]);
+  gulp.watch(['js/**/*.js'], ['scripts', browserSync.reload]);
+  gulp.watch('_scss/**/*.{scss,sass}', ['styles', browserSync.reload]);
   gulp.watch('images/**/*', browserSync.reload);
   done();
 });
