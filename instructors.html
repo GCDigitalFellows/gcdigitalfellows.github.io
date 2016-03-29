@@ -44,7 +44,7 @@ permalink: /instructors/
         {% endif %}
         {% if instructor.image != '' %}
         <div class="col-sm-2">
-          <img class="img-fluid" src="{{ '/images/people/{{instructor.image}}" alt="{{instructor.name}}' | prepend: site.baseurl }}">
+          <img class="img-fluid" src="{{ instructor.image | prepend: '/images/people/' | prepend: site.baseurl }}" alt="{{instructor.name}}">
         </div>
         <div class="col-sm-10">
         {% else %}

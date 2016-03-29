@@ -25,10 +25,10 @@ permalink: /workshops/
         {% for topic in site.data.workshops | sort: 'sort' %}
         <tr>
           <td>{{topic.title}}</td>
-          <td><a href="#{{topic.link}}" class="page-scroll">details</a></td>
-          <!-- <td><a href="{{topic.repo}}" target="_blank">repo</a></td> -->
+          <td><a href="#{{ topic.link | slugify }}" class="page-scroll">details</a></td>
+          <!-- <td><a href="{{ topic.repo }}" target="_blank">repo</a></td> -->
           {% if topic.more_info_link != '' %}
-            <td><a href="{{topic.more_info_link}}" target="_blank">more info</a></td>
+            <td><a href="{{ topic.more_info_link }}" target="_blank">more info</a></td>
           {% endif %}
           <!-- <td><a href="{{ '/schedule/#{{topic.session}}' | prepend: site.baseurl }}">schedule</a></td> -->
         </tr>
@@ -40,18 +40,18 @@ permalink: /workshops/
     <h2 class="text-center p-a-2">Workshop Details</h2>
     <div class="col-md-8 offset-md-2">
       {% for topic in site.data.workshops | sort: 'sort' %}
-      <div class="card" id="{{topic.link}}">
+      <div class="card" id="{{ topic.link | slugify }}">
         {% comment %}<img class="card-img-top" src="{{ '/images/header.jpg" alt="Card image cap' | prepend: site.baseurl }}">{% endcomment %}
         <div class="card-block">
           <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{topic.title}}">
-            <a href="{{ '/schedule/#{{topic.day | slugify}}" class="btn btn-primary"><i class="fa fa-calendar' | prepend: site.baseurl }}"></i></a>
+            <a href="{{ topic.day | slugify | prepend: '/schedule/#' | prepend: site.baseurl }}" class="btn btn-primary"><i class="fa fa-calendar"></i></a>
             <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
             <!-- <a href="http://github.com/gcdigitalfellows/{{topic.repo}}"
                  class="btn btn-primary"><i class="fa fa-github"></i></a> -->
           </div>
           <h4 class="card-title"><a
-              href="{{ '/schedule/#{{topic.link}}' | prepend: site.baseurl }}">{{topic.title}}</a></h4>
-          <p class="card-text">{{topic.description}}</p>
+              href="{{ topic.link | slugify | prepend: '/schedule/#' | prepend: site.baseurl }}">{{topic.title}}</a></h4>
+          <p class="card-text">{{ topic.descriptioni }}</p>
         </div>
       </div>
       {% endfor %}
