@@ -32,14 +32,6 @@
     }
   });
 
-  // // Fit Text Plugin for Main Header
-  // $('h1').fitText(
-  //   1.2, {
-  //     minFontSize: '35px',
-  //     maxFontSize: '65px'
-  //   }
-  // );
-
   $('.scrambledmail').each(function () {
     var my = $(this);
     var link = '<a href="mailto:';
