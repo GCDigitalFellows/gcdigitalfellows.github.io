@@ -13,6 +13,8 @@ var autoprefixer = require('autoprefixer');
 var mqpacker = require('css-mqpacker');
 var csswring = require('csswring');
 var del = require('del');
+var imagemin = require('gulp-imagemin');
+
 
 var isProduction = argv.nomin;
 
@@ -48,7 +50,18 @@ gulp.task('fonts', function () {
   ]).pipe(gulp.dest('fonts'));
 });
 
-// gulp.task('images', require('./gulp-tasks/images')(gulp, $));
+gulp.task('images', function () {
+  return gulp.src(['_images/*'])
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [
+        {removeViewBox: false},
+        {cleanupIDs: false}
+      ]
+    }))
+    .pipe(gulp.dest('images'))
+    .pipe(gulp.dest('_site/images/'));
+});
 
 gulp.task('jekyll', function (done) {
   spawn('bundle', ['exec', jekyll, 'build'], {
@@ -72,7 +85,6 @@ gulp.task('scripts:vendor', function () {
   return gulp.src([
     'bower_components/jquery/dist/jquery.min.js',
     'bower_components/animated-header/js/animated-header.js',
-    'bower_components/FitText.js/jquery.fittext.js',
     'bower_components/jquery.easing/js/jquery.easing.min.js',
     'bower_components/wow/dist/wow.min.js',
     'bower_components/tether/dist/js/tether.js',
@@ -165,8 +177,8 @@ gulp.task('serve', function (done) {
     browserSync.reload
   ]);
   gulp.watch(['js/**/*.js'], ['scripts', browserSync.reload]);
-  gulp.watch('_scss/**/*.{scss,sass}', ['styles', browserSync.reload]);
-  gulp.watch('images/**/*', browserSync.reload);
+  gulp.watch(['_sass/**/*.{scss,sass}'], ['styles', browserSync.reload]);
+  gulp.watch(['_images/**/*'], ['images', browserSync.reload]);
   done();
 });
 
@@ -192,7 +204,7 @@ gulp.task('assets', [
   'scripts:vendor',
   'scripts',
   'fonts',
-  // 'images',
+  'images',
   'data'
 ]);
 
