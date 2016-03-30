@@ -6,30 +6,18 @@ menu: home
 headerclass: home
 ---
 
-<section class="" id="landing">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2 text-xs-center">
-        <!-- <a href="{{ '/apply' | prepend: site.baseurl }}" class="btn btn-default btn-xl">Apply Now!</a> -->
-        <h2 class="m-t-3">June 6-10, 2016</h2>
-        <h2 class="">The Graduate Center, CUNY</h2>
-        <hr class="hr-primary">
-        <a class="btn btn-primary" href="http://commons.gc.cuny.edu/groups/gcdrb/">Visit us on the CUNY Academic Commons</a>
-        <div class="alert alert-info m-t-3" role="alert">
-          <p>Applications will be online soon!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="bg-alternate" id="about">
   <div class="container">
     <div class="row row-heading">
       <div class="col-lg-8 offset-lg-2">
         <h2 class="section-heading">Inviting CUNY Students and Faculty of All Skill Levels and Disciplines</h2>
         <hr class="hr-light">
-        <p class="text-faded">GC Digital Initiatives invites applicants for the Summer 2016 Digital Research Institute, an opportunity to develop digital research skills and connect with others in an interdisciplinary environment. This program builds on the success of the <a href="/gcdrb/">GC Digital Research Bootcamp</a> that took place in January 2016. It will be an intensive five day program where participants will be learn a range of digital tools and methods for doing research and have the opportunity to network with other scholars from a range of disciplinary backgrounds. Workshops target different skillsets and disciplinary focuses to try and cover a breadth of research areas.</p>
+      </div>
+    </div>
+    <div class="row row-padded">
+      <div class="col-lg-8 offset-lg-2">
+        <p class="">GC Digital Initiatives invites applicants for the Summer 2016 Digital Research Institute, an opportunity to develop digital research skills and connect with others in an interdisciplinary environment.</p>
+        <p class="text-faded">This program builds on the success of the <a href="/gcdrb/">GC Digital Research Bootcamp</a> that took place in January 2016. It will be an intensive five day program where participants will be learn a range of digital tools and methods for doing research and have the opportunity to network with other scholars from a range of disciplinary backgrounds. Workshops target different skillsets and disciplinary focuses to try and cover a breadth of research areas.</p>
         <p class="text-faded">Free of charge to participants, the GC Digital Research Institute has been developed in partnership with Software Carpentry, the New York Public Library, Mozilla Science Lab, Humanities Intensive Learning and Teaching, and the Digital Humanities Summer Institute thanks to the sponsorship of GCDI, The Graduate Center, and The CUNY Strategic Investment Initiatives Program.</p>
         <p class="text-faded">The GC Digital Research Institute will take place over five days, June 5-10, 2016, from 9:30-6:00 daily. A preliminary list of workshop topics can be found below. This site will be updated in the coming weeks with additional information regarding instructors, a workshop schedule, and more.</p>
         <p class="text-faded">The application process is relatively quick and painless, however the January Bootcamp had more than three times as many applicants as there were spots available, and we anticipate similar interest for the June Institute. If you applied to the January Bootcamp but were not admitted, your application will automatically be reconsidered, however you are welcome to update your application with updated information.</p>
@@ -48,20 +36,26 @@ headerclass: home
     </div>
   </div>
   <div class="row">
+    <div class="card-columns">
     {% assign sorted = site.data.workshops %}
     {% for topic in sorted %}
-    <div class="col-sm-6 col-md-4 col-xl-3">
-      <div class="card card-block text-xs-center">
-        <span class="fa-stack fa-2x wow bounceIn text-info">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
-        </span>
-        <h4 class="card-title">{{topic.title}}</h4>
-        <p class="card-text">{{topic.tagline}}</p>
-        <a class="btn btn-primary" href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">More</a>
+    <!-- <div class="col&#45;sm&#45;6 col&#45;md&#45;4 col&#45;xl&#45;3"> -->
+      <div class="card">
+        <div class="card-block text-xs-center">
+          <span class="fa-stack fa-2x wow bounceIn text-info">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="card-title">
+            <a href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">{{topic.title}}</a>
+          </h4>
+          <p class="card-text">{{topic.tagline}}</p>
+          <!-- <a class="btn btn&#45;primary" href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">More</a> -->
+        </div>
       </div>
-    </div>
+    <!-- </div> -->
     {% endfor %}
+    </div>
   </div>
   </div>
 </section>
