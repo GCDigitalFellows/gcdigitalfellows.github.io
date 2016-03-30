@@ -39,13 +39,41 @@ body {
 a {
   @include transition-all;
   color: $theme-primary;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+
+  &::before {
+    background-color: darken($theme-primary, 10%);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    @include transition-all;
+    visibility: hidden;
+    width: 100%;
+  }
 
   &:hover,
   &:focus {
     color: darken($theme-primary, 10%);
     text-decoration: none;
+
+    &::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+
+  &.btn::before,
+  &.navbar-brand::before {
+    background-color: transparent;
   }
 }
+
 
 // fix for anchors to account for nav header
 :target::before {
@@ -70,7 +98,6 @@ h6 {
 }
 
 .row-heading {
-  margin-bottom: 3rem;
   text-align: center;
 }
 
@@ -90,6 +117,10 @@ h6 {
 .bg-alternate {
   background-color: $theme-alternate;
   color: $white;
+
+  a {
+    color: rgba($white, .6);
+  }
 }
 
 .bg-dark {
@@ -98,7 +129,11 @@ h6 {
 }
 
 .text-faded {
-  color: rgba($white, .7);
+  color: rgba($white, .6);
+
+  a {
+    color: $white;
+  }
 }
 
 // }}}
@@ -315,7 +350,7 @@ footer {
   display: inline-block;
 }
 
-.card-partner {
+.card.card-partner {
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -353,6 +388,16 @@ footer {
 .table-choices {
   text-align: center;
   width: 16.7%;
+}
+
+// }}}
+// *******************************************************************
+// Helpers {{{
+// *******************************************************************
+.row-padded {
+  @include media-breakpoint-down(xs) {
+    padding: 1rem;
+  }
 }
 
 // }}}

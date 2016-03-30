@@ -1,20 +1,12 @@
-@mixin transition-all()
-{
-    -webkit-transition: all 0.35s;
-    -moz-transition: all 0.35s;
-    transition: all 0.35s;
+@mixin transition-all() {
+  transition: all 0.35s;
 }
 
-@mixin background-cover()
-{
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+@mixin background-cover() {
+  background-size: cover;
 }
 
-@mixin button-variant($color, $background, $border)
-{
+@mixin button-variant($color, $background, $border) {
   color: $color;
   background-color: $background;
   border-color: $border;
@@ -30,11 +22,13 @@
     background-color: darken($background, 5%);
     border-color: darken($border, 7%);
   }
+
   &:active,
   &.active,
   .open > .dropdown-toggle & {
     background-image: none;
   }
+
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -55,12 +49,10 @@
   }
 }
 
-@mixin sans-serif-font()
-{
+@mixin sans-serif-font() {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
-@mixin serif-font()
-{
+@mixin serif-font() {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }

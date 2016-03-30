@@ -1,11 +1,11 @@
 // The main SCSS file for everything
 
-@import 'override-mixins';
-@import 'override-variables';
+@import "override-mixins";
+@import "override-variables";
 
-@import 'bootstrap';
+@import "bootstrap";
 
 // Additional custom styles
-@import 'base';
-@import 'override-bootstrap';
-// @import 'syntax-highlighting';
+@import "base";
+@import "override-bootstrap";
+// @import "syntax-highlighting";
