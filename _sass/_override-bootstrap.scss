@@ -1,0 +1,27 @@
+
+// Bootstrap Overrides
+.text-primary {
+  color: $theme-primary;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Button Styles
+.btn-primary {
+  @include button-variant($white, $theme-primary, $theme-primary);
+}
+
+.btn {
+  @include sans-serif-font;
+  border: 0;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-xl {
+  padding: 15px 30px;
+}
