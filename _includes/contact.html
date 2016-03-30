@@ -1,10 +1,14 @@
 <section id="contact">
   <div class="container">
-    <div class="row">
-      <div class="col-md-9 offset-md-1 text-xs-center">
+    <div class="row row-heading">
+      <div class="col-md-9 offset-md-1">
         <h2 class="section-heading center-block">Contact the Digital Fellows</h2>
-        <!-- <hr class="hr&#45;primary"> -->
-        <form class="m-t-3" id="contactform" action="//formspree.io/{{site.author.email}}" method="POST">
+        <hr class="hr-primary">
+      </div>
+    </div>
+    <div class="row row-padded">
+      <div class="col-xs-12">
+        <form id="contactform" action="//formspree.io/{{site.author.email}}" method="POST">
           <div class="form-group row">
             <label for="name" class="form-control-label col-sm-3 text-xs-right">Name</label>
             <div class="col-sm-9">
