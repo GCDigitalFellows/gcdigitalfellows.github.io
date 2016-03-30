@@ -6,7 +6,6 @@ buildify('bower_components')
   .concat([
     'jquery/dist/jquery.min.js',
     'animated-header/js/animated-header.js',
-    'FitText.js/jquery.fittext.js',
     'jquery.easing/js/jquery.easing.min.js',
     'wow/dist/wow.min.js',
     'tether/dist/js/tether.js',
