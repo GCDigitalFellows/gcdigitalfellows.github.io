@@ -51,7 +51,7 @@ permalink: /workshops/
           </div>
           <h4 class="card-title"><a
               href="{{ topic.link | slugify | prepend: '/schedule/#' | prepend: site.baseurl }}">{{topic.title}}</a></h4>
-          <p class="card-text">{{ topic.descriptioni }}</p>
+          <p class="card-text">{{ topic.description }}</p>
         </div>
       </div>
       {% endfor %}
