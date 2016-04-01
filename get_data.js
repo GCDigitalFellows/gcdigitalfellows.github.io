@@ -1,58 +1,32 @@
 const request = require('request');
 const babyparse = require('babyparse');
-// const yaml = require('js-yaml');
+const yaml = require('js-yaml');
 const fs = require('fs-extra');
 const escape = require('escape-html');
 
-var docurl = 'https://docs.google.com/spreadsheets/d/16RfbdrnDHhRgP2iZwNw6AVSyWy5VoKn0nB0CpyMa658/pub?';
+var docurl = 'https://docs.google.com/spreadsheets/d/1e5y9HYYq-dtuGrHxVmsEieY2jB3EErWoVYxytTMnAHw/pub?';
 var dataDir = '_data/';
+var outExt = 'json';
+// var outExt = 'yml';
 
-var GDocData = function (options) {
-  options = options || {};
-  this.gdocUrlBase = options.gdocUrlBase;
-  this.gdocSheet = options.gdocSheet;
-  this.outFile = options.outFile;
-  this.outDir = options.outDir;
-  this.parseOptions = options.parseOptions || {
-    header: true,
-    skipEmptyLines: true,
-    comments: '//'
-  };
-  this.processRows = options.processRows;
-  return this;
-};
+getData({
+  gdocUrlBase: docurl,
+  gdocSheet: '863043106',
+  outFile: 'prelim.' + outExt,
+  outDir: dataDir
+});
 
-GDocData.prototype.getData = function () {
-  var gdocUrl = this.gdocUrlBase + 'gid=' + this.gdocSheet + '&single=true&output=csv';
-  var me = this;
-  request(gdocUrl, function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-      console.log('Successfully read ' + me.outFile + ' from Google Docs.');
-      var rows = babyparse.parse(body, me.parseOptions).data;
-      if (typeof me.processRows === 'function') {
-        console.log('Processing data for ' + me.outFile);
-        rows = me.processRows(rows);
-      }
-      // fs.writeFile(me.outDir + me.outFile, yaml.safeDump(rows));
-      fs.writeFile(me.outDir + me.outFile, JSON.stringify(rows));
-      console.log('Wrote data to ' + me.outFile);
-    } else {
-      console.error('Failed to get ' + me.outFile + ' data from Google Docs. \n Error: ' + error + '\nResponse: ' + response);
-    }
-  });
-};
-
-new GDocData({
+getData({
   gdocUrlBase: docurl,
   gdocSheet: '585110058',
-  outFile: 'workshops.json',
+  outFile: 'workshops.' + outExt,
   outDir: dataDir
-}).getData();
+});
 
-new GDocData({
+getData({
   gdocUrlBase: docurl,
   gdocSheet: '1411565774',
-  outFile: 'people.json',
+  outFile: 'people.' + outExt,
   outDir: dataDir,
   processRows: function (rows) {
     for (var c = 0; c < rows.length; c++) {
@@ -66,19 +40,19 @@ new GDocData({
     }
     return rows;
   }
-}).getData();
+});
 
-new GDocData({
+getData({
   gdocUrlBase: docurl,
   gdocSheet: '2001419383',
-  outFile: 'partners.json',
+  outFile: 'partners.' + outExt,
   outDir: dataDir
-}).getData();
+});
 
-new GDocData({
+getData({
   gdocUrlBase: docurl,
   gdocSheet: '1809179717',
-  outFile: 'rooms.json',
+  outFile: 'rooms.' + outExt,
   outDir: dataDir,
   processRows: function (rows) {
     var outData = {};
@@ -94,54 +68,89 @@ new GDocData({
     }
     return outData;
   }
-}).getData();
+});
 
-new GDocData({
-  gdocUrlBase: docurl,
-  gdocSheet: '470059533',
-  outFile: 'schedule.json',
-  outDir: dataDir,
-  processRows: function (rows) {
-    var outData = [];
-    var timeslot;
-    for (var i = 0; i < rows.length; i++) {
-      var row = rows[i];
-      timeslot = row.Time || timeslot;
-      if (timeslot && timeslot.indexOf('Day') > -1) {
-        outData.push({day: row.Time, date: row.Session, timeslots: []});
-      } else if (row.Session) {
-        outData[outData.length - 1].timeslots.push({
-          time: timeslot,
-          session: row.Session,
-          title: row.Title,
-          room: row.Room,
-          instructor: row.Instructors,
-          instructorlink: linkFromNames(row.Instructors, '/instructors'),
-          link: row.link
-        });
-      } else {
-        outData[outData.length - 1].timeslots.push({
-          time: row.Time,
-          title: row.Title,
-          room: row.Room
-        });
+// getData({
+//   gdocUrlBase: docurl,
+//   gdocSheet: '470059533',
+//   outFile: 'schedule.' + outExt,
+//   outDir: dataDir,
+//   processRows: function (rows) {
+//     var outData = [];
+//     var timeslot;
+//     for (var i = 0; i < rows.length; i++) {
+//       var row = rows[i];
+//       timeslot = row.Time || timeslot;
+//       if (timeslot && timeslot.indexOf('Day') > -1) {
+//         outData.push({day: row.Time, date: row.Session, timeslots: []});
+//       } else if (row.Session) {
+//         outData[outData.length - 1].timeslots.push({
+//           time: timeslot,
+//           session: row.Session,
+//           title: row.Title,
+//           room: row.Room,
+//           instructor: row.Instructors,
+//           instructorlink: linkFromNames(row.Instructors, '/instructors'),
+//           link: row.link
+//         });
+//       } else {
+//         outData[outData.length - 1].timeslots.push({
+//           time: row.Time,
+//           title: row.Title,
+//           room: row.Room
+//         });
+//       }
+//     }
+//     return outData;
+//   }
+// });
+//
+// function linkFromNames(names, urlPrefix) {
+//   var nameList = names.split(',');
+//   var links = '';
+//   for (var c = 0; c < nameList.length; c++) {
+//     var name = nameList[c].trim();
+//     if (links !== '') {
+//       links += ', ';
+//     }
+//     links += '<a href="' + urlPrefix + '/#';
+//     name = name.replace(/\s/g, '-').toLowerCase();
+//     links += name + '\">' + nameList[c].trim() + '</a>';
+//   }
+//   return links;
+// }
+
+function getData(options) {
+  options = options || {};
+  var gdocUrlBase = options.gdocUrlBase;
+  var gdocSheet = options.gdocSheet || '0';
+  var outFile = options.outFile || 'gdocdata.json';
+  var outDir = options.outDir || '_data';
+  var parseOptions = options.parseOptions || {
+    header: true,
+    skipEmptyLines: true,
+    comments: '//'
+  };
+  var processRows = options.processRows;
+  var gdocUrl = gdocUrlBase + 'gid=' + gdocSheet + '&single=true&output=csv';
+  var format = (outFile.indexOf('yml') > -1 ? 'yaml' : 'json');
+  request(gdocUrl, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      console.log('Successfully read ' + outFile + ' from Google Docs.');
+      var rows = babyparse.parse(body, parseOptions).data;
+      if (typeof processRows === 'function') {
+        console.log('Processing data for ' + outFile);
+        rows = processRows(rows);
       }
+      if (format === 'yaml') {
+        fs.writeFile(outDir + outFile, yaml.safeDump(rows));
+      } else {
+        fs.writeFile(outDir + outFile, JSON.stringify(rows));
+      }
+      console.log('Wrote data to ' + outFile);
+    } else {
+      console.error('Failed to get ' + outFile + ' data from Google Docs. \n Error: ' + error + '\nResponse: ' + response);
     }
-    return outData;
-  }
-}).getData();
-
-function linkFromNames(names, urlPrefix) {
-  var nameList = names.split(',');
-  var links = '';
-  for (var c = 0; c < nameList.length; c++) {
-    var name = nameList[c].trim();
-    if (links !== '') {
-      links += ', ';
-    }
-    links += '<a href="' + urlPrefix + '/#';
-    name = name.replace(/\s/g, '-').toLowerCase();
-    links += name + '\">' + nameList[c].trim() + '</a>';
-  }
-  return links;
+  });
 }
+
