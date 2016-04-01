@@ -13,49 +13,199 @@ permalink: /gcdrb/
         <hr class="hr-primary m-y-2">
       </div>
     </div>
-    <div class="row">
+    <div class="row m-b-2">
       <div class="col-lg-8 offset-lg-2">
         <p>The inaugural GC Digital Research Bootcamp took place over four days in January 2016. It provided participants with an opportunity to develop digital research skills and connect with others in an interdisciplinary environment. The workshops introduced a range of digital tools and methods for doing research, with multiple tracks targeted at different skillsets and disciplinary focuses.</p>
         <p>Free of charge to participants, the GC Digital Research Bootcamp was developed in partnership with Software Carpentry, the New York Public Library, Mozilla Science Lab, Humanities Intensive Learning and Teaching, and the Digital Humanities Summer Institute thanks to the sponsorship of GCDI, The Graduate Center, and The CUNY Strategic Investment Initiatives Program.</p>
         <p>Instructors included volunteers from Software Carpentry, members of the GCDI community, as well as current and past GC Digital Fellows.</p>
-        <p>We received more than three times the number of applicants as there were available spots. Applicants were selected for participation based on numerous factors, and applicants who were not selected will automatically be considered for future programs as space allows.</p>
+        <p>Interest in the Bootcamp surpassed our expectations—we received more than three times the number of applicants as there were available spots. Applicants were selected for participation based on numerous factors, and applicants who were not selected will automatically be considered for future programs as space allows.</p>
       </div>
     </div>
+  </div>
+  <div class="row text-xs-center">
+    <a href="#workshops" class="page-scroll m-a-1 btn btn-primary">Explore Past Workshops</a>
+    <a href="#schedule" class="page-scroll m-a-1 btn btn-primary">See the Previous Schedule</a>
+    <a href="{{ '/' | prepend: site.baseurl }}" class="m-a-1 btn btn-info">Return Home</a>
   </div>
 </section>
 
-<section id="topics">
+<section id="workshops">
   <div class="container">
   <div class="row row-heading">
     <div class="col-lg-12">
-      <h2 class="section-heading center-block">Topics</h2>
-      <!-- <hr class="hr&#45;primary"> -->
+      <h2 class="section-heading center-block">Workshops</h2>
+      <hr class="hr-primary">
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <div class="col-lg-8 offset-lg-2">
+      <p>The following are the workshops that were offered during the Digital Research Bootcamp in January 2016. Please note that <strong>future Digital Research Institutes will offer different workshops</strong>. This is an archive of our previous offerings to give you a sense of the types of materials and topics you might expect from future programs. Additionally, future workshops will likely utilize a different structure, incorporate different materials and examples, and cover different topic areas even if the workshops are similarly titled.</p>
     </div>
   </div>
   <div class="row">
-    {% assign sorted = site.data.workshops %}
-    {% for topic in sorted %}
-    <div class="col-sm-6 col-md-4 col-xl-3">
-      <div class="card card-block text-xs-center">
-        <span class="fa-stack fa-2x wow bounceIn text-info">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
-        </span>
-        <h4 class="card-title">{{topic.title}}</h4>
-        <p class="card-text">{{topic.tagline}}</p>
-        <a class="btn btn-primary" href="{{  topic.link | prepend: '/workshops/#' | prepend: site.baseurl }}">More</a>
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card" id="terminal">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Command Line">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-command-line"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Command Line</h4>
+          <p class="card-text">Introduction to the UNIX command line. Topics covered will include navigating the filesystem, manipulating the environment, executing useful commands, and using pipes to communicate between programs. This session will teach you how to communicate directly with your computer’s operating system using a text-based interface and is a useful first step in learning many other technical skills. For more information, visit: http://swcarpentry.github.io/shell-novice/</p>
+        </div>
       </div>
+      <div class="card" id="git">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Git">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-git"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Git and GitHub</h4>
+          <p class="card-text">Git is a tool for managing changes to a set of files. It allows users to access open source repositories, recover earlier versions of a project, and collaborate with other contributors. This session will be beneficial to anyone working with data, code, or text. For more information, visit: http://swcarpentry.github.io/git-novice/</p>
+        </div>
+      </div>
+      <div class="card" id="python">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Python">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-python"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Python</h4>
+          <p class="card-text">Python is a programming language that can be used for a wide range of tasks, including collecting and analyzing data and building web applications. It is likely the most popular language for academic researchers. This session will be useful for anyone who wants to take a programmatic approach to research. For more information visit: http://swcarpentry.github.io/python-novice-inflammation/
+</p>
+        </div>
+      </div>
+      <div class="card" id="data">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Data Cleaning">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-data-cleaning"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Data Cleaning</h4>
+          <p class="card-text">Working with real-world data is often messy and complicated. This session is an overview of some common problems that arise when working with datasets, including converting between file types, resolving inconsistent metadata, and working with APIs.
+</p>
+        </div>
+      </div>
+      <div class="card" id="databases">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Data Formats">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-databases"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Data Formats</h4>
+          <p class="card-text">This session will go more in-depth into the different types of data researchers work with and the challenges that commonly arise when trying to clean data and prepare it for analysis. This session will be beneficial to anyone who needs to convert between data types, has large amounts of data to work with, or may encounter missing or messy data.</p>
+        </div>
+      </div>
+      <div class="card" id="twitter">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Twitter API">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Twitter API</h4>
+          <p class="card-text">This session will cover the basics of accessing data via the Twitter API. including specific challenges that arise when working with large, text-based data sets. This session will be beneficial for anyone who wants to collect data from Twitter or other social networks. </p>
+        </div>
+      </div>
+      <div class="card" id="scipy">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Scientific Python">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-scipy"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Scientific Python</h4>
+          <p class="card-text">This session will discuss how to work with N-dimensional array data using numpy and scipy. It will discuss tools for efficiently filtering data, methods for statistically analysing data, linear algebra routines, and various signal processing routines. This session will also discuss how to use masked arrays to work with missing values. This session is aimed towards researchers working with N-dimensional quantitative data. </p>
+        </div>
+      </div>
+      
+      <div class="card" id="html">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="HTML, CSS, and Javascript">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-html"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">HTML, CSS, and Javascript</h4>
+          <p class="card-text">Modern web pages are created using HTML to control content, CSS to control appearance, and JavaScript to dictate behavior. This session will be helpful for anyone that wants to build on the web.</p>
+        </div>
+      </div>
+      
+      <div class="card" id="viza">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Data Visualization">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-data-viz-a"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Data Visualization</h4>
+          <p class="card-text">Communicating your findings can be just as important as getting those findings in the first place. This session will introduce ways to visually represent complex data (text-based, numerical, and temporal) in order to reach a wider audience. </p>
+        </div>
+      </div>
+      
+      <div class="card" id="nltk">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Text Analysis with NLTK">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-nltk"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Text Analysis with NLTK</h4>
+          <p class="card-text">The Natural Language Toolkit (NLTK) is a Python library that allows researchers to work with text-based data, such as literary works or social media corpora. Through attending this session, you will learn how to use Python to analyze large amounts of text to find word frequencies, collocations, and other patterns invisible from a non-computational perspective. This session will be of particular use to researchers who work with any form of text-based data.</p>
+        </div>
+      </div>
+      
+      <div class="card" id="identity">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Digital Identity with Wordpress">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-digital-identity"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Digital Identity with WordPress</h4>
+          <p class="card-text">This session will discuss the basics of building a digital academic identity in online spaces to effectively showcase your research and network with scholars in your field. We will use the CUNY Academic Commons to explore personal website creation using the WordPress platform, and will review best practices for organization and design, theme editing, content management, blogging, and image use. Participants who have ideas for project-based or personal websites are welcome to begin implementing these in this session. </p>
+        </div>
+      </div>
+      
+      <div class="card" id="gis">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="GIS">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-gis"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">GIS with CartoDB</h4>
+          <p class="card-text">These sessions will explore the basics of mapping and geospatial representation of data and applythat knowledge to make maps, visualize spatial relationships and analyze spatial data on CartoDB. This session will be useful for anyone whose data has a spatial component or who wants to incorporate spatial relationships into their analysis.</p>
+        </div>
+      </div>
+      
+      <div class="card" id="ml">
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Machine Learning">
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+            <!-- <a href="http://github.com/gcdigitalfellows/gcdrb-machine-learning"
+                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+          </div>
+          <h4 class="card-title">Machine Learning</h4>
+          <p class="card-text">This session will introduce regression analysis, data preprocessing, model selection, supervised and unsupervised machine learning and dimension reduction using the sklearn machine learning library. This session is aimed towards researchers who want to find patterns in their data or use their data to predict a phenomena. </p>
+        </div>
+      </div>
+      
     </div>
-    {% endfor %}
-  </div>
   </div>
 </section>
 
 <section id="schedule">
   <div class="container">
-    <div class="row row-headin row-headingg">
+    <div class="row row-heading">
       <div class="col-lg-12">
-        <h2 class="section-heading center-block">Daily Schedule</h2>
+        <h2 class="section-heading center-block">Past DRB Schedule</h2>
+        <hr class="hr-primary">
       </div>
     </div>
     <div class="row">
