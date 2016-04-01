@@ -49,6 +49,13 @@ gulp.task('fonts', function () {
 
 gulp.task('images', function () {
   return gulp.src(['_images/*'])
+    .pipe($.plumber({
+      handleError: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
+    .pipe($.newer('images'))
     .pipe($.imagemin({
       progressive: true,
       svgoPlugins: [
@@ -60,19 +67,27 @@ gulp.task('images', function () {
     .pipe(gulp.dest('_site/images/'));
 });
 
+var jekyllInc = 0;
+
 gulp.task('jekyll', function (done) {
   commandExists('bundle', function (err, commandExists) {
-    if (err !== null) {
+    var jekyllCmd = jekyll;
+    var jekyllParams = ['build'];
+    if (err) {
       console.log(err);
-    } else if (commandExists) {
-      console.log('Starting Jekyll using Bundler');
-      spawn('bundle', ['exec', jekyll, 'build'], {stdio: 'inherit'})
-      .on('exit', function (code) {
-        done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
-      });
+      browserSync.notify(err);
+      done();
     } else {
-      console.log('Starting Jekyll without Bundler');
-      spawn(jekyll, ['build'], {stdio: 'inherit'})
+      if (commandExists) {
+        jekyllCmd = 'bundle';
+        jekyllParams = ['exec', jekyll, 'build'];
+      }
+      if (jekyllInc) {
+        jekyllParams.push('--incremental');
+      }
+      console.log('Starting Jekyll');
+      browserSync.notify('Building Jekyll');
+      spawn(jekyllCmd, jekyllParams, {stdio: 'inherit'})
       .on('exit', function (code) {
         done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
       });
@@ -80,24 +95,10 @@ gulp.task('jekyll', function (done) {
   });
 });
 
-gulp.task('jekyll:incremental', function (done) {
-  commandExists('bundle', function (err, commandExists) {
-    if (err !== null) {
-      console.log(err);
-    } else if (commandExists) {
-      console.log('Compiling Jekyll incrementally using Bundler');
-      spawn('bundle', ['exec', jekyll, 'build', '--incremental'], {stdio: 'inherit'})
-      .on('exit', function (code) {
-        done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
-      });
-    } else {
-      console.log('Compiling Jekyll incrementally without Bundler');
-      spawn(jekyll, ['build', '--incremental'], {stdio: 'inherit'})
-      .on('exit', function (code) {
-        done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
-      });
-    }
-  });
+gulp.task('jekyll:incremental', () => {
+  jekyllInc = 1;
+  gulp.start('jekyll');
+  browserSync.reload();
 });
 
 // 'gulp lint' -- check your JS for formatting errors using XO Space
@@ -107,6 +108,12 @@ gulp.task('lint', () =>
     'js/**/*.js',
     '!js/**/*.min.js'
   ])
+  .pipe($.plumber({
+    handleError: function (err) {
+      console.log(err);
+      this.emit('end');
+    }
+  }))
   .pipe($.eslint())
   .pipe($.eslint.formatEach())
   .pipe($.eslint.failOnError())
@@ -114,6 +121,12 @@ gulp.task('lint', () =>
 
 gulp.task('scripts', function () {
   return gulp.src('js/main.js')
+    .pipe($.plumber({
+      handleError: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe($.if(!isProduction, $.sourcemaps.init()))
     .pipe($.concat('main.min.js'))
     .pipe($.if(isProduction, $.uglify({preserveComments: 'some'})))
@@ -136,6 +149,12 @@ gulp.task('scripts:vendor', function () {
     'bower_components/bootstrap-validator/dist/validator.min.js'
     // 'bower_components/bootstrap/dist/js/umd/scrollspy.js'
   ])
+    .pipe($.plumber({
+      handleError: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe($.sourcemaps.init())
     .pipe($.concat('vendor.js'))
     .pipe($.rename({suffix: '.min'}))
@@ -150,6 +169,13 @@ gulp.task('scripts:vendor', function () {
 
 gulp.task('styles', function () {
   return gulp.src('_sass/style.scss')
+    .pipe($.plumber({
+      handleError: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
+    .pipe($.newer('css'))
     .pipe($.if(!isProduction, $.sourcemaps.init()))
     .pipe($.sass({
       precision: 10,
@@ -175,6 +201,12 @@ gulp.task('styles:vendor', function () {
     'bower_components/font-awesome/css/font-awesome.min.css',
     'bower_components/font-mfizz/css/font-mfizz.css'
   ])
+  .pipe($.plumber({
+    handleError: function (err) {
+      console.log(err);
+      this.emit('end');
+    }
+  }))
   .pipe($.if(!isProduction, $.sourcemaps.init()))
   .pipe($.concat('vendor.min.css'))
   .pipe($.postcss([
@@ -228,23 +260,26 @@ gulp.task('serve', ['build'], () => {
   // Jekyll
   gulp.watch([
     '_config.yml',
-    '**/*.md',
-    '**/*.markdown',
-    '**/*.html',
-    '_data/yml',
-    '_data/*.json',
-    '!_site/',
-    '!_js/',
-    '!_css/',
-    '!_scss/',
-    '!images/',
-    '!_images/',
-    '!bower_components/',
-    '!node_modules/'
-  ], {interval: 500}, [
-    'jekyll:incremental',
-    browserSync.reload
-  ]);
+    './**/*.{md,markdown,html}',
+    '_data/*.{json,yml}',
+    '!./_site/**',
+    '!./_js/**',
+    '!./_css/**',
+    '!./_scss/**',
+    '!./images/**',
+    '!./_images/**',
+    '!./bower_components/**',
+    '!./node_modules/**'
+  ], {
+    interval: 500,
+    name: 'jekyll',
+    readDelay: 50
+  }, function (event) {
+    console.log('File ' + event.path + ' was ' + event.type);
+    gulp.start([
+      'jekyll:incremental'
+    ]);
+  });
 
   // Assets
   gulp.watch(['js/**/*.js'], {interval: 500}, ['scripts', browserSync.reload]);
