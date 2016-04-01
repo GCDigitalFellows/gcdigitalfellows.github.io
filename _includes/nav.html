@@ -13,7 +13,16 @@
 
     <div class="collapse navbar-toggleable-md pull-right" id="bs-navbar-collapse-1" aria-expanded="false">
       <ul class="nav navbar-nav">
-      {% include nav-menu.html menu=include.menu %}
+      {% for link in site.data.menus.main %}
+        {% if link.name == page.title %}
+          <li class="nav-item active">
+            <a class="nav-link active {{link.class}}" href="#">{{ link.name }}</a>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link {{link.class}}" href="{{ link.href | prepend: site.baseurl }}">{{ link.name }}</a>
+        {% endif %}
+          </li>
+      {% endfor %}
       </ul>
     </div>
   </nav>
