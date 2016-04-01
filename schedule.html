@@ -20,50 +20,30 @@ show_materials: false
     </div>
   </div>
   <div class="row">
-    <div class="col-md-10 offset-md-1">
-      {% for day in site.data.schedule %}
-        <h4 class="table-info" id="{{day.day | slugify}}">{{day.day}}: {{day.date}}</h4>
-        <table class="table table-striped">
+    <div class="col-md-8 offset-md-2">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered" >
           <thead class="thead-inverse">
-            <th>Time</th>
-            <th class="hidden-md-down">Session</th>
-            <th>Topic</th>
-            <th>Room</th>
-            <th class="hidden-xs-down">Instructor(s)</th>
-            {% if page.show_materials %}
-              <th class="hidden-xs-down">Materials</th>
-            {% endif %}
+            <th>Session</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
           </thead>
-          {% for timeslot in day.timeslots %}
-            <tr>
-            {% if timeslot.time and lasttimeslot != timeslot.time %}
-              <td>{{timeslot.time}}</td>
-            {% else %}
-            <td></td>
-            {% endif %}
-            {% if timeslot.session %}
-              <td class="hidden-md-down">{{timeslot.session}}</td>
-              <td><a href="{{ '/workshops/#' | append: timeslot.link | prepend: site.baseurl }}">{{timeslot.title}}</a></td>
-            {% else %}
-              <td class="hidden-md-down"></td>
-              <td>{{timeslot.title}}</td>
-            {% endif %}
-            <td><a
-                href="{{ '/rooms/#' | append: timeslot.room | prepend: site.baseurl }}">{{site.data.rooms[timeslot.room].name}}</a></td>
-            <td class="hidden-xs-down">{{timeslot.instructorlink | replace: '="/',
-              '="zzzz/' | replace: 'zzzz', site.baseurl}}</td>
-            {% if page.show_materials %}
-              {% if timeslot.repo %}
-                <td class="hidden-xs-down"><a href="{{timeslot.repo}}">repo</a></td>
+          {% for session in site.data.prelim %}
+          <tr>
+            {% for day in session %}
+              {% if day[0] == 'time' %}
+                <th scope="row">{{day[1]}}</th>
               {% else %}
-                <td></td>
+                <td>{{day[1]}}</td>
               {% endif %}
-            {% endif %}
+            {% endfor %}
           </tr>
-          {% assign lasttimeslot = timeslot.time %}
           {% endfor %}
         </table>
-      {% endfor %}
+      </div>
     </div>
   </div>
 </section>
