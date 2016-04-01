@@ -246,12 +246,17 @@ var browserSyncConfig = {
   server: {
     baseDir: ['_site']
   },
-  open: true,
+  open: 'local',
   browser: [
     // 'safari',
     // 'firefox',
-    'chrome'
-  ]
+    'google chrome'
+  ],
+  injectChanges: true,
+  reloadDebounce: 2000,
+  reloadDelay: 500,
+  reloadOnRestart: true,
+  scrollThrottle: 100
 };
 
 gulp.task('serve', ['build'], () => {
