@@ -400,10 +400,6 @@ section {
   padding: 5rem 0;
 }
 
-aside {
-  padding: 50px 0;
-}
-
 main {
   @include media-breakpoint-up(lg) {
     position: relative;
