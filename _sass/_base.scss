@@ -11,7 +11,6 @@ body {
 
 body {
   @include serif-font;
-  background-color: $white;
   position: relative;
 }
 
@@ -19,38 +18,18 @@ body {
 // *******************************************************************
 // HR {{{
 // *******************************************************************
-.hr {
+.hr-light {
+  border-color: $white;
   border-width: .2rem;
   margin: 3rem auto;
   max-width: 10rem;
+}
 
-  &.hr-accent {
-    border-color: $brand-accent;
-  }
-
-  &.hr-alternate {
-    border-color: $brand-alternate;
-  }
-
-  &.hr-dark {
-    border-color: $brand-dark;
-  }
-
-  &.hr-light {
-    border-color: $brand-light;
-  }
-
-  &.hr-primary {
-    border-color: $brand-primary;
-  }
-
-  &.hr-black {
-    border-color: $black;
-  }
-
-  &.hr-white {
-    border-color: $white;
-  }
+.hr-primary {
+  border-color: $theme-primary;
+  border-width: .2rem;
+  margin: 3rem auto;
+  max-width: 10rem;
 }
 
 // }}}
@@ -59,13 +38,13 @@ body {
 // *******************************************************************
 a {
   @include transition-all;
-  color: $brand-primary;
+  color: $theme-primary;
   display: inline-block;
   position: relative;
   text-decoration: none;
 
   &::before {
-    background-color: darken($brand-primary, 10%);
+    background-color: darken($theme-primary, 10%);
     bottom: 0;
     content: "";
     display: block;
@@ -80,7 +59,7 @@ a {
 
   &:hover,
   &:focus {
-    color: darken($brand-primary, 10%);
+    color: darken($theme-primary, 10%);
     text-decoration: none;
 
     &::before {
@@ -89,7 +68,8 @@ a {
     }
   }
 
-  &.btn::before {
+  &.btn::before,
+  &.navbar-brand::before {
     background-color: transparent;
   }
 }
@@ -118,19 +98,12 @@ h6 {
 }
 
 .row-heading {
-  margin-bottom: 1rem;
-  padding-bottom: 2rem;
-  padding-top: 5rem;
-  text-align: left;
-
-  @include media-breakpoint-down(md) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+  text-align: center;
 }
 
 .section-heading {
   margin-top: 0;
+  display: inline;
 }
 
 // }}}
@@ -138,20 +111,11 @@ h6 {
 //  Accent and Background Colors {{{
 // *******************************************************************
 .bg-theme {
-  background-color: $brand-primary;
+  background-color: $theme-primary;
 }
 
 .bg-alternate {
-  background-color: $brand-alternate;
-  color: $white;
-
-  a {
-    color: rgba($white, .6);
-  }
-}
-
-.bg-accent {
-  background-color: $brand-accent;
+  background-color: $theme-alternate;
   color: $white;
 
   a {
@@ -160,21 +124,8 @@ h6 {
 }
 
 .bg-dark {
-  background-color: $brand-dark;
+  background-color: $theme-dark;
   color: $white;
-
-  a {
-    color: rgba($white, .6);
-  }
-}
-
-.bg-light {
-  background-color: $brand-light;
-  color: $brand-dark;
-
-  a {
-    color: rgba($brand-dark, .6);
-  }
 }
 
 .text-faded {
@@ -185,58 +136,6 @@ h6 {
   }
 }
 
-.text-accent {
-  color: $brand-accent;
-}
-
-.text-alternate {
-  color: $brand-alternate;
-}
-
-.text-dark {
-  color: $brand-dark;
-}
-
-.text-light {
-  color: $brand-light;
-}
-
-.text-black {
-  color: $black;
-}
-
-.text-white {
-  color: $white;
-}
-
-.fa-inverse {
-  color: $white;
-}
-
-// }}}
-// *******************************************************************
-// Buttons {{{
-// *******************************************************************
-.btn {
-  @include sans-serif-font;
-  // border: 0;
-  // border-radius: 300px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.btn-xl {
-  padding: 15px 30px;
-}
-
-.btn-accent {
-  @include button-variant($white, $brand-accent, $brand-accent);
-}
-
-.btn-primary {
-  color: $white;
-}
-
 // }}}
 // *******************************************************************
 // Navigation {{{
@@ -244,6 +143,8 @@ h6 {
 .navbar-default {
   @include sans-serif-font;
   @include transition-all;
+  background-color: $white;
+  border-color: rgba($theme-dark, .5);
   min-height: 3rem;
 
   .navbar-brand {
@@ -256,40 +157,38 @@ h6 {
   }
 }
 
+@include media-breakpoint-down(md) {
+  .navbar-nav .nav-item {
+    float: none;
+    margin-right: 1rem;
+    text-align: right;
+  }
+
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 0;
+  }
+}
+
 .nav > li {
   > a,
   > a:focus {
-    color: $brand-dark;
+    color: $theme-dark;
     font-size: .8rem;
     font-weight: 700;
     text-transform: uppercase;
 
     &:hover {
-      color: $brand-primary;
+      color: $theme-primary;
     }
   }
 
   &.active > a,
   &.active > a:focus {
     background-color: transparent;
-    color: $brand-primary;
+    color: $theme-primary;
 
     &:hover {
       background-color: transparent;
-    }
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .navbar-nav {
-    .nav-item {
-      float: none;
-      margin-right: 1rem;
-      text-align: right;
-
-      + .nav-item {
-        margin-left: 0;
-      }
     }
   }
 }
@@ -315,15 +214,25 @@ h6 {
   }
 
   &.shadedheader {
-    background-color: $brand-dark;
-    border-color: rgba($brand-dark, .5);
+    background-color: $white;
+    border-bottom: .1rem solid rgba($black, .1);
+
+    .navbar-header .navbar-brand {
+      color: $theme-primary;
+      font-size: .8rem;
+
+      &:hover,
+      &:focus {
+        color: darken($theme-primary, 10%);
+      }
+    }
 
     .nav > li > a,
     .nav > li > a:focus {
-      color: $white;
+      color: $theme-dark;
 
       &:hover {
-        color: rgba($white, .5);
+        color: $theme-primary;
       }
     }
   }
@@ -375,10 +284,10 @@ header {
       max-width: 1000px;
 
       p {
-        font-size: 18px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80%;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80%;
       }
     }
   }
@@ -391,6 +300,7 @@ header {
   width: 100%;
 
   .header-content-inner {
+    color: rgba($white, .7);
     font-size: 1rem;
     font-weight: 300;
     margin-bottom: 5rem;
@@ -409,11 +319,7 @@ header {
 // Sections, General {{{
 // *******************************************************************
 section {
-  margin-bottom: 5rem;
-//   margin-left: auto;
-//   margin-right: auto;
-//   padding-left: 15px;
-//   padding-right: 15px;
+  padding: 100px 0;
 }
 
 aside {
@@ -428,7 +334,7 @@ main {
 }
 
 footer {
-  background-color: $brand-dark;
+  background-color: $theme-dark;
   color: $gray-lightest;
 }
 
@@ -444,21 +350,13 @@ footer {
   display: inline-block;
 }
 
-// }}}
-// *******************************************************************
-// Cards {{{
-// *******************************************************************
-.card {
-  background-color: $white;
+.card.card-partner {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 
-  &.card-partner {
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-
-    @include media-breakpoint-up(sm) {
-      vertical-align: middle;
-    }
+  @include media-breakpoint-up(sm) {
+    vertical-align: middle;
   }
 }
 
@@ -496,17 +394,9 @@ footer {
 // *******************************************************************
 // Helpers {{{
 // *******************************************************************
-.no-gutter > [class*='col-'] {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 .row-padded {
-  @include media-breakpoint-down(md) {
-    padding-bottom: 1rem;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 1rem;
+  @include media-breakpoint-down(xs) {
+    padding: 1rem;
   }
 }
 
