@@ -1,11 +1,6 @@
 <section id="contact">
   <div class="container">
-    <div class="row row-heading">
-      <div class="col-md-9 offset-md-1">
-        <h2 class="section-heading center-block">Contact the Digital Fellows</h2>
-        <hr class="hr-primary">
-      </div>
-    </div>
+    {% include section-header.html title="Contact the Digital Fellows" color="primary" %}
     <div class="row row-padded">
       <div class="col-xs-12">
         <form id="contactform" action="//formspree.io/{{site.author.email}}" method="POST">

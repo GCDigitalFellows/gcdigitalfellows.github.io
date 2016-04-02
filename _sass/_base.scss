@@ -11,6 +11,7 @@ body {
 
 body {
   @include serif-font;
+  background-color: $white;
   position: relative;
 }
 
@@ -18,18 +19,56 @@ body {
 // *******************************************************************
 // HR {{{
 // *******************************************************************
-.hr-light {
+.hr {
   border-color: $white;
   border-width: .2rem;
   margin: 3rem auto;
   max-width: 10rem;
-}
 
-.hr-primary {
-  border-color: $theme-primary;
-  border-width: .2rem;
-  margin: 3rem auto;
-  max-width: 10rem;
+  &.hr-primary {
+    border-color: $brand-primary;
+  }
+
+  &.hr-secondary {
+    border-color: $brand-secondary;
+  }
+
+  &.hr-success {
+    border-color: $brand-success;
+  }
+
+  &.hr-info {
+    border-color: $brand-info;
+  }
+
+  &.hr-warning {
+    border-color: $brand-warning;
+  }
+
+  &.hr-danger {
+    border-color: $brand-danger;
+  }
+
+  &.hr-accent {
+    border-color: $brand-accent;
+  }
+
+  &.hr-dark {
+    border-color: $brand-dark;
+  }
+
+  &.hr-light {
+    border-color: $brand-light;
+  }
+
+
+  &.hr-black {
+    border-color: $black;
+  }
+
+  &.hr-white {
+    border-color: $white;
+  }
 }
 
 // }}}
@@ -37,29 +76,28 @@ body {
 // Anchors {{{
 // *******************************************************************
 a {
-  @include transition-all;
-  color: $theme-primary;
+  color: $brand-primary;
   display: inline-block;
   position: relative;
   text-decoration: none;
+  transition: .15s;
 
   &::before {
-    background-color: darken($theme-primary, 10%);
+    background-color: darken($brand-primary, 10%);
     bottom: 0;
     content: "";
     display: block;
-    height: 2px;
+    height: .1rem;
     left: 0;
     position: absolute;
     transform: scaleX(0);
-    @include transition-all;
+    transition: .15s;
     visibility: hidden;
     width: 100%;
   }
 
-  &:hover,
-  &:focus {
-    color: darken($theme-primary, 10%);
+  @include hover-focus {
+    color: darken($brand-primary, 10%);
     text-decoration: none;
 
     &::before {
@@ -68,6 +106,7 @@ a {
     }
   }
 
+  &.no-animate::before,
   &.btn::before,
   &.navbar-brand::before {
     background-color: transparent;
@@ -103,37 +142,63 @@ h6 {
 
 .section-heading {
   margin-top: 0;
-  display: inline;
 }
 
 // }}}
 // *******************************************************************
-//  Accent and Background Colors {{{
+//  Background Colors {{{
 // *******************************************************************
-.bg-theme {
-  background-color: $theme-primary;
-}
+@include background-color('.bg-primary', $white, $brand-primary);
+@include background-color('.bg-secondary', $white, $brand-secondary);
+@include background-color('.bg-info', $white, $brand-info);
+@include background-color('.bg-success', $white, $brand-success);
+@include background-color('.bg-warning', $white, $brand-warning);
+@include background-color('.bg-danger', $white, $brand-danger);
+@include background-color('.bg-accent', $white, $brand-accent);
+@include background-color('.bg-dark', $white, $brand-dark);
+@include background-color-link('.bg-light', $black, $brand-light, $gray-dark, $gray);
+@include background-color('.bg-black', $white, $black);
 
-.bg-alternate {
-  background-color: $theme-alternate;
+// }}}
+// *******************************************************************
+// Text Colors {{{
+// *******************************************************************
+@include text-emphasis-overload('.text-primary', $brand-primary);
+@include text-emphasis-overload('.text-secondary', $brand-secondary);
+@include text-emphasis-overload('.text-info ', $brand-info);
+@include text-emphasis-overload('.text-success', $brand-success);
+@include text-emphasis-overload('.text-warning', $brand-warning);
+@include text-emphasis-overload('.text-danger', $brand-danger);
+@include text-emphasis-overload('.text-accent', $brand-accent);
+@include text-emphasis-overload('.text-dark', $brand-dark);
+@include text-emphasis-overload('.text-light', $brand-light);
+@include text-emphasis-overload('.text-black', $black);
+@include text-emphasis-overload('.text-white', $white);
+
+.fa-inverse {
   color: $white;
-
-  a {
-    color: rgba($white, .6);
-  }
 }
 
-.bg-dark {
-  background-color: $theme-dark;
-  color: $white;
+// }}}
+// *******************************************************************
+// Buttons {{{
+// *******************************************************************
+.btn {
+  @include sans-serif-font;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.text-faded {
-  color: rgba($white, .6);
+.btn-xl {
+  padding: 15px 30px;
+}
 
-  a {
-    color: $white;
-  }
+.btn-accent {
+  @include button-variant($btn-accent-color, $btn-accent-bg, $btn-accent-border);
+}
+
+.btn-outline-accent {
+  @include button-outline-variant($btn-accent-bg);
 }
 
 // }}}
@@ -143,8 +208,8 @@ h6 {
 .navbar-default {
   @include sans-serif-font;
   @include transition-all;
-  background-color: $white;
-  border-color: rgba($theme-dark, .5);
+  // background-color: $white;
+  // border-color: rgba($brand-dark, .5);
   min-height: 3rem;
 
   .navbar-brand {
@@ -157,38 +222,40 @@ h6 {
   }
 }
 
-@include media-breakpoint-down(md) {
-  .navbar-nav .nav-item {
-    float: none;
-    margin-right: 1rem;
-    text-align: right;
-  }
-
-  .navbar-nav .nav-item + .nav-item {
-    margin-left: 0;
-  }
-}
-
 .nav > li {
   > a,
   > a:focus {
-    color: $theme-dark;
+    color: $brand-dark;
     font-size: .8rem;
     font-weight: 700;
     text-transform: uppercase;
 
     &:hover {
-      color: $theme-primary;
+      color: $brand-primary;
     }
   }
 
   &.active > a,
   &.active > a:focus {
     background-color: transparent;
-    color: $theme-primary;
+    color: $brand-primary;
 
     &:hover {
       background-color: transparent;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .navbar-nav {
+    .nav-item {
+      float: none;
+      margin-right: 1rem;
+      text-align: right;
+
+      + .nav-item {
+        margin-left: 0;
+      }
     }
   }
 }
@@ -214,25 +281,15 @@ h6 {
   }
 
   &.shadedheader {
-    background-color: $white;
-    border-bottom: .1rem solid rgba($black, .1);
-
-    .navbar-header .navbar-brand {
-      color: $theme-primary;
-      font-size: .8rem;
-
-      &:hover,
-      &:focus {
-        color: darken($theme-primary, 10%);
-      }
-    }
+    background-color: $nav-shaded;
+    border-bottom: .1rem solid rgba($nav-shaded, .1);
 
     .nav > li > a,
     .nav > li > a:focus {
-      color: $theme-dark;
+      color: $white;
 
       &:hover {
-        color: $theme-primary;
+        color: rgba($white, .5);
       }
     }
   }
@@ -284,10 +341,10 @@ header {
       max-width: 1000px;
 
       p {
-	font-size: 18px;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 80%;
+        font-size: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
       }
     }
   }
@@ -300,7 +357,6 @@ header {
   width: 100%;
 
   .header-content-inner {
-    color: rgba($white, .7);
     font-size: 1rem;
     font-weight: 300;
     margin-bottom: 5rem;
@@ -319,7 +375,7 @@ header {
 // Sections, General {{{
 // *******************************************************************
 section {
-  padding: 100px 0;
+  padding: 5rem 0;
 }
 
 aside {
@@ -331,11 +387,6 @@ main {
     position: relative;
     top: 0;
   }
-}
-
-footer {
-  background-color: $theme-dark;
-  color: $gray-lightest;
 }
 
 // }}}
@@ -350,13 +401,21 @@ footer {
   display: inline-block;
 }
 
-.card.card-partner {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+// }}}
+// *******************************************************************
+// Cards {{{
+// *******************************************************************
+.card {
+  background-color: $white;
 
-  @include media-breakpoint-up(sm) {
-    vertical-align: middle;
+  &.card-partner {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+
+    @include media-breakpoint-up(sm) {
+      vertical-align: middle;
+    }
   }
 }
 
@@ -394,9 +453,17 @@ footer {
 // *******************************************************************
 // Helpers {{{
 // *******************************************************************
+.no-gutter > [class*='col-'] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .row-padded {
-  @include media-breakpoint-down(xs) {
-    padding: 1rem;
+  @include media-breakpoint-down(md) {
+    padding-bottom: 1rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 1rem;
   }
 }
 

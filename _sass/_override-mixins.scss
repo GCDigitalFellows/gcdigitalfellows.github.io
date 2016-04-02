@@ -6,48 +6,67 @@
   background-size: cover;
 }
 
-// @mixin button-variant($color, $background, $border) {
-//   color: $color;
-//   background-color: $background;
-//   border-color: $border;
-//   @include transition-all;
-//
-//   &:hover,
-//   &:focus,
-//   &.focus,
-//   &:active,
-//   &.active,
-//   .open > .dropdown-toggle & {
-//     color: $color;
-//     background-color: darken($background, 5%);
-//     border-color: darken($border, 7%);
-//   }
-//
-//   &:active,
-//   &.active,
-//   .open > .dropdown-toggle & {
-//     background-image: none;
-//   }
-//
-//   &.disabled,
-//   &[disabled],
-//   fieldset[disabled] & {
-//     &,
-//     &:hover,
-//     &:focus,
-//     &.focus,
-//     &:active,
-//     &.active {
-//       background-color: $background;
-//       border-color: $border;
-//     }
-//   }
-//
-//   .badge {
-//     color: $background;
-//     background-color: $color;
-//   }
-// }
+@mixin anchor($color) {
+  a {
+    color: darken($color, 25%);
+
+    @include hover-focus {
+      color: $color;
+    }
+
+    &::before {
+      background-color: $color;
+    }
+
+    &.no-animate::before {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin anchor-hover($color, $hover) {
+  a {
+    color: $color;
+
+    @include hover-focus {
+      color: $hover;
+    }
+
+    &::before {
+      background-color: $hover;
+    }
+
+    &.no-animate::before {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin background-color($parent, $color, $background) {
+  #{$parent} {
+    background-color: $background;
+    color: $color;
+
+    @include anchor($color);
+  }
+}
+
+@mixin background-color-link($parent, $color, $background, $link, $hover) {
+  #{$parent} {
+    background-color: $background;
+    color: $color;
+
+    @include anchor-hover($link, $hover);
+  }
+}
+
+@mixin text-emphasis-overload($parent, $color) {
+  #{$parent} {
+    color: $color;
+
+    @include anchor($color);
+  }
+}
 
 @mixin sans-serif-font() {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;

@@ -5,50 +5,52 @@ permalink: /rooms/
 regenerate: true
 ---
 
-<section id="content" class="container">
-  <div class="row" id="top">
-    <div class="col-md-8 offset-md-2">
-      <h2 class="text-xs-center p-b-1">Bootcamp Location and Rooms</h2>
-      <p>The Digital Research Bootcamp will be held at the Graduate Center, CUNY.
-      All of the workshops will take place on the fourth floor. Group sessions
-      will be held in the Science Center, Room 4102, and breakout sessions will be
-      held in Rooms 4419 and 4422 according to the <a href="/schedule/">schedule</a>.</p>
+<section id="content">
+  <div class="container">
+    {% include section-header.html title="GCDRI Facilities and Rooms" color="secondary" %}
+    <div class="row" id="top">
+      <div class="col-md-8 offset-md-2">
+        <p>The Digital Research Bootcamp will be held at the Graduate Center, CUNY.
+        All of the workshops will take place on the fourth floor. Group sessions
+        will be held in the Science Center, Room 4102, and breakout sessions will be
+        held in Rooms 4419 and 4422 according to the <a href="/schedule/">schedule</a>.</p>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h3 class="text-xs-center m-t-3 m-b-1">Room Locations</h3>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Room</th>
-            <th>Capacity</th>
-            <th>Location</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for room in site.data.rooms %}
-          <tr>
-            <td id="{{room[0]}}">{{room[1].name}}</td>
-            <td>{{room[1].capacity}}</td>
-            <td>{{room[1].location}}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h3 class="text-xs-center m-t-3 m-b-1">Room Locations</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Capacity</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for room in site.data.rooms %}
+            <tr>
+              <td id="{{room[0]}}">{{room[1].name}}</td>
+              <td>{{room[1].capacity}}</td>
+              <td>{{room[1].location}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h3 class="text-xs-center m-t-3 m-b-1">Getting to the Graduate Center</h3>
-      <p>The Graduate Center, CUNY is located at 365 Fifth Avenue, New York, NY
-      10016</p>
-      <p>The easiest way to get to the Graduate Center is by taking the BDMFNRQ
-      trains to 34th St./Herald Square, the 6 train to 33rd St., or the 123
-      trains to Penn Station, and walking to Fifth Avenue.</p>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6079016681215!2d-73.98620104888522!3d40.748652543207584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9c6c0cfed%3A0x6e762b3df1696ae2!2s365+5th+Ave%2C+New+York%2C+NY+10016!5e0!3m2!1sen!2sus!4v1453063683238"
-        width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h3 class="text-xs-center m-t-3 m-b-1">Getting to the Graduate Center</h3>
+        <p>The Graduate Center, CUNY is located at 365 Fifth Avenue, New York, NY
+        10016</p>
+        <p>The easiest way to get to the Graduate Center is by taking the BDMFNRQ
+        trains to 34th St./Herald Square, the 6 train to 33rd St., or the 123
+        trains to Penn Station, and walking to Fifth Avenue.</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6079016681215!2d-73.98620104888522!3d40.748652543207584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9c6c0cfed%3A0x6e762b3df1696ae2!2s365+5th+Ave%2C+New+York%2C+NY+10016!5e0!3m2!1sen!2sus!4v1453063683238"
+          width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </section>

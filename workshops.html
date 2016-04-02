@@ -6,6 +6,7 @@ permalink: /workshops/
 ---
 
 <section id="content" class="container">
+  {% include section-header.html title="Workshops" color="primary" %}
   <div class="row">
     <div class="col-md-10 offset-md-1">
       <p>Each day of the Bootcamp, there will be four workshop sessions--two in the
@@ -36,8 +37,8 @@ permalink: /workshops/
       </table>
     </div>
   </div>
+  {% include section-header.html title="Workshop Details" color="secondary" %}
   <div class="row">
-    <h2 class="text-xs-center p-a-2">Workshop Details</h2>
     <div class="col-md-8 offset-md-2">
       {% for topic in site.data.workshops | sort: 'sort' %}
       <div class="card" id="{{ topic.link | slugify }}">

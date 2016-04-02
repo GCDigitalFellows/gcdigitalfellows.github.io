@@ -1,7 +1,28 @@
 @charset "utf-8";
 
-$theme-primary: #f05f40;
-$theme-alternate: #ff8166;
-$theme-dark: #222;
-$white: #fff;
-$black: #000;
+$gray-dark:         #373a3c;
+$gray:              #55595c;
+$gray-light:        #818a91;
+$gray-lighter:      #eceeef;
+$gray-lightest:     #f7f7f9;
+
+$brand-secondary:   #fe8f35;
+$brand-primary:     #9b59b6;
+$brand-success:     #1abc9c;
+$brand-info:        #3498db;
+$brand-warning:     #d9a81d;
+$brand-danger:      #e74c3c;
+
+$brand-accent:      #3498db;
+$brand-dark:        #4a148c;
+$brand-light:       #e1bee7;
+
+$white:             #fff;
+$black:             #2e2633;
+
+$btn-accent-color:  $white;
+$btn-accent-bg:     $brand-accent;
+$btn-accent-border: $brand-accent;
+
+$nav-shaded:        $brand-dark;
+
