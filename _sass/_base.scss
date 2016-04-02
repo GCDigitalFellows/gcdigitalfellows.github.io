@@ -15,6 +15,35 @@ body {
   position: relative;
 }
 
+// Responsive font sizes
+html {
+  font-size: 12px;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  html {
+    font-size: 17px;
+  }
+}
+
 // }}}
 // *******************************************************************
 // HR {{{
