@@ -1,53 +1,67 @@
 ---
-layout: default
+layout: default-noheader
 title: Welcome to the GC Digital Research Institute
 regenerate: true
-menu: home
-headerclass: home
 ---
-
-<section class="bg-success" id="about">
-  <div class="container">
-    {% include section-header.html title="Inviting CUNY Students, Faculty, and Staff of All Skill Levels and Disciplines" color="white" %}
-    <div class="row row-padded">
-      <div class="col-lg-8 offset-lg-2">
-        <p>GC Digital Initiatives invites applicants for the Summer 2016 Digital Research Institute, an opportunity to develop digital research skills and connect with others in an interdisciplinary environment.</p>
-        <p>This program builds on the success of the <a href="/gcdrb/">Inaugural GC Digital Research Bootcamp</a> that took place in January 2016. It will be an intensive five day program where participants will be learn a range of digital tools and methods for doing research and have the opportunity to network with other scholars from a range of disciplinary backgrounds. Workshops target different skillsets and disciplinary focuses to try and cover a breadth of research areas.</p>
-        <p>Free of charge to participants, the GC Digital Research Institute has been developed in partnership with Software Carpentry, the New York Public Library, Mozilla Science Lab, Humanities Intensive Learning and Teaching, and the Digital Humanities Summer Institute thanks to the sponsorship of GCDI, The Graduate Center, and The CUNY Strategic Investment Initiatives Program.</p>
-        <p>The GC Digital Research Institute will take place over five days, June 5-10, 2016, from 9:30-6:00 daily. A preliminary list of workshop topics can be found below. This site will be updated in the coming weeks with additional information regarding instructors, a workshop schedule, and more.</p>
-        <p>The application process is relatively quick and painless, however the January Bootcamp had more than three times as many applicants as there were spots available, and we anticipate similar interest for the June Institute. If you applied to the January Bootcamp but were not admitted, your application will automatically be reconsidered, however you are welcome to update your application with updated information.</p>
-        <p>If you have questions or comments, you can use the form below to reach us, or you can directly <span class="scrambledmail" data-name="gc.digitalfellows" data-domain="gmail" data-ext="com">email the GC Digital Fellows</span>.</p>
-      </div>
+<header class="header-home">
+  <div class="header-content">
+    <div class="header-content-inner text-white">
+      <h1 class="display-1 text-accent p-b-3">The GC Digital Research Institute</h1>
+      <h2>A Week-Long Intensive Course on Digital Research Methods and Praxis</h2>
+      <hr class="hr hr-primary">
+      <h2>June 6-10, 2016</h2>
+      <h2 class="text-white"><a href="https://www.gc.cuny.edu">The Graduate Center, CUNY</a></h2>
+      <h2 class="m-b-3">Hosted by the <a href="https://cuny.is/gcdigitalfellows">GC Digital Fellows</a></h2>
+      <a href="{{ '/apply' | prepend: site.baseurl }}" class="btn btn-accent btn-xl m-r-2">Apply Now!</a>
+      <a href="#about" class="btn btn-accent btn-xl m-l-2 page-scroll">Learn More</a>
     </div>
   </div>
-</section>
+</header>
 
-<section id="topics">
-  <div class="container">
-    {% include section-header.html title="Topics" color="info" %}
-    <div class="row">
-      <div class="card-columns">
-      {% assign sorted = site.data.workshops %}
-      {% for topic in sorted %}
-      <!-- <div class="col&#45;sm&#45;6 col&#45;md&#45;4 col&#45;xl&#45;3"> -->
-        <div class="card">
-          <div class="card-block text-xs-center">
-            <span class="fa-stack fa-2x wow bounceIn text-accent">
-              <i class="fa fa-square fa-stack-2x"></i>
-              <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="card-title">
-              <a href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">{{topic.title}}</a>
-            </h4>
-            <p class="card-text">{{topic.tagline}}</p>
-            <!-- <a class="btn btn&#45;primary" href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">More</a> -->
-          </div>
+<main>
+  <section class="bg-success" id="about">
+    <div class="container">
+      {% include section-header.html title="Inviting CUNY Students, Faculty, and Staff of All Skill Levels and Disciplines" color="white" %}
+      <div class="row row-padded">
+        <div class="col-lg-8 offset-lg-2">
+          <p>GC Digital Initiatives invites applicants for the Summer 2016 Digital Research Institute, an opportunity to develop digital research skills and connect with others in an interdisciplinary environment.</p>
+          <p>This program builds on the success of the <a href="/gcdrb/">Inaugural GC Digital Research Bootcamp</a> that took place in January 2016. It will be an intensive five day program where participants will be learn a range of digital tools and methods for doing research and have the opportunity to network with other scholars from a range of disciplinary backgrounds. Workshops target different skillsets and disciplinary focuses to try and cover a breadth of research areas.</p>
+          <p>Free of charge to participants, the GC Digital Research Institute has been developed in partnership with Software Carpentry, the New York Public Library, Mozilla Science Lab, Humanities Intensive Learning and Teaching, and the Digital Humanities Summer Institute thanks to the sponsorship of GCDI, The Graduate Center, and The CUNY Strategic Investment Initiatives Program.</p>
+          <p>The GC Digital Research Institute will take place over five days, June 5-10, 2016, from 9:30-6:00 daily. A preliminary list of workshop topics can be found below. This site will be updated in the coming weeks with additional information regarding instructors, a workshop schedule, and more.</p>
+          <p>The application process is relatively quick and painless, however the January Bootcamp had more than three times as many applicants as there were spots available, and we anticipate similar interest for the June Institute. If you applied to the January Bootcamp but were not admitted, your application will automatically be reconsidered, however you are welcome to update your application with updated information.</p>
+          <p>If you have questions or comments, you can use the form below to reach us, or you can directly <span class="scrambledmail" data-name="gc.digitalfellows" data-domain="gmail" data-ext="com">email the GC Digital Fellows</span>.</p>
         </div>
-      <!-- </div> -->
-      {% endfor %}
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="topics">
+    <div class="container">
+      {% include section-header.html title="Topics" color="info" %}
+      <div class="row">
+        <div class="card-columns">
+        {% assign sorted = site.data.workshops %}
+        {% for topic in sorted %}
+        <!-- <div class="col&#45;sm&#45;6 col&#45;md&#45;4 col&#45;xl&#45;3"> -->
+          <div class="card">
+            <div class="card-block text-xs-center">
+              <span class="fa-stack fa-2x wow bounceIn text-accent">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="card-title">
+                <a href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">{{topic.title}}</a>
+              </h4>
+              <p class="card-text">{{topic.tagline}}</p>
+              <!-- <a class="btn btn&#45;primary" href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">More</a> -->
+            </div>
+          </div>
+        <!-- </div> -->
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 {% include partners.html %}
