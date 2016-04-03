@@ -14,7 +14,12 @@ var del = require('del');
 var browserSync = require('browser-sync');
 var commandExists = require('command-exists');
 
-var isProduction = argv.nomin;
+var isProduction = !argv.nomin;
+if (isProduction) {
+  console.log("Production Mode");
+} else {
+  console.log("Development Mode");
+}
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
 gulp.task('clean:assets', function () {
