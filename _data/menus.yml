@@ -8,5 +8,5 @@ main:
   - name: Instructors
     href: '/instructors/'
   - name: Contact
-    href: '/#contact'
+    href: '/contact/'
     class: page-scroll

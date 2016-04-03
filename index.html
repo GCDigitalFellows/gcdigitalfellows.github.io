@@ -12,14 +12,14 @@ regenerate: true
       <h2>June 6-10, 2016</h2>
       <h2 class="text-white"><a href="https://www.gc.cuny.edu">The Graduate Center, CUNY</a></h2>
       <h2 class="m-b-3">Hosted by the <a href="https://cuny.is/gcdigitalfellows">GC Digital Fellows</a></h2>
-      <a href="{{ '/apply' | prepend: site.baseurl }}" class="btn btn-accent btn-xl m-r-2">Apply Now!</a>
-      <a href="#about" class="btn btn-accent btn-xl m-l-2 page-scroll">Learn More</a>
+      <a href="{{ '/apply' | prepend: site.baseurl }}" class="btn btn-success btn-xl m-r-2">Apply Now!</a>
+      <a href="#about" class="btn btn-success btn-xl m-l-2 page-scroll">Learn More</a>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="bg-success" id="about">
+  <section class="bg-info" id="about">
     <div class="container">
       {% include section-header.html title="Inviting CUNY Students, Faculty, and Staff of All Skill Levels and Disciplines" color="white" %}
       <div class="row row-padded">
@@ -37,14 +37,15 @@ regenerate: true
 
   <section id="topics">
     <div class="container">
+      {% include section-header.html title="Reasons to Participate" color="danger" %}
       <div class="row">
         <div class="card-deck-wrapper">
           <div class="card-deck">
           {% for topic in site.data.outcomes %}
             <div class="card">
               <div class="card-block text-xs-center">
-                <h4 class="card-title">{{topic.title}}</h4>
-                <span class="fa-stack fa-2x wow bounceIn text-accent">
+                <h4 class="card-title text-danger">{{topic.title}}</h4>
+                <span class="fa-stack fa-2x wow bounceIn text-danger">
                   <i class="fa fa-square fa-stack-2x"></i>
                   <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
                 </span>
@@ -57,6 +58,21 @@ regenerate: true
       </div>
     </div>
   </section>
+
+  <section id="topics" class="bg-primary">
+    <div class="container">
+      {% include section-header.html title="Want to Learn More?" color="white" %}
+      <div class="row">
+        <div class="col-md-5">
+          <a class="no-animate" href="{{ 'images/drb_74.jpg' | prepend: site.baseurl }}"><img class="img-fluid img-thumbnail" src="{{ 'images/drb_74.jpg' | prepend: site.baseurl }}" alt="January 2016 Digital Research Bootcamp" /></a>
+        </div>
+        <div class="col-md-7">
+          <p>Still not sure if this is right for you? <a href="{{ '/gcdrb/' | prepend: site.baseurl }}"><strong>Read about the Digital Research Bootcamp</strong></a> that took place in January 2016 and see the <a href="{{ '/gcdrb/#workshops' | prepend: site.baseurl }}">list of workshops</a> we offered at that time. We received fantastic feedback from participants and plan to incorporate their suggestions into the structure and content of the Digital Research Instute.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 {% include partners.html %}
