@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+$enable-flex:       true;
+
 $gray-dark:         #373a3c;
 $gray:              #55595c;
 $gray-light:        #818a91;
@@ -25,4 +27,9 @@ $btn-accent-bg:     $brand-accent;
 $btn-accent-border: $brand-accent;
 
 $nav-shaded:        $brand-dark;
-
+$nav-link: $brand-secondary;
+$nav-link-active: $white;
+$nav-link-hover: darken($white, 25%);
+$nav-link-shaded: $white;
+$nav-link-shaded-active: darken($white, 25%);
+$nav-link-shaded-hover: $brand-secondary;

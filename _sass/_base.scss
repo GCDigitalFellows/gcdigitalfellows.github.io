@@ -254,22 +254,26 @@ h6 {
 .nav > li {
   > a,
   > a:focus {
-    color: $brand-dark;
+    color: $nav-link;
     font-size: .8rem;
     font-weight: 700;
     text-transform: uppercase;
 
     &:hover {
-      color: $brand-primary;
+      color: $nav-link-hover;
+    }
+
+    &:hover::before {
+      background-color: $nav-link-hover;
     }
   }
 
   &.active > a,
-  &.active > a:focus {
-    background-color: transparent;
-    color: $brand-primary;
+  &.active > a:focus,
+  &.active > a:hover {
+    color: $nav-link-active;
 
-    &:hover {
+    &::before {
       background-color: transparent;
     }
   }
@@ -302,10 +306,14 @@ h6 {
 
   .nav > li > a,
   .nav > li > a:focus {
-    color: rgba($white, .7);
+    color: $nav-link;
 
     &:hover {
-      color: $white;
+      color: $nav-link-hover;
+
+      &::before {
+        background-color: $nav-link-hover;
+      }
     }
   }
 
@@ -315,12 +323,27 @@ h6 {
 
     .nav > li > a,
     .nav > li > a:focus {
-      color: $white;
+      color: $nav-link-shaded;
 
       &:hover {
-        color: rgba($white, .5);
+        color: $nav-link-shaded-hover;
+      }
+
+      &:hover::before {
+        background-color: $nav-link-shaded-hover;
       }
     }
+
+    .nav > li.active > a,
+    .nav > li.active > a:focus,
+    .nav > li.active > a:hover {
+      color: $nav-link-shaded-active;
+
+      &::before {
+        background-color: transparent;
+      }
+    }
+
   }
 }
 
@@ -340,14 +363,16 @@ h6 {
 // *******************************************************************
 header {
   @include background-cover;
+  background-image: url("../images/header.jpg");
   background-position: center;
   position: relative;
   text-align: center;
   width: 100%;
+  min-height: 50%;
 }
 
 .header-1 {
-  background-image: url("../images/header.jpg");
+  background-image: url("../images/header-1.jpg");
 }
 
 .header-2 {

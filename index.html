@@ -37,27 +37,22 @@ regenerate: true
 
   <section id="topics">
     <div class="container">
-      {% include section-header.html title="Topics" color="info" %}
       <div class="row">
-        <div class="card-columns">
-        {% assign sorted = site.data.workshops %}
-        {% for topic in sorted %}
-        <!-- <div class="col&#45;sm&#45;6 col&#45;md&#45;4 col&#45;xl&#45;3"> -->
-          <div class="card">
-            <div class="card-block text-xs-center">
-              <span class="fa-stack fa-2x wow bounceIn text-accent">
-                <i class="fa fa-square fa-stack-2x"></i>
-                <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="card-title">
-                <a href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">{{topic.title}}</a>
-              </h4>
-              <p class="card-text">{{topic.tagline}}</p>
-              <!-- <a class="btn btn&#45;primary" href="{{ '/workshops/#' | append: topic.link | prepend: site.baseurl }}">More</a> -->
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+          {% for topic in site.data.outcomes %}
+            <div class="card">
+              <div class="card-block text-xs-center">
+                <h4 class="card-title">{{topic.title}}</h4>
+                <span class="fa-stack fa-2x wow bounceIn text-accent">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa {{topic.icon}} fa-stack-1x fa-inverse"></i>
+                </span>
+                <p class="card-text">{{topic.description}}</p>
+              </div>
             </div>
+          {% endfor %}
           </div>
-        <!-- </div> -->
-        {% endfor %}
         </div>
       </div>
     </div>
