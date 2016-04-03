@@ -136,7 +136,7 @@ gulp.task('scripts', function () {
     .pipe($.concat('main.min.js'))
     .pipe($.if(isProduction, $.uglify({preserveComments: 'some'})))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-    .pipe($.if(isProduction, $.gzip({append: true})))
+    // .pipe($.if(isProduction, $.gzip({append: false})))
     .pipe(gulp.dest('js/'))
     .pipe(gulp.dest('_site/js'))
     .pipe($.if(!isProduction, browserSync.stream()));
@@ -166,7 +166,7 @@ gulp.task('scripts:vendor', function () {
     .pipe($.if(isProduction, $.if('*.js', $.uglify({preserveComments: 'some'}))))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe($.if(isProduction, gulp.dest('js')))
-    .pipe($.if(isProduction, $.if('*.js', $.gzip({append: true}))))
+    // .pipe($.if(isProduction, $.if('*.js', $.gzip({append: true}))))
     .pipe(gulp.dest('js'))
     .pipe(gulp.dest('_site/js'))
     .pipe($.if(!isProduction, browserSync.stream()));
@@ -193,7 +193,7 @@ gulp.task('styles', function () {
     ]))
     .pipe($.rename({suffix: '.min'}))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-    .pipe($.if(isProduction, $.gzip({append: true})))
+    // .pipe($.if(isProduction, $.gzip({append: true})))
     .pipe(gulp.dest('css'))
     .pipe(gulp.dest('_site/css'))
     .pipe($.if(!isProduction, browserSync.stream()));
@@ -220,7 +220,7 @@ gulp.task('styles:vendor', function () {
     csswring
   ]))
   .pipe($.if(!isProduction, $.sourcemaps.write('.')))
-  .pipe($.if(isProduction, $.if('*.min.css', $.gzip({append: true}))))
+  // .pipe($.if(isProduction, $.if('*.min.css', $.gzip({append: true}))))
   .pipe(gulp.dest('css'))
   .pipe(gulp.dest('_site/css'))
   .pipe($.if(!isProduction, browserSync.stream()));
