@@ -13,7 +13,7 @@ author:
 
 # source: ./
 destination: _site
-# baseurl: /gcdrb
+baseurl: /gcdrb
 exclude:
   - '*.sh'
   - CNAME
