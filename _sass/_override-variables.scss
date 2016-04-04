@@ -8,15 +8,15 @@ $gray-light:             #818a91;
 $gray-lighter:           #eceeef;
 $gray-lightest:          #f7f7f9;
 
-$brand-secondary:        #fe8f35;
 $brand-primary:          #9b59b6;
+$brand-secondary:        #fe8f35;
 $brand-success:          #1abc9c;
 $brand-info:             #3498db;
 $brand-warning:          #d9a81d;
 $brand-danger:           #e74c3c;
 
 $brand-accent:           #3498db;
-$brand-dark:             #4a148c;
+$brand-dark:             #411466;
 $brand-light:            #e1bee7;
 
 $white:                  #fff;
@@ -27,9 +27,9 @@ $btn-accent-bg:          $brand-accent;
 $btn-accent-border:      $brand-accent;
 
 $nav-shaded:             $brand-dark;
-$nav-link:               $brand-info;
+$nav-link:               $brand-success;
 $nav-link-active:        $white;
 $nav-link-hover:         darken($white, 25%);
 $nav-link-shaded:        $white;
 $nav-link-shaded-active: darken($white, 25%);
-$nav-link-shaded-hover:  $brand-info;
+$nav-link-shaded-hover:  $brand-success;
