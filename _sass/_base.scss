@@ -498,6 +498,11 @@ main {
 // *******************************************************************
 // Helpers {{{
 // *******************************************************************
+.img-fluid {
+  // fix for firefox not respecting max-width
+  width: 100%;
+}
+
 .no-gutter > [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
