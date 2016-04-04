@@ -4,7 +4,7 @@ main:
   - name: Apply
     href: '/apply/'
   - name: Past Workshops
-    href: '/gcdrb/#workshops'
+    href: '/drb/#workshops'
     class: page-scroll
   - name: Schedule
     href: '/schedule/'

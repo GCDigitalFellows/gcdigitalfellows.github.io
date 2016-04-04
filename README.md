@@ -46,8 +46,8 @@ to set everything up and start the development server.
 5. Clone this repo and `cd` into the new repo directory:
 
     ```shell
-    git clone git@github.com:GCDigitalFellows/gcdrb.git
-    cd gcdrb
+    git clone git@github.com:GCDigitalFellows/gcdigitalfellows.github.io.git
+    cd gcdigitalfellows.github.io
     ```
 
 6. Install node, bower, and ruby components:

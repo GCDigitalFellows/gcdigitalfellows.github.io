@@ -1,5 +1,5 @@
 {
-  "name": "gcdrb",
+  "name": "gcdigitalfellows.github.io",
   "version": "1.2.1",
   "description": "GC Digital Research Bootcamp",
   "homepage": "http://gcdigitalfellows.github.io",
@@ -10,7 +10,7 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gcdigitalfellows/gcdrb.git"
+    "url": "https://github.com/gcdigitalfellows/gcdigitalfellows.github.io.git"
   },
   "jekyll_dir": "_site",
   "sass_includes": "bower_components/bootstrap/scss",
