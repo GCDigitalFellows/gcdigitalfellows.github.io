@@ -234,11 +234,9 @@ h6 {
 // *******************************************************************
 // Navigation {{{
 // *******************************************************************
-.navbar-default {
+.navbar {
   @include sans-serif-font;
   @include transition-all;
-  // background-color: $white;
-  // border-color: rgba($brand-dark, .5);
   min-height: 3rem;
 
   .navbar-brand {
@@ -250,56 +248,61 @@ h6 {
     padding: .25rem .5rem 0;
   }
 
-  &.shadedheader {
-    background-color: $nav-shaded;
-    border-bottom: .1rem solid rgba($nav-shaded, .1);
-
-    .nav > li > a,
-    .nav > li > a:focus {
-      color: $nav-link-shaded;
-
-      &:hover {
-        color: $nav-link-shaded-hover;
-      }
-
-      &:hover::before {
-        background-color: $nav-link-shaded-hover;
-      }
+  li {
+    > a,
+    > a:focus {
+      color: $nav-link;
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    .nav > li.active > a,
-    .nav > li.active > a:focus,
-    .nav > li.active > a:hover {
-      color: $nav-link-shaded-active;
+    > a:hover {
+      color: $nav-link-hover;
+    }
 
-      &::before {
-        background-color: transparent;
-      }
+    > a:hover::before {
+      background-color: $nav-link-hover;
+    }
+
+    &.active > a,
+    &.active > a:focus,
+    &.active > a:hover {
+      color: $nav-link-active;
+    }
+
+    &.active >a::before {
+      background-color: transparent;
     }
   }
 }
 
-.nav > li {
-  > a,
-  > a:focus {
-    color: $nav-link;
-    font-size: .8rem;
-    font-weight: 700;
-    text-transform: uppercase;
+.navbar-default {
+  background-color: transparent;
+  // border-color: rgba($white, .3);
+}
+
+.navbar-shaded {
+  background-color: $nav-shaded;
+  border-bottom: .1rem solid rgba($nav-shaded, .1);
+
+  li > a,
+  li > a:focus {
+    color: $nav-link-shaded;
 
     &:hover {
-      color: $nav-link-hover;
+      color: $nav-link-shaded-hover;
     }
 
     &:hover::before {
-      background-color: $nav-link-hover;
+      background-color: $nav-link-shaded-hover;
     }
   }
 
-  &.active > a,
-  &.active > a:focus,
-  &.active > a:hover {
-    color: $nav-link-active;
+  li.active > a,
+  li.active > a:focus,
+  li.active > a:hover {
+    color: $nav-link-shaded-active;
 
     &::before {
       background-color: transparent;
@@ -307,33 +310,26 @@ h6 {
   }
 }
 
-@include media-breakpoint-down(md) {
-  .navbar-nav {
-    .nav-item {
-      float: none;
-      margin-right: 1rem;
-      text-align: right;
 
-      + .nav-item {
-        margin-left: 0;
-      }
+@include media-breakpoint-down(md) {
+  .nav-item {
+    float: none;
+    margin-right: 1rem;
+    text-align: right;
+
+    + .nav-item {
+      margin-left: 0;
     }
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .navbar-default {
-    background-color: transparent;
-    border-color: rgba($white, .3);
+  .navbar {
     min-height: 3.5rem;
-
-    .navbar-brand {
-      margin-right: 0;
-    }
   }
 
-  .nav > li > a,
-  .nav > li > a:focus {
+  li > a,
+  li > a:focus {
     color: $nav-link;
 
     &:hover {
@@ -453,6 +449,11 @@ main {
 // *******************************************************************
 .card {
   background-color: $white;
+
+  &.card-noborder {
+    border: 0;
+    box-shadow: none;
+  }
 
   &.card-partner {
     background: transparent;

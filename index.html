@@ -5,13 +5,13 @@ regenerate: true
 ---
 <header class="header-home">
   <div class="header-content">
-    <div class="header-content-inner text-white">
+    <div class="header-content-inner">
       <h1 class="display-1 text-accent p-b-3">The GC Digital Research Institute</h1>
-      <h2>A Week-Long Intensive Course on Digital Research Methods and Praxis</h2>
-      <hr class="hr hr-primary">
-      <h2>June 6-10, 2016</h2>
+      <h2 class="text-white">A Week-Long Intensive Course on Digital Research Methods and Praxis</h2>
+      <hr class="hr hr-success">
+      <h2 class="text-white">June 6-10, 2016</h2>
       <h2 class="text-white"><a href="https://www.gc.cuny.edu">The Graduate Center, CUNY</a></h2>
-      <h2 class="m-b-3">Hosted by the <a href="https://cuny.is/gcdigitalfellows">GC Digital Fellows</a></h2>
+      <h2 class="text-white m-b-3">Hosted by the <a href="https://cuny.is/gcdigitalfellows">GC Digital Fellows</a></h2>
       <a href="{{ '/apply' | prepend: site.baseurl }}" class="btn btn-success btn-xl m-r-2">Apply Now!</a>
       <a href="#about" class="btn btn-success btn-xl m-l-2 page-scroll">Learn More</a>
     </div>
@@ -39,10 +39,14 @@ regenerate: true
     <div class="container">
       {% include section-header.html title="Reasons to Participate" color="danger" %}
       <div class="row">
-        <div class="card-deck-wrapper">
-          <div class="card-deck">
+        <!-- <div class="card&#45;deck&#45;wrapper"> -->
+        <!--   <div class="card&#45;deck"> -->
           {% for topic in site.data.outcomes %}
-            <div class="card">
+            {% if forloop.index == 4 %}
+              </div>
+              <div class="row">
+            {% endif %}
+            <div class="card card-noborder col-sm-4">
               <div class="card-block text-xs-center">
                 <h4 class="card-title text-danger">{{topic.title}}</h4>
                 <span class="fa-stack fa-2x wow bounceIn text-danger">
@@ -53,8 +57,8 @@ regenerate: true
               </div>
             </div>
           {% endfor %}
-          </div>
-        </div>
+        <!--   </div> -->
+        <!-- </div> -->
       </div>
     </div>
   </section>

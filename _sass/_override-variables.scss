@@ -2,34 +2,34 @@
 
 // $enable-flex:       true;
 
-$gray-dark:         #373a3c;
-$gray:              #55595c;
-$gray-light:        #818a91;
-$gray-lighter:      #eceeef;
-$gray-lightest:     #f7f7f9;
+$gray-dark:              #373a3c;
+$gray:                   #55595c;
+$gray-light:             #818a91;
+$gray-lighter:           #eceeef;
+$gray-lightest:          #f7f7f9;
 
-$brand-secondary:   #fe8f35;
-$brand-primary:     #9b59b6;
-$brand-success:     #1abc9c;
-$brand-info:        #3498db;
-$brand-warning:     #d9a81d;
-$brand-danger:      #e74c3c;
+$brand-secondary:        #fe8f35;
+$brand-primary:          #9b59b6;
+$brand-success:          #1abc9c;
+$brand-info:             #3498db;
+$brand-warning:          #d9a81d;
+$brand-danger:           #e74c3c;
 
-$brand-accent:      #3498db;
-$brand-dark:        #4a148c;
-$brand-light:       #e1bee7;
+$brand-accent:           #3498db;
+$brand-dark:             #4a148c;
+$brand-light:            #e1bee7;
 
-$white:             #fff;
-$black:             #2e2633;
+$white:                  #fff;
+$black:                  #2e2633;
 
-$btn-accent-color:  $white;
-$btn-accent-bg:     $brand-accent;
-$btn-accent-border: $brand-accent;
+$btn-accent-color:       $white;
+$btn-accent-bg:          $brand-accent;
+$btn-accent-border:      $brand-accent;
 
-$nav-shaded:        $brand-dark;
-$nav-link: $brand-secondary;
-$nav-link-active: $white;
-$nav-link-hover: darken($white, 25%);
-$nav-link-shaded: $white;
+$nav-shaded:             $brand-dark;
+$nav-link:               $brand-info;
+$nav-link-active:        $white;
+$nav-link-hover:         darken($white, 25%);
+$nav-link-shaded:        $white;
 $nav-link-shaded-active: darken($white, 25%);
-$nav-link-shaded-hover: $brand-secondary;
+$nav-link-shaded-hover:  $brand-info;

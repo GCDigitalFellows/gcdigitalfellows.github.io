@@ -26,9 +26,9 @@
   $(window).scroll(function () {
     var scroll = $(window).scrollTop();
     if (scroll >= 50) {
-      header.addClass('shadedheader');
+      header.addClass('navbar-shaded');
     } else {
-      header.removeClass('shadedheader');
+      header.removeClass('navbar-shaded');
     }
   });
 
