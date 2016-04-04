@@ -1,0 +1,251 @@
+---
+layout: default
+title: Apply
+permalink: /apply2/
+scripts: google_forms.js
+---
+{% assign q=site.data.application.questions %}
+<div class="container">
+  <div class="row m-t-3">
+    <div class="col-md-8 offset-md-2">
+      <p>Thank you for your interest in participating in the GC Digital Research Institute (GCDRI), June 6-10, 2016.</p>
+      <p>Participation is free; however, applications are required. All levels of experience are welcome. If you applied to the January <a href="{{ '/gcdrb/' | prepend: site.baseurl }}">Digital Research Bootcamp</a> but were not accepted, you must submit a new application to be considered for the June GCDRI.</p>
+      <p>Applications are due before 11:59pm on April 18, 2016. We will notify you of the status of your application in early May.</p>
+      <p>If you have any questions, please <a href="{{ '/contact/' | prepend: site.baseurl }}">contact us</a>. We look forward to seeing you there!</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card col-md-8 offset-md-2 p-a-2">
+      <form id="google-form" target="_self" role="form" data-toggle="validator" data-success="{{ '/submitted/' | prepend: site.baseurl }}">
+        <fieldset class="form-group">
+          <div class="form-group row">
+            <label for="entry_{{q[0].id}}" class="col-sm-3 form-control-label application-question">Full Name</label>
+            <div class="col-sm-9">
+              <input type="text" name="entry.{{q[0].id}}" value="" class="form-control" id="entry_{{q[0].id}}" dir="auto" aria-label="Full name" required="" title="" data-error="Please enter your name">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="entry_{{q[1].id}}" class="col-sm-3 form-control-label application-question">Email Address</label>
+            <div class="col-sm-9">
+              <input type="email" name="entry.{{q[1].id}}" value="" class="form-control" id="entry_{{q[1].id}}" dir="auto" aria-label="Enter your primary email address so that we can contact you regarding your application. " required="" title="" data-error="Sorry, that email address appears to be invalid">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-sm-3 application-question" for="entry_{{q[2].id}}">Your program at The Graduate Center</label>
+            <div class="col-sm-9">
+              <select name="entry.{{q[2].id}}" id="entry_{{q[2].id}}" class="form-control" aria-label="If you are not a Graduate Center student or faculty member, please select 'Other.'" required="">
+                <option value="" disabled selected hidden>Select your program</option>
+                <option value="MALS/Other Master's"> MALS/Other Master's Program</option>
+                <option value="Anthropology"> Anthropology</option>
+                <option value="Art History"> Art History</option>
+                <option value="Audiology"> Audiology</option>
+                <option value="Biochemistry"> Biochemistry</option>
+                <option value="Biology"> Biology</option>
+                <option value="Business"> Business</option>
+                <option value="Chemistry"> Chemistry</option>
+                <option value="Classics"> Classics</option>
+                <option value="Comparative Literature"> Comparative Literature</option>
+                <option value="Computer Science"> Computer Science</option>
+                <option value="Criminal Justice"> Criminal Justice</option>
+                <option value="CUNY Neuroscience Collaborative"> CUNY Neuroscience Collaborative</option>
+                <option value="Earth &amp; Environmental Sciences"> Earth &amp; Environmental Sciences</option>
+                <option value="Economics"> Economics</option>
+                <option value="Educational Psychology"> Educational Psychology</option>
+                <option value="Engineering"> Engineering</option>
+                <option value="English"> English</option>
+                <option value="French"> French</option>
+                <option value="Hispanic &amp; Luso-Brazilian Literatures &amp; Languages"> Hispanic &amp; Luso-Brazilian Literatures &amp; Languages</option>
+                <option value="History"> History</option>
+                <option value="Linguistics"> Linguistics</option>
+                <option value="Mathematics"> Mathematics</option>
+                <option value="Music"> Music</option>
+                <option value="Nursing"> Nursing</option>
+                <option value="Philosophy"> Philosophy</option>
+                <option value="Physical Therapy"> Physical Therapy</option>
+                <option value="Physics"> Physics</option>
+                <option value="Political Science"> Political Science</option>
+                <option value="Psychology"> Psychology</option>
+                <option value="Public Health"> Public Health</option>
+                <option value="Social Welfare"> Social Welfare</option>
+                <option value="Sociology"> Sociology</option>
+                <option value="Speech-Language-Hearing Sciences"> Speech-Language-Hearing Sciences</option>
+                <option value="Theatre"> Theatre</option>
+                <option value="Urban Education"> Urban Education</option>
+                <option value="Other"> Other</option>
+              </select>
+              <small class="text-muted">If you are not a Graduate Center student or faculty, please select "Other"</small>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div id="other-program" class="form-group row" hidden>
+            <label class="form-control-label application-question col-xs-3" for="entry_{{q[3].id}}">If "other," please enter your program or affiliation</label>
+            <div class="col-xs-9">
+              <input type="text" name="entry.{{q[3].id}}" value="" class="form-control" id="entry_{{q[3].id}}" dir="auto" aria-label="If you are affiliated with another school, please enter both your school and department; staff please enter your office or title." title="">
+              <small class="text-muted">If you are affiliated with another school, please enter both your school and department; staff please enter your office or title.</small>
+            </div>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-sm-3 application-question" for="entry_{{q[4].id}}">What is your academic status?</label>
+            <div class="col-sm-9">
+              <select name="entry.{{q[4].id}}" id="entry_{{q[4].id}}" class="form-control" aria-label="Select your academic status or position." required="">
+                <option value="" disabled selected hidden>Select your academic status or position</option>
+                <option value="Master's Student"> Master's Student</option>
+                <option value="Level I Student"> Level I Student</option>
+                <option value="Level II Student"> Level II Student</option>
+                <option value="Level III Student"> Level III Student</option>
+                <option value="Postdoc"> Postdoc</option>
+                <option value="Faculty"> Faculty</option>
+                <option value="Visiting Student"> Visiting Student</option>
+                <option value="Visiting Postdoc"> Visiting Postdoc</option>
+                <option value="Visiting Faculty"> Visiting Faculty</option>
+                <option value="Staff"> Staff</option>
+              </select>
+            </div>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group row">
+            <label for="entry_{{q[5].id}}" class="col-xs-12 form-control-label application-question">Please describe why you'd like to participate in this program, and what you hope to learn.</label>
+            <div class="col-xs-12">
+              <textarea name="entry.{{q[5].id}}" rows="8" cols="0" class="form-control" id="entry_{{q[5].id}}" dir="auto" aria-label="Please be as specific as possible" required="" placeholder="Please be as specific as possible"></textarea>
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[6].id}}">Describe your research to a non-specialist.</label>
+            <div class="col-xs-12">
+              <textarea name="entry.{{q[6].id}}" rows="8" cols="0" class="form-control" id="entry_{{q[6].id}}" dir="auto" aria-label="Describe your research to a non-specialist." required="" placeholder="Be as clear and concise as possible."></textarea>
+            </div>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[7].id}}">Describe one or more datasets you either a) previously worked with; and/or b) are interested in working with.</label>
+            <div class="col-xs-12">
+              <textarea name="entry.{{q[7].id}}" rows="8" cols="0" class="form-control" id="entry_{{q[7].id}}" dir="auto" aria-label="Describe one or more datasets you have worked with or are interested in working with." required="" placeholder="Be as specific as possible, add links if available"></textarea>
+              <small class="text-muted">e.g., text, time periods, place names, historical, climate, experimental results, financial, demographical, primary archival sources, images, artifacts, etc.</small>
+            </div>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[8].id}}">Describe an instance when you ran into a technical problem and how you solved it.</label>
+            <div class="col-xs-12">
+              <textarea name="entry.{{q[8].id}}" rows="8" cols="0" class="form-control" id="entry_{{q[8].id}}" dir="auto" aria-label="Describe an instance when you ran into a technical problem and how you solved it." required="" placeholder="Be as specific as possible"></textarea>
+            </div>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[9].id}}">Describe the role that you typically take when working in a group.</label>
+            <div class="col-xs-12">
+              <textarea name="entry.{{q[9].id}}" rows="8" cols="0" class="form-control" id="entry_{{q[9].id}}" dir="auto" aria-label="Describe the role that you typically take when working in a group." required="" placeholder="Be as specific as possible; provide an example if appropriate."></textarea>
+            </div>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[10].id}}">The Digital Research Institute is a five-day long commitment from June 6-10, 9:30am-5:00pm. Participation is expected in all sessions. If you are aware of scheduling conflicts, some flexibility is possible with advance notification. Will you be able to attend all five days of the institute?</label>
+          </div>
+          <div class="form-group row">
+            <label class="checkbox-inline">
+              <input type="radio" name="entry.{{q[10].id}}" value="Yes" id="group_{{q[10].id}}_1" role="radio" aria-label="Yes" required="" aria-required="true"> Yes
+            </label>
+            <label class="checkbox-inline">
+              <input type="radio" name="entry.{{q[10].id}}" value="No" id="group_{{q[10].id}}_2" role="radio" aria-label="No" required="" aria-required="true"> No
+            </label>
+            <label class="checkbox-inline">
+              <input type="radio" name="entry.{{q[10].id}}" value="Maybe" id="group_{{q[10].id}}_3" role="radio" aria-label="Maybe" required="" aria-required="true"> Maybe
+            </label>
+            <div class="help-block with-errors"></div>
+          </div>
+
+          <div id="other-commit" class="form-group row" hidden>
+            <label class="sr-only" for="entry_{{q[11].id}}">Please briefly describe the time, date, and duration of potential schedule conflicts.</label>
+            <input type="text" name="entry.{{q[11].id}}" value="" class="form-control" id="entry_{{q[11].id}}" dir="auto" aria-label="Please briefly describe the time, date, and duration of potential schedule conflicts." title="" placeholder="Time(s), date(s), and duration(s) of potential schedule conflicts.">
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[12].id}}">Have you ever used the CUNY Academic Commons (or another WordPress-based community platform)<br />
+              <small class="text-muted">e.g., Blogs@Baruch, City Tech Open Lab, QWriting at Queens, Macaulay Honors College ePortfolios</small>
+            </label>
+          </div>
+          <div class="form-group row">
+            <label class="checkbox-inline">
+              <input type="radio" name="entry.{{q[12].id}}" value="Yes" id="group_{{q[12].id}}_1" role="radio" aria-label="Yes" > Yes
+            </label>
+            <label class="checkbox-inline">
+              <input type="radio" name="entry.{{q[12].id}}" value="No" id="group_{{q[12].id}}_2" role="radio" aria-label="No" > No
+            </label>
+            <label class="checkbox-inline">
+              <input type="radio" name="entry.{{q[12].id}}" value="Not Sure" id="group_{{q[12].id}}_3" role="radio" aria-label="Not sure" > Not sure
+            </label>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-control-label col-xs-12 application-question" for="entry_{{q[13].id}}">Have you ever used the CUNY Academic Commons (or another WordPress-based community platform)<br />
+              <small class="text-muted">e.g., Blogs@Baruch, City Tech Open Lab, QWriting at Queens, Macaulay Honors College ePortfolios</small>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Digital Fellows/GCDI website" id="group_{{q[13].id}}_1" role="checkbox" aria-label="Digital Fellows/GCDI website" >  Digital Fellows/GCDI website
+            </label>
+          </div>
+          <div class="checkbox">
+            <label class="checkbox-inline">
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Email from the Digital Fellows" id="group_{{q[13].id}}_2" role="checkbox" aria-label="Email from the Digital Fellows" > Email from the Digital Fellows
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Email from my GC Program" id="group_{{q[13].id}}_3" role="checkbox" aria-label="Email from my GC Program" > Email from my GC Program
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Email from other listserv" id="group_{{q[13].id}}_4" role="checkbox" aria-label="Email from other listserv" > Email from other listserv
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Poster or digital signage" id="group_{{q[13].id}}_5" role="checkbox" aria-label="Poster or digital signage" > Poster or digital signage
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Twitter or Facebook" id="group_{{q[13].id}}_6" role="checkbox" aria-label="Twitter or Facebook" > Twitter or Facebook
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Word of mouth" id="group_{{q[13].id}}_7" role="checkbox" aria-label="Word of mouth" > Word of mouth
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="entry.{{q[13].id}}" value="Other" id="group_{{q[13].id}}_8" role="checkbox" aria-label="Other" > Other
+            </label>
+          </div>
+          <div id="other-reference" hidden>
+            <label for="entry.{{q[13].id}}.other_option_response" class="sr-only">Specify</label>
+            <input type="text" name="entry.{{q[13].id}}.other_option_response" value="" class="form-control" id="entry_{{q[13].id}}_other_option_response" dir="auto" aria-label="Other" placeholder="Please specify">
+          </div>
+
+          <input type="hidden" name="pageHistory" value="0">
+          <input type="hidden" name="fvv" value="0">
+          <button type="submit" name="submit" value="Submit" id="ss-submit" class="btn btn-primary center-block m-t-2">Submit</button>
+        </fieldset>
+      </form>
+      <div id="submit-status"></div>
+    </div>
+  </div>
+</div>

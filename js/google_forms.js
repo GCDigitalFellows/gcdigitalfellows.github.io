@@ -3,15 +3,14 @@
 function postToGoogle() {
   var inputs = $('form#google-form').serializeJSON();
   var successPage = $('form#google-form').data('success');
-  console.log(inputs);
   $.ajax({
-    url: 'https://docs.google.com/forms/d/109PlfwGQc0O8NaeRHKv2x3Ic3_N7wuJccApU1fm43Vc/formResponse',
+    url: 'https://docs.google.com/forms/d/1R6WUAjYs4lxFsIiBncp9Fj_e__R4SJ9flWlDcC5z4Is/formResponse',
     data: inputs,
     type: 'POST',
     dataType: 'xml',
     statusCode: {
       404: function (xhr, textStatus) {
-        var msg = 'Something went wrong. Please email us. <br>Status code: ' + xhr.status + ' message: ' + textStatus;
+        var msg = 'Something went wrong. Please <a href="mailto:gc.digitalfellows@gmail.com">email us</a>. <br>Status code: ' + xhr.status + ' message: ' + textStatus;
         var status = 'error';
         showAlert(msg, status);
       },
@@ -41,6 +40,8 @@ function showAlert(msg, status) {
 }
 
 $(document).ready(function () {
+  $.fn.validator.Constructor.FOCUS_OFFSET = '60px';
+
   $('form#google-form').submit(function () {
     postToGoogle();
     return false;
@@ -54,11 +55,11 @@ $(document).ready(function () {
     }
   });
 
-  $('#group_735949125_13').change(function () {
-    if ($('#group_735949125_13').is(':checked')) {
-      $('#other-interest').removeAttr('hidden');
+  $('#group_1828641612_8').change(function () {
+    if ($('#group_1828641612_8').is(':checked')) {
+      $('#other-reference').removeAttr('hidden');
     } else {
-      $('#other-interest').attr('hidden', '');
+      $('#other-reference').attr('hidden', '');
     }
   });
 
@@ -67,14 +68,6 @@ $(document).ready(function () {
       $('#other-commit').attr('hidden', '');
     } else {
       $('#other-commit').removeAttr('hidden');
-    }
-  });
-
-  $('input[name="entry.1726201261"]').change(function () {
-    if ($('#group_1726201261_2').is(':checked')) {
-      $('#laptop-os').attr('hidden', '');
-    } else {
-      $('#laptop-os').removeAttr('hidden');
     }
   });
 });

@@ -1,29 +1,23 @@
-<div class="container-fluid">
-  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <button type="button" class="navbar-toggler hidden-lg-up pull-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <i class="fa fa-bars"></i>
-    </button>
-    <a class="navbar-brand page-scroll pull-left hidden-md-down" href="{{ '/' | prepend: site.baseurl }}" title="{{ site.description }}">
-      <img class="site-logo" src="{{ '/images/gcdrb-logo.png' | prepend: site.baseurl }}" alt="{{ site.title }}">
-    </a>
-    <a class="navbar-brand page-scroll pull-left hidden-lg-up" href="{{ '/' | prepend: site.baseurl }}" title="{{ site.description }}">
-      <img class="site-logo" src="{{ '/images/gcdrb-logo-mobile.png' | prepend: site.baseurl }}" alt="{{ site.title }}">
-    </a>
-
-    <div class="collapse navbar-toggleable-md pull-right" id="bs-navbar-collapse-1" aria-expanded="false">
-      <ul class="nav navbar-nav">
-      {% for link in site.data.menus.main %}
-          {% if page.permalink == link.href %}
-          <li class="nav-item active">
-            <a class="nav-link" href="#">{{ link.name }}</a>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link {{link.class}}" href="{{ link.href | prepend: site.baseurl }}">{{ link.name }}</a>
-        {% endif %}
-          </li>
-      {% endfor %}
-      </ul>
-    </div>
-  </nav>
-</div>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <a class="navbar-brand page-scroll pull-xs-left hidden-md-down" href="{{ '/' | prepend: site.baseurl }}" title="{{ site.description }}">
+    <img class="site-logo" src="{{ '/images/gcdrb-logo.png' | prepend: site.baseurl }}" alt="{{ site.title }}">
+  </a>
+  <a class="navbar-brand hidden-lg-up clearfix" href="{{ '/' | prepend: site.baseurl }}" title="{{ site.description }}">
+    <img class="site-logo" src="{{ '/images/gcdrb-logo-mobile.png' | prepend: site.baseurl }}" alt="{{ site.title }}">
+  </a>
+  <button type="button" class="navbar-toggler hidden-lg-up pull-xs-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+    <span class="sr-only">Toggle navigation</span>
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-toggleable-md" id="bs-navbar-collapse-1" aria-expanded="false">
+    <nav class="nav navbar-nav pull-xs-right text-xs-right">
+    {% for link in site.data.menus.main %}
+        {% if page.permalink == link.href %}
+          <a class="nav-item nav-link active" href="#">{{ link.name }}</a>
+      {% else %}
+          <a class="nav-item nav-link {{link.class}}" href="{{ link.href | prepend: site.baseurl }}">{{ link.name }}</a>
+      {% endif %}
+    {% endfor %}
+    </nav>
+  </div>
+</nav>

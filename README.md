@@ -2,7 +2,17 @@
 
 ## tl;dr
 
-Website for the GC Digital Fellows Digital Research Bootcamp. Clone, run `npm install`, `bower install`, `gem install jekyll jekyll-paginate github-pages` and then `npm run serve` to set everything up and start the development server.
+Website for the GC Digital Fellows Digital Research Bootcamp. 
+
+1. Clone the repo, then run:
+
+   ```sh
+   npm install 
+   bower install 
+   gem install jekyll jekyll-paginate github-pages
+   ```
+2. run `npm run serve` 
+to set everything up and start the development server.
 
 ## Setup (OS X and Linux)
 

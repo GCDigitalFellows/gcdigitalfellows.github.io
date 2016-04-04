@@ -1,0 +1,12 @@
+iframe.googleform {
+  height: 4052px;
+  overflow-y: hidden;
+
+  @media (max-width: 663px) and (min-width:521px) {
+    height: 3428px;
+  }
+
+  @media (min-width: 664px) {
+    height: 3273px;
+  }
+}
