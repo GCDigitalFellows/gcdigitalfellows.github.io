@@ -1,12 +1,14 @@
 main:
   - name: Home
     href: '/'
+  - name: Apply
+    href: '/apply/'
   - name: Past Workshops
     href: '/gcdrb/#workshops'
+    class: page-scroll
   - name: Schedule
     href: '/schedule/'
   - name: Instructors
     href: '/instructors/'
   - name: Contact
     href: '/contact/'
-    class: page-scroll
