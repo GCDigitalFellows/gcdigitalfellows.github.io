@@ -68,6 +68,14 @@
   }
 }
 
+@mixin text-emphasis-overload-link($parent, $color, $link) {
+  #{$parent} {
+    color: $color;
+
+    @include anchor($link);
+  }
+}
+
 @mixin sans-serif-font() {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }

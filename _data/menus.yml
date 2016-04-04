@@ -8,7 +8,5 @@ main:
     class: page-scroll
   - name: Schedule
     href: '/schedule/'
-  - name: Instructors
-    href: '/instructors/'
   - name: Contact
     href: '/contact/'
