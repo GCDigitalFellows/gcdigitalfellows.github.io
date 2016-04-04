@@ -383,10 +383,9 @@ header {
 
   @include media-breakpoint-up(lg) {
     .header-content {
-      padding: 0 10rem;
-      position: absolute;
-      top: 60%;
-      transform: translateY(-60%);
+      min-height: 100%;
+      padding: 6rem 10rem;
+      position: relative;
     }
 
     .header-content-inner {
@@ -499,6 +498,11 @@ main {
 // *******************************************************************
 // Helpers {{{
 // *******************************************************************
+.img-fluid {
+  // fix for firefox not respecting max-width
+  width: 100%;
+}
+
 .no-gutter > [class*='col-'] {
   padding-left: 0;
   padding-right: 0;
