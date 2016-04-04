@@ -4,6 +4,7 @@ const yaml = require('js-yaml');
 const fs = require('fs-extra');
 const escape = require('escape-html');
 
+var oldurl = 'https://docs.google.com/spreadsheets/d/16RfbdrnDHhRgP2iZwNw6AVSyWy5VoKn0nB0CpyMa658/pub?';
 var docurl = 'https://docs.google.com/spreadsheets/d/1e5y9HYYq-dtuGrHxVmsEieY2jB3EErWoVYxytTMnAHw/pub?';
 var dataDir = '_data/';
 var outExt = 'json';
@@ -77,55 +78,55 @@ getData({
   }
 });
 
-// getData({
-//   gdocUrlBase: docurl,
-//   gdocSheet: '470059533',
-//   outFile: 'schedule.' + outExt,
-//   outDir: dataDir,
-//   processRows: function (rows) {
-//     var outData = [];
-//     var timeslot;
-//     for (var i = 0; i < rows.length; i++) {
-//       var row = rows[i];
-//       timeslot = row.Time || timeslot;
-//       if (timeslot && timeslot.indexOf('Day') > -1) {
-//         outData.push({day: row.Time, date: row.Session, timeslots: []});
-//       } else if (row.Session) {
-//         outData[outData.length - 1].timeslots.push({
-//           time: timeslot,
-//           session: row.Session,
-//           title: row.Title,
-//           room: row.Room,
-//           instructor: row.Instructors,
-//           instructorlink: linkFromNames(row.Instructors, '/instructors'),
-//           link: row.link
-//         });
-//       } else {
-//         outData[outData.length - 1].timeslots.push({
-//           time: row.Time,
-//           title: row.Title,
-//           room: row.Room
-//         });
-//       }
-//     }
-//     return outData;
-//   }
-// });
-//
-// function linkFromNames(names, urlPrefix) {
-//   var nameList = names.split(',');
-//   var links = '';
-//   for (var c = 0; c < nameList.length; c++) {
-//     var name = nameList[c].trim();
-//     if (links !== '') {
-//       links += ', ';
-//     }
-//     links += '<a href="' + urlPrefix + '/#';
-//     name = name.replace(/\s/g, '-').toLowerCase();
-//     links += name + '\">' + nameList[c].trim() + '</a>';
-//   }
-//   return links;
-// }
+getData({
+  gdocUrlBase: oldurl,
+  gdocSheet: '470059533',
+  outFile: 'oldschedule.' + outExt,
+  outDir: dataDir,
+  processRows: function (rows) {
+    var outData = [];
+    var timeslot;
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      timeslot = row.Time || timeslot;
+      if (timeslot && timeslot.indexOf('Day') > -1) {
+        outData.push({day: row.Time, date: row.Session, timeslots: []});
+      } else if (row.Session) {
+        outData[outData.length - 1].timeslots.push({
+          time: timeslot,
+          session: row.Session,
+          title: row.Title,
+          room: row.Room,
+          instructor: row.Instructors,
+          instructorlink: linkFromNames(row.Instructors, '/instructors'),
+          link: row.link
+        });
+      } else {
+        outData[outData.length - 1].timeslots.push({
+          time: row.Time,
+          title: row.Title,
+          room: row.Room
+        });
+      }
+    }
+    return outData;
+  }
+});
+
+function linkFromNames(names, urlPrefix) {
+  var nameList = names.split(',');
+  var links = '';
+  for (var c = 0; c < nameList.length; c++) {
+    var name = nameList[c].trim();
+    if (links !== '') {
+      links += ', ';
+    }
+    links += '<a href="' + urlPrefix + '/#';
+    name = name.replace(/\s/g, '-').toLowerCase();
+    links += name + '\">' + nameList[c].trim() + '</a>';
+  }
+  return links;
+}
 
 function getData(options) {
   options = options || {};

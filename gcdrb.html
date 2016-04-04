@@ -19,20 +19,16 @@ header: header-2
 <section class="" id="landing">
   <div class="container">
     <div class="row row-heading">
-      <div class="col-md-10 offset-md-1">
         <h1 class="display-0 text-primary">The Digital Research Bootcamp</h1>
         <h2 class="m-t-3">January 19-22, 2016</h2>
         <h2 class="">The Graduate Center, CUNY</h2>
         <hr class="hr hr-primary m-y-2">
-      </div>
     </div>
-    <div class="row">
-      <div class="col-md-10 offset-md-1">
+    <div class="row row-paded">
         <p>The inaugural GC Digital Research Bootcamp took place over four days in January 2016. It provided participants with an opportunity to develop digital research skills and connect with others in an interdisciplinary environment. The workshops introduced a range of digital tools and methods for doing research, with multiple tracks targeted at different skillsets and disciplinary focuses.</p>
         <p>Free of charge to participants, the GC Digital Research Bootcamp was developed in partnership with Software Carpentry, the New York Public Library, Mozilla Science Lab, Humanities Intensive Learning and Teaching, and the Digital Humanities Summer Institute thanks to the sponsorship of GCDI, The Graduate Center, and The CUNY Strategic Investment Initiatives Program.</p>
         <p>Instructors included volunteers from Software Carpentry, members of the GCDI community, as well as current and past GC Digital Fellows.</p>
         <p>Interest in the Bootcamp surpassed our expectations—we received more than three times the number of applicants as there were available spots. Applicants were selected for participation based on numerous factors, and applicants who were not selected will automatically be considered for future programs as space allows.</p>
-      </div>
     </div>
     <div class="row m-t-2">
       <div class="col-xs-12 col-md-5 offset-md-1 text-xs-center text-md-right">
@@ -51,12 +47,8 @@ header: header-2
 <section id="workshops">
   <div class="container">
     {% include section-header.html title="Past Workshops" color="primary" %}
-    <div class="row m-b-3">
-      <div class="col-md-10 offset-md-1">
-        <p>The following are the workshops that were offered during the Digital Research Bootcamp in January 2016. Please note that <strong>future Digital Research Institutes will offer different workshops</strong>. This is an archive of our previous offerings to give you a sense of the types of materials and topics you might expect from future programs. Additionally, future workshops will likely utilize a different structure, incorporate different materials and examples, and cover different topic areas even if the workshops are similarly titled.</p>
-      </div>
-    </div>
-    <div class="row">
+    <p>The following are the workshops that were offered during the Digital Research Bootcamp in January 2016. Please note that <strong>future Digital Research Institutes will offer different workshops</strong>. This is an archive of our previous offerings to give you a sense of the types of materials and topics you might expect from future programs. Additionally, future workshops will likely utilize a different structure, incorporate different materials and examples, and cover different topic areas even if the workshops are similarly titled.</p>
+    <div class="row m-t-3">
       <div class="col-md-10 offset-md-1">
         <div class="landing" id="terminal">
           <div class="card">
@@ -238,258 +230,27 @@ header: header-2
     {% include section-header.html title="Past DRB Schedule" color="primary" %}
     <div class="row">
       <div class="col-md-10 offset-md-1">
-        <h4 class="table-info" id="day-1">Day 1: Tuesday, January 18, 2016</h4>
         <table class="table table-striped">
-          <thead class="thead-inverse">
-            <tr>
-              <th>Time</th>
-              <th>Topic</th>
-              <th>Instructor(s)</th>
-            </tr>
+          <thead class="thead-info">
+            <th>Time</th>
+            <th>Topic</th>
+            <th>Instructor(s)</th>
           </thead>
           <tbody>
+        {% for day in site.data.schedule %}
+          <tr>
+            <th colspan=3 class="table-inverse" id="{{day.day | slugify}}">{{day.day}}: {{day.date}}</th>
+          </tr>
+          {% for timeslot in day.timeslots %}
             <tr>
-              <td>9:30 - 10:00</td>
-              <td>Registration &amp; Coffee</td>
-              <td></td>
+              <td>{{timeslot.time}}</td>
+              <td>{{timeslot.title}}</td>
+              <td>{{timeslot.instructor}}</td>
             </tr>
-            <tr>
-              <td>10:00 - 11:15</td>
-              <td><a href="#terminal">Command Line 1</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>11:15 - 11:30</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>11:30 - 12:45</td>
-              <td><a href="#terminal">Command Line 2</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>12:45 - 2:00</td>
-              <td>Lunch + Introductions</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>2:00 - 3:15</td>
-              <td><a href="#python">Python 1</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>3:15 - 3:30</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3:30 - 4:45</td>
-              <td><a href="#python">Python 2</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>4:45 - 6:00</td>
-              <td>Office Hours</td>
-              <td></td>
-            </tr>
+          {% endfor %}
+        {% endfor %}
           </tbody>
         </table>
-
-        <h4 class="table-info" id="day-2">Day 2: Wednesday, January 19, 2016</h4>
-        <table class="table table-striped">
-          <thead class="thead-inverse">
-            <tr>
-              <th>Time</th>
-              <th>Topic</th>
-              <th>Instructor(s)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>9:30 - 10:00</td>
-              <td>Coffee</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>10:00 - 11:15</td>
-              <td><a href="#git">Git 1</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>11:15 - 11:30</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>11:30 - 12:45</td>
-              <td><a href="#git">Git 2</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>12:45 - 2:00</td>
-              <td>Lunch</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>2:00 - 3:15</td>
-              <td><a href="#python">Python 3</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>3:15 - 3:30</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3:30 - 4:45</td>
-              <td><a href="#python">Python 4</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#software-carpentry">Software Carpentry</a></td>
-            </tr>
-            <tr>
-              <td>4:45 - 6:00</td>
-              <td>Office Hours</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4 class="table-info" id="day-3">Day 3: Thursday, January 20, 2016</h4>
-        <table class="table table-striped">
-          <thead class="thead-inverse">
-            <tr>
-              <th>Time</th>
-              <th>Topic</th>
-              <th>Instructor(s)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>9:30 - 10:00</td>
-              <td>Coffee</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>10:00 - 11:15</td>
-              <td><a href="#data">Data Cleaning</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#evan-misshula">Evan Misshula</a></td>
-            </tr>
-            <tr>
-              <td>11:15 - 11:30</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>11:30 - 12:45</td>
-              <td><a href="#twitter">Twitter API</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#stephen-zweibel">Stephen Zweibel</a>, <a href="{{ '/instructors/' | prepend: site.baseurl }}#patrick-smyth">Patrick Smyth</a></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><a href="#databases">Data Formats</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#evan-misshula">Evan Misshula</a></td>
-            </tr>
-            <tr>
-              <td>12:45 - 2:00</td>
-              <td>Lunch</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>2:00 - 3:15</td>
-              <td><a href="#nltk">NLTK 1</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#michelle-johnson-mcsweeney">Michelle Johnson McSweeney</a>, <a href="{{ '/instructors/' | prepend: site.baseurl }}#patrick-smyth">Patrick Smyth</a></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><a href="#scipy">Scientific Python</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#hannah-aizenman">Hannah Aizenman</a></td>
-            </tr>
-            <tr>
-              <td>3:15 - 3:30</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3:30 - 4:45</td>
-              <td><a href="#nltk">NLTK 2</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#michelle-johnson-mcsweeney">Michelle Johnson McSweeney</a>, <a href="{{ '/instructors/' | prepend: site.baseurl }}#patrick-smyth">Patrick Smyth</a></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><a href="#ml">Machine Learning</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#hannah-aizenman">Hannah Aizenman</a></td>
-            </tr>
-            <tr>
-              <td>4:45 - 6:00</td>
-              <td>Office Hours</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4 class="table-info" id="day-4">Day 4: Friday, January 21, 2016</h4>
-        <table class="table table-striped">
-          <thead class="thead-inverse">
-            <tr>
-              <th>Time</th>
-              <th>Topic</th>
-              <th>Instructor(s)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>9:30 - 10:00</td>
-              <td>Coffee</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>10:00 - 11:30</td>
-              <td><a href="#gis">Mapping</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#michelle-johnson-mcsweeney">Michelle Johnson McSweeney</a>, <a href="{{ '/instructors/' | prepend: site.baseurl }}#hannah-aizenman">Hannah AIzenman</a></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><a href="#identity">Digital Identity/Wordpress</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#mary-catherine-kinniburgh">Mary Catherine Kinniburgh</a>, <a href="{{ '/instructors/' | prepend: site.baseurl }}#patrick-sweeney">Patrick Sweeney</a></td>
-            </tr>
-            <tr>
-              <td>11:30 - 11:45</td>
-              <td>Break</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>11:45 - 1:00</td>
-              <td><a href="#gis">Mapping</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#michelle-johnson-mcsweeney">Michelle Johnson McSweeney</a>, <a href="{{ '/instructors/' | prepend: site.baseurl }}#hannah-aizenman">Hannah AIzenman</a></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><a href="#html">HTML/CSS/JS</a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#ian-phillips">Ian Phillips</a></td>
-            </tr>
-            <tr>
-              <td>1:00 - 2:00</td>
-              <td>Lunch</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>2:00 - 3:30</td>
-              <td><a href="#viza">Data Visualization </a></td>
-              <td><a href="{{ '/instructors/' | prepend: site.baseurl }}#micki-kaufman">Micki Kaufman</a></td>
-            </tr>
-            <tr>
-              <td>3:30 - 3:45</td>
-              <td>Wrap Up </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>3:45 - 4:30</td>
-              <td>Reception</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-
       </div>
     </div>
   </div>
