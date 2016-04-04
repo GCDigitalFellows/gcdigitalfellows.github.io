@@ -1,5 +1,6 @@
 <!-- JS -->
-<!-- inject:js -->
 <script src="{{ '/js/vendor.min.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/js/main.min.js' | prepend: site.baseurl }}"></script>
-<!-- endinject -->
+{% if page.scripts %}
+  <script src="{{ '/js/' | prepend: site.baseurl | append: page.scripts }}"></script>
+{% endif %}
