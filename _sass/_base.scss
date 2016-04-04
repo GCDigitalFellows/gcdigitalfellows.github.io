@@ -138,7 +138,7 @@ a {
   &.no-animate::before,
   &.btn::before,
   &.navbar-brand::before {
-    background-color: transparent;
+    visibility: hidden;
   }
 }
 
@@ -171,6 +171,10 @@ h6 {
 
 .section-heading {
   margin-top: 0;
+}
+
+.display-0 {
+  font-size: 4rem;
 }
 
 // }}}
@@ -241,6 +245,7 @@ h6 {
 
   .navbar-brand {
     margin-right: 0;
+    float: none;
   }
 
   .navbar-toggler {
@@ -248,88 +253,82 @@ h6 {
     padding: .25rem .5rem 0;
   }
 
-  li {
-    > a,
-    > a:focus {
+  a {
+    &.nav-link,
+    &.nav-link:focus {
       color: $nav-link;
       font-size: .8rem;
       font-weight: 700;
       text-transform: uppercase;
     }
 
-    > a:hover {
+    &.nav-link:hover {
       color: $nav-link-hover;
     }
 
-    > a:hover::before {
+    &.nav-link:hover::before {
       background-color: $nav-link-hover;
     }
 
-    &.active > a,
-    &.active > a:focus,
-    &.active > a:hover {
+    &.nav-link.active,
+    &.nav-link.active:focus,
+    &.nav-link.active:hover {
       color: $nav-link-active;
     }
 
-    &.active >a::before {
+    &.nav-link.active:hover::before {
       background-color: transparent;
     }
   }
 }
 
 .navbar-default {
-  background-color: transparent;
-  // border-color: rgba($white, .3);
-}
-
-.navbar-shaded {
   background-color: $nav-shaded;
   border-bottom: .1rem solid rgba($nav-shaded, .1);
 
-  li > a,
-  li > a:focus {
-    color: $nav-link-shaded;
+  a {
+    &.nav-link,
+    &.nav-link:focus {
+      color: $nav-link-shaded;
+    }
 
-    &:hover {
+    &.nav-link:hover {
       color: $nav-link-shaded-hover;
     }
 
-    &:hover::before {
+    &.nav-link:hover::before {
       background-color: $nav-link-shaded-hover;
     }
-  }
 
-  li.active > a,
-  li.active > a:focus,
-  li.active > a:hover {
-    color: $nav-link-shaded-active;
+    &.active.nav-link,
+    &.active.nav-link:focus,
+    &.active.nav-link:hover {
+      color: $nav-link-shaded-active;
+    }
 
-    &::before {
+    &.active.nav-link:hover::before {
       background-color: transparent;
     }
   }
 }
 
-
 @include media-breakpoint-down(md) {
-  .nav-item {
+  .navbar-nav .nav-item {
     float: none;
-    margin-right: 1rem;
-    text-align: right;
-
-    + .nav-item {
-      margin-left: 0;
-    }
   }
 }
 
 @include media-breakpoint-up(lg) {
   .navbar {
     min-height: 3.5rem;
+
+    &:not(.navbar-shaded) {
+      background-color: transparent;
+    }
   }
 
-  li > a,
-  li > a:focus {
+  a,
+  a:focus {
     color: $nav-link;
 
     &:hover {
