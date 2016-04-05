@@ -244,7 +244,11 @@ header: header-2
           {% for timeslot in day.timeslots %}
             <tr>
               <td>{{timeslot.time}}</td>
-              <td><a href="{{ '#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}</a></td>
+              {% if timeslot.link %}
+                <td><a href="{{ '#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}</a></td>
+              {% else %}
+                <td>{{timeslot.title}}</td>
+              {% endif %}
               <td>{{timeslot.instructor}}</td>
             </tr>
           {% endfor %}
