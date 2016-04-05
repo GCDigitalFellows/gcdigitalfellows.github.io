@@ -80,6 +80,13 @@ getData({
 
 getData({
   gdocUrlBase: oldurl,
+  gdocSheet: '585110058',
+  outFile: 'oldworkshops.' + outExt,
+  outDir: dataDir
+});
+
+getData({
+  gdocUrlBase: oldurl,
   gdocSheet: '470059533',
   outFile: 'oldschedule.' + outExt,
   outDir: dataDir,
