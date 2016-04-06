@@ -10,14 +10,32 @@
     <i class="fa fa-bars"></i>
   </button>
   <div class="collapse navbar-toggleable-md" id="bs-navbar-collapse-1" aria-expanded="false">
-    <nav class="nav navbar-nav pull-xs-right text-xs-right">
+    <ul class="nav navbar-nav pull-xs-right text-xs-right">
     {% for link in site.data.menus.main %}
-        {% if page.permalink == link.href %}
-          <a class="nav-item nav-link active" href="#">{{ link.name }}</a>
+      {% if link.children %}
+        <li class="nav-item dropdown">
+          <!-- <button class="dropdown&#45;toggle nav&#45;link" id="dropdown{{link.name | slugify}}" data&#45;toggle="dropdown" aria&#45;haspopup="true" aria&#45;expanded="false">{{link.name}}</button> -->
+          <a class="dropdown-toggle nav-link" type="button" href="#" id="dropdown{{link.name | slugify}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{link.name}}</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown{{link.name | slugify}}">
+          {% for child in link.children %}
+            {% if page.permalink == child.href %}
+              <a class="nav-link active" href="#">{{ child.name }}</a>
+            {% else %}
+              <a class="nav-link {{child.class}}" href="{{ child.href | prepend: site.baseurl }}">{{ child.name }}</a>
+            {% endif %}
+          {% endfor %}
+          </div>
+        </li>
       {% else %}
-          <a class="nav-item nav-link {{link.class}}" href="{{ link.href | prepend: site.baseurl }}">{{ link.name }}</a>
+        <li class="nav-item">
+        {% if page.permalink == link.href %}
+          <a class="nav-link active" href="#">{{ link.name }}</a>
+        {% else %}
+          <a class="nav-link {{link.class}}" href="{{ link.href | prepend: site.baseurl }}">{{ link.name }}</a>
+        {% endif %}
+        </li>
       {% endif %}
     {% endfor %}
-    </nav>
+    </ul>
   </div>
 </nav>
