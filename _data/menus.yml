@@ -7,7 +7,7 @@ main:
     href: dropdown
     children:
     - name: June 2016
-      href: '/workshops/'
+      href: '/schedule/'
     - name: January 2016
       href: '/drb/#workshops'
   - name: Schedule
