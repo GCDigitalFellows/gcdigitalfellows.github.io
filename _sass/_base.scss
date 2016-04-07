@@ -284,7 +284,6 @@ h6 {
 
 .navbar-default {
   background-color: $nav-shaded;
-  border-bottom: .1rem solid rgba($nav-shaded, .1);
 
   a {
     &.nav-link,
@@ -310,12 +309,32 @@ h6 {
       background-color: transparent;
     }
   }
+
+  .dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-menu {
+    background-color: $nav-shaded;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    position: relative;
+    text-align: right;
+
+    a.nav-link::before,
+    a.nav-link:hover::before {
+      background-color: transparent;
+    }
+  }
 }
 
 @include media-breakpoint-down(md) {
   .navbar-nav .nav-item {
     float: none;
   }
+
 }
 
 @include media-breakpoint-up(lg) {
@@ -337,6 +356,19 @@ h6 {
       &::before {
         background-color: $nav-link-hover;
       }
+    }
+  }
+
+  .navbar-default .dropdown-menu {
+    float: right;
+    left: auto;
+    margin-top: .9rem;
+    min-width: 160px;
+    position: absolute;
+    right: 0;
+
+    .nav-link {
+      margin-right: 1rem;
     }
   }
 }

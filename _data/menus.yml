@@ -3,9 +3,13 @@ main:
     href: '/'
   - name: Apply
     href: '/apply/'
-  - name: Past Workshops
-    href: '/drb/#workshops'
-    class: page-scroll
+  - name: Curricula
+    href: dropdown
+    children:
+    - name: June 2016
+      href: '/workshops/'
+    - name: January 2016
+      href: '/drb/#workshops'
   - name: Schedule
     href: '/schedule/'
   - name: Contact
