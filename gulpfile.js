@@ -53,14 +53,14 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('images', function () {
-  return gulp.src(['_images/*'])
+  return gulp.src(['_images/**'])
     .pipe($.plumber({
       handleError: function (err) {
         console.log(err);
         this.emit('end');
       }
     }))
-    .pipe($.newer('images'))
+    .pipe($.newer('images/**'))
     .pipe($.imagemin({
       progressive: true,
       svgoPlugins: [
