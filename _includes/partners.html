@@ -7,7 +7,7 @@
           {% for partner in site.data.partners %}
             <div class="card card-partner text-xs-center">
               <a class="no-animate" href="{{partner.website}}" target="_blank">
-                <img class="card-img-top img-fluid img-partner"
+                <img class="card-img-top img-fluid img-partner {{partner.class}}"
                     src="{{ '/images/logos/' | prepend: site.baseurl }}{{partner.image}}"
                     alt="{{partner.fullname}}">
               </a>

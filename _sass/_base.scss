@@ -192,6 +192,14 @@ h6 {
 @include background-color-link('.bg-light', $black, $brand-light, $gray-dark, $gray);
 @include background-color('.bg-black', $white, $black);
 
+$bg-nycml: #8c1d71;
+
+.bg-nycml {
+  background-color: $bg-nycml;
+  padding: .7rem;
+  border-radius: .25rem;
+}
+
 // }}}
 // *******************************************************************
 // Text Colors {{{
