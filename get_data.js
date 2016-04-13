@@ -136,19 +136,45 @@ function linkFromNames(names, urlPrefix) {
 }
 
 function getData(options) {
+  // Gets data from a google spreadsheet and saves it locally as json/yml file
+  // The sheet needs to be published to the web as a csv:
+  // => File > publish to the web > link > csv
+  //
+  // options as follows:
+  // gdocUrlBase (string): the base url of the google spreadsheet everything 
+  //  before the worksheet id #
+  // gdocSheet (string): the worksheet id # from the url. separated into a 
+  //  separate variable so you can run this using the same base url for 
+  //  multiple sheets in the same document. Default is '0' (first sheet)
+  // outFile (string): filename for the output file, including appropriate 
+  //  extension of either .json or .yml. If neither extension is given, it 
+  //  defaults to outputting a json file regardless of file extension.
+  //  Default value is 'gdocdata.json'
+  // outDir (string): pathname for the output file, relative to this script.
+  //  Default value is the current directory.
+  // parseOptions (dictionary): options to pass to the csv parser. 
+  //  see https://github.com/Rich-Harris/BabyParse and http://papaparse.com/
+  //  Default is to use a header row, skip empty lines, and treat lines
+  //  that start with '//' as comments (ignored)
+  // processRows: callback function to process the csv data prior to writing.
+  //  takes one parameter, the parse output from babyparse (see link above)
+  //  should return a similarly formatted array.
+
   options = options || {};
   var gdocUrlBase = options.gdocUrlBase;
   var gdocSheet = options.gdocSheet || '0';
   var outFile = options.outFile || 'gdocdata.json';
-  var outDir = options.outDir || '_data';
+  var outDir = options.outDir || './';
   var parseOptions = options.parseOptions || {
     header: true,
     skipEmptyLines: true,
     comments: '//'
   };
   var processRows = options.processRows;
+
   var gdocUrl = gdocUrlBase + 'gid=' + gdocSheet + '&single=true&output=csv';
   var format = (outFile.indexOf('yml') > -1 ? 'yaml' : 'json');
+
   request(gdocUrl, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       console.log('Successfully read ' + outFile + ' from Google Docs.');
