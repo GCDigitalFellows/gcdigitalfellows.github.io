@@ -15,7 +15,7 @@
       {% if link.children %}
         <li class="nav-item dropdown">
           <!-- <button class="dropdown&#45;toggle nav&#45;link" id="dropdown{{link.name | slugify}}" data&#45;toggle="dropdown" aria&#45;haspopup="true" aria&#45;expanded="false">{{link.name}}</button> -->
-          <a class="dropdown-toggle nav-link" type="button" href="#" id="dropdown{{link.name | slugify}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{link.name}}</a>
+          <a class="dropdown-toggle nav-link" href="#" id="dropdown{{link.name | slugify}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{link.name}}</a>
           <div class="dropdown-menu" aria-labelledby="dropdown{{link.name | slugify}}">
           {% for child in link.children %}
             {% if page.permalink == child.href %}

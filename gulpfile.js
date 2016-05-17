@@ -90,7 +90,7 @@ gulp.task('jekyll', function (done) {
       if (jekyllInc) {
         jekyllParams.push('--incremental');
       }
-      console.log('Starting Jekyll');
+      // console.log('Starting Jekyll');
       browserSync.notify('Building Jekyll');
       spawn(jekyllCmd, jekyllParams, {stdio: 'inherit'})
       .on('exit', function (code) {
