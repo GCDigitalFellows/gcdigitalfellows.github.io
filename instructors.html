@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Instructors
+permalink: /instructors/
 ---
 
 <section id="content" class="container">
@@ -10,7 +11,6 @@ title: Instructors
     {% for instructor in site.data.people %}
       <div class="m-b-2" id="{{instructor.id}}">
         <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{instructor.title}}">
-          {% comment %}
           {% if instructor.email != '' %}
           <a href="mailto:{{instructor.email}}" class="btn btn-primary"><i
               class="fa fa-envelope"></i></a>
@@ -21,23 +21,15 @@ title: Instructors
           {% if instructor.github != '' %}
             <a href="{{instructor.github}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
           {% endif %}
-          {% endcomment %}
           {% if instructor.twitter != '' %}
-            <a href="{{instructor.twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i></a>
+            <a href="http://twitter.com/{{instructor.twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i></a>
           {% endif %}
           <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
         </div>
         <h3 class="instructor-name">{{instructor.name}}</h3>
-        {% if instructor.title != '' or instructor.affiliation != '' %}
+        {% if instructor.title != '' %}
           <p class="text-muted">
-          {% if instructor.title != '' and instructor.affiliation != '' %}
-            <span class="instructor-title">{{instructor.title}}</span>,
-          {% elsif instructor.title != '' %}
             <span class="instructor-title">{{instructor.title}}</span>
-          {% endif %}
-          {% if instructor.affiliation != '' %}
-            <span class="instructor-affiliation text-muted">{{instructor.affiliation}}</span>
-          {% endif %}
           </p>
         {% endif %}
         {% if instructor.image != '' %}
