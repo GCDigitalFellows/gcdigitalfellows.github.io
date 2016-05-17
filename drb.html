@@ -85,7 +85,7 @@ header: header-2
             <th>Instructor(s)</th>
           </thead>
           <tbody>
-        {% for day in site.data.schedule %}
+        {% for day in site.data.oldschedule %}
           <tr>
             <th colspan=3 class="table-info" id="{{day.day | slugify}}">{{day.day}}: {{day.date}}</th>
           </tr>

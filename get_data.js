@@ -79,6 +79,41 @@ getData({
 });
 
 getData({
+  gdocUrlBase: docurl,
+  gdocSheet: '470059533',
+  outFile: 'schedule.' + outExt,
+  outDir: dataDir,
+  processRows: function (rows) {
+    var outData = [];
+    var timeslot;
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      timeslot = row.Time || timeslot;
+      if (timeslot && timeslot.indexOf('Day') > -1) {
+        outData.push({day: row.Time, date: row.Session, timeslots: []});
+      } else if (row.Session) {
+        outData[outData.length - 1].timeslots.push({
+          time: timeslot,
+          session: row.Session,
+          title: row.Title,
+          room: row.Room,
+          instructor: row.Instructors,
+          instructorlink: linkFromNames(row.Instructors, '/instructors'),
+          link: row.link
+        });
+      } else {
+        outData[outData.length - 1].timeslots.push({
+          time: row.Time,
+          title: row.Title,
+          room: row.Room
+        });
+      }
+    }
+    return outData;
+  }
+});
+
+getData({
   gdocUrlBase: oldurl,
   gdocSheet: '585110058',
   outFile: 'oldworkshops.' + outExt,
