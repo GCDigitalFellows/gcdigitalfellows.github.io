@@ -5,38 +5,39 @@ const fs = require('fs-extra');
 const escape = require('escape-html');
 
 var oldurl = 'https://docs.google.com/spreadsheets/d/16RfbdrnDHhRgP2iZwNw6AVSyWy5VoKn0nB0CpyMa658/pub?';
-var docurl = 'https://docs.google.com/spreadsheets/d/1e5y9HYYq-dtuGrHxVmsEieY2jB3EErWoVYxytTMnAHw/pub?';
+var jun16dri = 'https://docs.google.com/spreadsheets/d/1e5y9HYYq-dtuGrHxVmsEieY2jB3EErWoVYxytTMnAHw/pub?';
 var dataDir = '_data/';
 var outExt = 'json';
 // var outExt = 'yml';
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '863043106',
   outFile: 'prelim.' + outExt,
   outDir: dataDir
 });
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '55408582',
   outFile: 'outcomes.' + outExt,
   outDir: dataDir
 });
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '585110058',
   outFile: 'workshops.' + outExt,
   outDir: dataDir
 });
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '1411565774',
   outFile: 'people.' + outExt,
   outDir: dataDir,
   processRows: function (rows) {
+    var outData = {};
     for (var c = 0; c < rows.length; c++) {
       if (rows[c].bio) {
         rows[c].bio = '<p>' + escape(rows[c].bio) + '</p>';
@@ -45,20 +46,23 @@ getData({
       if (rows[c].id) {
         rows[c].id = rows[c].name.replace(/\s/g, '-').toLowerCase();
       }
+      if (rows[c].shortname) {
+        outData[rows[c].shortname] = rows[c];
+      }
     }
-    return rows;
+    return outData;
   }
 });
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '2001419383',
   outFile: 'partners.' + outExt,
   outDir: dataDir
 });
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '1809179717',
   outFile: 'rooms.' + outExt,
   outDir: dataDir,
@@ -79,7 +83,7 @@ getData({
 });
 
 getData({
-  gdocUrlBase: docurl,
+  gdocUrlBase: jun16dri,
   gdocSheet: '470059533',
   outFile: 'schedule.' + outExt,
   outDir: dataDir,
@@ -91,23 +95,26 @@ getData({
       timeslot = row.Time || timeslot;
       if (timeslot && timeslot.indexOf('Day') > -1) {
         outData.push({day: row.Time, date: row.Session, timeslots: []});
-      } else if (row.Session) {
-        outData[outData.length - 1].timeslots.push({
-          time: timeslot,
-          session: row.Session,
-          title: row.Title,
-          room: row.Room,
-          instructor: row.Instructors,
-          instructorlink: linkFromNames(row.Instructors, '/instructors'),
-          link: row.link
-        });
+      // } else if (row.Session) {
       } else {
         outData[outData.length - 1].timeslots.push({
-          time: row.Time,
-          title: row.Title,
-          room: row.Room
+          time: timeslot || '',
+          session: row.Session || '',
+          title: row.Title || '',
+          room: row.Room || '',
+          instructor: row.Instructors || '',
+          // instructorlink: linkFromNames(row.Instructors, '/instructors'),
+          link: row.link || '',
+          class: row.class || ''
         });
-      }
+      } 
+      // else {
+      //   outData[outData.length - 1].timeslots.push({
+      //     time: row.Time,
+      //     title: row.Title,
+      //     room: row.Room
+      //   });
+      // }
     }
     return outData;
   }

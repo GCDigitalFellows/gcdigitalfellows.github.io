@@ -9,7 +9,7 @@ header-color: secondary
 <section id="overview">
   <div class="container">
     {% include section-header.html title="DRI Schedule Overview" color="success" %}
-    <p>Workshops build on each other such that successive workshops use skills developed in earlier ones. All participants will attend workshops on core skills, then choose which skills they wish to develop further through advanced workshops. The following is an overview of the preliminary schedule (subject to change) of the activities planned for the five-day program. Scroll down (or <a href="#detail" class="page-scroll">click here</a>) to view a detailed schedule for each day of the DRI.</p>
+    <p>Workshops build on each other such that successive workshops use skills developed in earlier ones. All participants will attend workshops on core skills on Monday, Tuesday, and Wednesday afternoon. Wednesday and Thursday morning, participants will choose which skills they wish to develop further through advanced workshops. The following is an overview of the preliminary schedule (subject to change) of the activities planned for the five-day program. Scroll down (or <a href="#detail" class="page-scroll">click here</a>) to view a detailed schedule for each day of the DRI or click on the day of the week in the table below to jump to the detailed schedule for that day.</p>
     <div class="row m-t-3">
       <div class="col-md-10 offset-md-1">
         <div class="table-responsive">
@@ -45,6 +45,7 @@ header-color: secondary
     {% include section-header.html title="Detailed DRI Daily Schedule" color="primary" %}
     <div class="row">
       <div class="col-md-10 offset-md-1">
+        <p>Note: an asterisk (*) indicates sessions in which participants can choose from the simultaneously offered topics.</p>
         <table class="table table-striped">
           <thead class="thead-inverse">
             <th>Time</th>
@@ -58,15 +59,22 @@ header-color: secondary
               <th colspan=4 class="table-info" id="{{day.day | slugify}}">{{day.day}}: {{day.date}}</th>
             </tr>
             {% for timeslot in day.timeslots %}
+              {% assign instructors = timeslot.instructor | split:',' %}
               <tr>
                 <td>{{timeslot.time}}</td>
-                {% if timeslot.link %}
-                  <td><a href="{{ '#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}</a></td>
+                {% if timeslot.link != '' %}
+                  <td><a href="{{ '#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}{% if timeslot.class != "" %}*{% endif %}</a></td>
                 {% else %}
-                  <td>{{timeslot.title}}</td>
+                  <td>{{timeslot.title}}{% if timeslot.class="advanced" %}*{% endif %}</td>
                 {% endif %}
                 <td>{{site.data.rooms[timeslot.room].name}}</td>
-                <td>{{timeslot.instructor}}</td>
+                <td>
+                  {% for instructor in instructors %}
+                    <a href="/instructors/#{{instructor}}">
+                      {{site.data.people[instructor].name}}
+                    </a>
+                  {% endfor %}
+                </td>
               </tr>
             {% endfor %}
           {% endfor %}

@@ -9,38 +9,38 @@ permalink: /instructors/
   <div class="row" id="top">
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
     {% for instructor in site.data.people %}
-      <div class="m-b-2" id="{{instructor.id}}">
-        <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{instructor.title}}">
-          {% if instructor.email != '' %}
-          <a href="mailto:{{instructor.email}}" class="btn btn-primary"><i
+      <div class="m-b-2" id="{{instructor[1].shortname}}">
+        <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{instructor[1].title}}">
+          {% if instructor[1].email != '' %}
+          <a href="mailto:{{instructor[1].email}}" class="btn btn-primary"><i
               class="fa fa-envelope"></i></a>
           {% endif %}
-          {% if instructor.website != '' %}
-            <a href="{{instructor.website}}" class="btn btn-primary"><i class="fa fa-globe"></i></a>
+          {% if instructor[1].website != '' %}
+            <a href="{{instructor[1].website}}" class="btn btn-primary"><i class="fa fa-globe"></i></a>
           {% endif %}
-          {% if instructor.github != '' %}
-            <a href="{{instructor.github}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
+          {% if instructor[1].github != '' %}
+            <a href="{{instructor[1].github}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
           {% endif %}
-          {% if instructor.twitter != '' %}
-            <a href="http://twitter.com/{{instructor.twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i></a>
+          {% if instructor[1].twitter != '' %}
+            <a href="http://twitter.com/{{instructor[1].twitter}}" class="btn btn-primary"><i class="fa fa-twitter"></i></a>
           {% endif %}
           <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
         </div>
-        <h3 class="instructor-name">{{instructor.name}}</h3>
-        {% if instructor.title != '' %}
+        <h3 class="instructor-name">{{instructor[1].name}}</h3>
+        {% if instructor[1].title != '' %}
           <p class="text-muted">
-            <span class="instructor-title">{{instructor.title}}</span>
+            <span class="instructor-title">{{instructor[1].title}}</span>
           </p>
         {% endif %}
-        {% if instructor.image != '' %}
+        {% if instructor[1].image != '' %}
         <div class="col-sm-2">
-          <img class="img-fluid" src="{{ instructor.image | prepend: '/images/people/' | prepend: site.baseurl }}" alt="{{instructor.name}}">
+          <img class="img-fluid" src="{{ instructor[1].image | prepend: '/images/people/' | prepend: site.baseurl }}" alt="{{instructor[1].name}}">
         </div>
         <div class="col-sm-10">
         {% else %}
         <div class="col-sm-12">
         {% endif %}
-          <div class="instructor-bio p-t-1 m-b-2">{{instructor.bio}}</div>
+          <div class="instructor-bio p-t-1 m-b-2">{{instructor[1].bio}}</div>
         </div>
       </div>
     {% endfor %}
