@@ -63,7 +63,7 @@ header-color: secondary
               <tr>
                 <td>{{timeslot.time}}</td>
                 {% if timeslot.link != '' %}
-                  <td><a href="{{ '#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}{% if timeslot.class != "" %}*{% endif %}</a></td>
+                  <td><a href="{{ '/workshops/#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}{% if timeslot.class != "" %}*{% endif %}</a></td>
                 {% else %}
                   <td>{{timeslot.title}}{% if timeslot.class="advanced" %}*{% endif %}</td>
                 {% endif %}
