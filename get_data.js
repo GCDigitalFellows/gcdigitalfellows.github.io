@@ -13,7 +13,7 @@ var outExt = 'json';
 getData({
   gdocUrlBase: jun16dri,
   gdocSheet: '863043106',
-  outFile: 'prelim.' + outExt,
+  outFile: 'overview.' + outExt,
   outDir: dataDir
 });
 

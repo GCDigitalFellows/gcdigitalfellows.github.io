@@ -22,10 +22,10 @@ header-color: secondary
               <th><a href="#day-4">Thu</a></th>
               <th><a href="#day-5">Fri</a></th>
             </thead>
-            {% for session in site.data.prelim %}
+            {% for session in site.data.overview %}
             <tr>
               {% for day in session %}
-                {% if day[0] == 'time' %}
+                {% if day[0] == "time" %}
                   <th scope="row">{{day[1]}}</th>
                 {% else %}
                   <td>{{day[1]}}</td>
