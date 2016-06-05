@@ -21,18 +21,49 @@ header-color: secondary
               <th><a href="#day-3">Wed</a></th>
               <th><a href="#day-4">Thu</a></th>
               <th><a href="#day-5">Fri</a></th>
-            </thead>
+            </thead>       
+
             {% for session in site.data.overview %}
-            <tr>
-              {% for day in session %}
-                {% if day[0] == "time" %}
-                  <th scope="row">{{day[1]}}</th>
-                {% else %}
-                  <td>{{day[1]}}</td>
-                {% endif %}
-              {% endfor %}
+	    
+            <tr> <!--row of table-->
+	      {% for day in session %} <!--column -->
+               <!-- special formatting for morning sessions -->
+		    {% if session.time == "Morning" or session.time == "morn" %}
+                      {% if day[0] == "time" %}
+                          {% if session.time == "Morning" %}
+                               <th scope="row" rowspan="7">{{day[1]}}</th>
+                          {% else %}
+                              {% continue %}
+                          {% endif %}
+                      {% else %} <!-- day by day breakdown -->
+			       {% if day[0] == "F" %}
+			          {% if day[1] == "None" % }
+			             {% continue %}
+			          {% else %}
+	                             <td rowspan="2">{{day[1]}}</td>
+				  {% endif %}
+			       {% else %}
+				   {% if day[1] == "None" % }
+				     {% continue %}
+				     {% else %}
+                                     <td rowspan="3">{{day[1]}}</td>
+                                   {% endif %}
+
+				 
+			       {% endif %}
+			    {% endif %}
+                     
+                    {% else %} <!-- lunch + afternoon -->
+                       {% if day[0] == "time" %}
+                           <th scope="row">{{day[1]}}</th>
+                       {% else %}
+                           <td>{{day[1]}}</td>
+                       {% endif %}
+                    {% endif %}
+              {% endfor %} <!--end column -->
             </tr>
-            {% endfor %}
+           {% endfor %}
+
           </table>
         </div>
       </div>
@@ -45,7 +76,6 @@ header-color: secondary
     {% include section-header.html title="Detailed DRI Daily Schedule" color="primary" %}
     <div class="row">
       <div class="col-md-10 offset-md-1">
-        <p>Note: an asterisk (*) indicates sessions in which participants can choose from the simultaneously offered topics.</p>
         <table class="table table-striped">
           <thead class="thead-inverse">
             <th>Time</th>
@@ -63,9 +93,9 @@ header-color: secondary
               <tr>
                 <td>{{timeslot.time}}</td>
                 {% if timeslot.link != '' %}
-                  <td><a href="{{ '/workshops/#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}{% if timeslot.class != "" %}*{% endif %}</a></td>
+                  <td><a href="{{ '/workshops/#' | append: timeslot.link }}" class="page-scroll">{{timeslot.title}}{% if timeslot.class != "" %}{% endif %}</a></td>
                 {% else %}
-                  <td>{{timeslot.title}}{% if timeslot.class="advanced" %}*{% endif %}</td>
+                  <td>{{timeslot.title}}{% if timeslot.class="advanced" %}{% endif %}</td>
                 {% endif %}
                 <td>{{site.data.rooms[timeslot.room].name}}</td>
                 <td>
