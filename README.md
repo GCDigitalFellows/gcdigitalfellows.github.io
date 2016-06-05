@@ -15,28 +15,16 @@ Website for the GC Digital Fellows Digital Research Bootcamp.
 to set everything up and start the development server.
 
 ## Setup (OS X and Linux)
-
-1. Open a terminal window and execute the following command then follow the instructions:
-
-    ```sh
-    bash -c "$(curl -L https://raw.githubusercontent.com/GCDigitalFellows/gcdigitalfellows.github.io/master/setup.sh)"
-    ```
-
-3. If the script completes successfully, you're all set up and ready to start development. You might need to run the command multiple times if something in the script fails.
-4. To run the development server: `npm run serve`
-
-## Manual Setup
-
 ### Requirements
 
-- Node.js + NPM (might need to use version 5.x): JS build server and package management
+- Node.js + NPM (use LTF version): JS build server and package management
 - Ruby + Rubygems + Bundler: for Jekyll
 - Bower (via npm): web dependency package management
 
 ### Manual Installation (all OSes)
 
-1. Install [Node.js](https://nodejs.org/en/). It is recommended that you use [homebrew](https://brew.sh) to install node since it will help prevent permissions issues.
-2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer. You might want to install ruby using homebrew for the same reasons as above.
+1. Install [Node.js](https://nodejs.org/en/). 
+2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer. 
 3. Install [Bower](http://bower.io/#install-bower) globally (with the -g flag) from a terminal:
  
     ```shell
