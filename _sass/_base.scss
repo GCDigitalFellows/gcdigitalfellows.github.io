@@ -520,6 +520,11 @@ main {
 // *******************************************************************
 // Tables {{{
 // *******************************************************************
+
+.table-bordered th, .table-bordered td {
+    border: 2px solid #eceeef;
+}
+
 .table th {
   white-space: nowrap;
 }
