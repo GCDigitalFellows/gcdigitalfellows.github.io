@@ -11,66 +11,69 @@ header-color: secondary
     {% include section-header.html title="DRI Schedule Overview" color="success" %}
     <p>Workshops build on each other such that successive workshops use skills developed in earlier ones. All participants will attend workshops on core skills on Monday, Tuesday, and Wednesday afternoon. Wednesday and Thursday morning, participants will choose which skills they wish to develop further through advanced workshops. The following is an overview of the preliminary schedule (subject to change) of the activities planned for the five-day program. Scroll down (or <a href="#detail" class="page-scroll">click here</a>) to view a detailed schedule for each day of the DRI or click on the day of the week in the table below to jump to the detailed schedule for that day.</p>
 
-<p> Note: Participants choose from concurrent sessions Tuesday-Friday. </p>
-    <div class="row m-t-3">
-      <div class="col-md-10 offset-md-1">
+<p> Note: Participants choose from concurrent sessions Tuesday-Friday. The Friday Text Analysis is identical to the Wednesday session, but is capped at 20 seats. You are strongly encouraged to take the Wednesday session if Text Analysis is crucial to your research. </p>
+   
         <div class="table-responsive">
-          <table class="table table-hover table-bordered">
+    <table class="table table-hover table-bordered">
             <thead class="thead-inverse">
-              <th>Session</th>
-              <th><a href="#day-1">Mon</a></th>
-              <th><a href="#day-2">Tue</a></th>
-              <th><a href="#day-3">Wed</a></th>
-              <th><a href="#day-4">Thu</a></th>
-              <th><a href="#day-5">Fri</a></th>
-            </thead>       
-	    <!-- truthfully this should probably be two tables: 
-                 1 for the messy morning and 1 for the clean pretty afternoon--> 
-
-            {% for session in site.data.overview %}
-	    
-            <tr> <!--row of table-->
-	      {% for day in session %} <!--column -->
-               <!-- special formatting for morning sessions -->
-		    {% if session.time == "Morning" or session.time == "morn" %}
-                      {% if day[0] == "time" %}
-                          {% if session.time == "Morning" %}
-                               <th scope="row" rowspan="6">{{day[1]}}</th>
-                          {% else %}
-                              {% continue %}
-                          {% endif %}
-                      {% else %} <!-- day by day breakdown -->
-			       {% if day[0] == "F" %}
-			          {% if day[1] == "None" % }
-			             {% continue %}
-			          {% else %}
-	                             <td rowspan="2">{{day[1]}}</td>
-				  {% endif %}
-			       {% else %}
-				   {% if day[1] == "None" % }
-				     {% continue %}
-				     {% else %}
-                                     <td rowspan="3">{{day[1]}}</td>
-                                   {% endif %}			 
-			       {% endif %}
-			    {% endif %}
-                     
-                    {% else %} <!-- lunch + afternoon -->
-                       {% if day[0] == "time" %}
-                           <th scope="row">{{day[1]}}</th>
-                       {% else %}
-                           <td>{{day[1]}}</td>
-                       {% endif %}
-                    {% endif %}
-              {% endfor %} <!--end column -->
-            </tr>
-           {% endfor %}
-
-          </table>
-        </div>
+    <th>Session</th>
+    <th>Mon</th>
+    <th>Tue</th>
+    <th>Wed</th>
+    <th>Thu</th>
+    <th colspan="2" style="text-align:center">Fri</th>
+  </tr>
+  </head>
+  <tbody>
+  <tr>
+    <th rowspan="6">Morning</th>
+    <td rowspan="3">Introductions and Install-a-thon</td>
+    <td rowspan="3"> <ul><li>Git</li><li>Python</li></ul></td>
+    <td rowspan="3"><ul><li>Text Analysis 1</li><li>Time Series and Categorical Data</li><li>HTML+CSS</li></ul></td>
+    <td rowspan="3"><ul><li>Mapping</li><li>Machine Learning</li><li>Web Frameworks</li></ul></td>
+    <td rowspan="2"><ul><li>Digital Project Preservation</li><li>Data Management Plans</li><li>Digital Pedagogy@CUNY</li></ul></td>
+    <td rowspan="3">Text Analysis 1</td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <td rowspan="2"><ul><li>CUNY Academic Works</li><li>Grant & Fellowship Tips</li><li>Talking About Your Project in Other Contexts</li></ul></td>
+  </tr>
+  <tr>
+    <td rowspan="3">Research Briefs</td>
+    <td rowspan="3"><ul><li>Git</li><li>Python</li></ul></td>
+    <td rowspan="3"><ul><li>Text Analysis 2</li><li>Time Series and Categorical Data</li><li>Javascript</li></ul></td>
+    <td rowspan="3"><ul><li>Mapping</li><li>Machine Learning</li><li>Web Frameworks</li></ul></td>
+    <td rowspan="3">Text Analysis 2</td>
+  </tr>
+  <tr>
+    <td rowspan="2"><ul><li>Copyright and Creative Commons</li><li>Grant & Fellowship Tips</li></ul></td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+    <th colspan="7" style="text-align:center">Lunch</th>
+  </tr>
+  <tr>
+    <th>Afternoon 1</th>
+    <td>Command Line</td>
+    <td><ul><li>Git</li><li>Python</li></ul></td>
+    <td>Databases</td>
+    <td>Project Laboratory</td>
+    <td colspan="2">Presentations</td>
+  </tr>
+  <tr>
+    <th>Afternoon 2</th>
+    <td>Command Line</td>
+    <td><ul><li>Git</li><li>Python</li></ul></td>
+    <td>Databases</td>
+    <td>Project Laboratory</td>
+    <td colspan="2">Wrap-up</td>
+  </tr>
+  </tbody>
+        </table>
       </div>
-    </div>
-  </div>
+ 
 </section>
 
 <section id="detail">
@@ -116,4 +119,7 @@ header-color: secondary
     </div>
   </div>
 </section>
+
+
+
 
