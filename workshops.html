@@ -27,7 +27,7 @@ permalink: /workshops/
         <tr>
           <td>{{topic.title}}</td>
           <td><a href="#{{ topic.link | slugify }}" class="page-scroll">details</a></td>
-          <!-- <td><a href="{{ topic.repo }}" target="_blank">repo</a></td> -->
+          <td><a href="{{ topic.repo }}" target="_blank">repo</a></td>
           {% if topic.more_info_link != '' %}
             <td><a href="{{ topic.more_info_link }}" target="_blank">more info</a></td>
           {% endif %}
@@ -47,8 +47,7 @@ permalink: /workshops/
           <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{topic.title}}">
             <a href="{{ topic.day | slugify | prepend: '/schedule/#' | prepend: site.baseurl }}" class="btn btn-primary"><i class="fa fa-calendar"></i></a>
             <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
-            <!-- <a href="http://github.com/gcdigitalfellows/{{topic.repo}}"
-                 class="btn btn-primary"><i class="fa fa-github"></i></a> -->
+                 <a href="{{topic.repo}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
           </div>
           <h4 class="card-title"><a
               href="{{ topic.link | slugify | prepend: '/schedule/#' | prepend: site.baseurl }}">{{topic.title}}</a></h4>
