@@ -2,7 +2,7 @@ main:
   - name: Home
     href: '/'
   - name: Apply
-    href: '/apply/'
+    href: 'apply.html'
   - name: Curricula
     href: dropdown
     children:
@@ -11,10 +11,10 @@ main:
     - name: January 2016
       href: '/drb/#workshops'
   - name: Schedule
-    href: '/schedule/'
+    href: 'schedule.html'
   - name: Instructors
-    href: '/instructors/'
+    href: 'instructors.html'
   - name: Location
-    href: '/location/'
+    href: 'location.html'
   - name: Contact
-    href: '/contact/'
+    href: 'contact.html'
