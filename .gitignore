@@ -4,6 +4,12 @@
 # This takes care of .tmp, .sass-cache, and many others
 .*/
 
+# Emacs
+
+.#*
+#*
+—*
+
 # OSX
 ._*
 .AppleDouble
