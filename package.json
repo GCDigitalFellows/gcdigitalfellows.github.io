@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GCDigitalFellows/gcdigitalfellows.github.io/issues"
   },
-  "homepage": "https://github.com/GCDigitalFellows/gcdigitalfellows.github.io#readme"
+  "homepage": "https://github.com/GCDigitalFellows/gcdigitalfellows.github.io#readme",
+  "dependencies": {
+    "request": "^2.78.0"
+  }
 }
