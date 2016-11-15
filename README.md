@@ -7,11 +7,9 @@ Website for the GC Digital Fellows Digital Research Bootcamp.
 1. Clone the repo, then run:
 
    ```sh
-   npm install 
-   bower install 
-   gem install jekyll jekyll-paginate github-pages
+   node getdata
    ```
-2. run `npm run serve` 
+2. run `jekyll serve` 
 to set everything up and start the development server.
 
 ## Setup (OS X and Linux)
@@ -24,11 +22,9 @@ to set everything up and start the development server.
 ### Manual Installation (all OSes)
 
 1. Install [Node.js](https://nodejs.org/en/). 
-2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer. 
-3. Install [Bower](http://bower.io/#install-bower) globally (with the -g flag) from a terminal:
- 
+
     ```shell
-    npm install -g bower
+    npm install jekyll
     ```
 
 5. Clone this repo and `cd` into the new repo directory:
@@ -41,49 +37,14 @@ to set everything up and start the development server.
 6. Install node, bower, and ruby components:
 
     ```shell
-    npm install
-    bower install
-    gem install jekyll jekyll-paginate github-pages
+    npm install jekyll
     ```
 
 ## Running the Development Server
 
-You have two options: gulp and node/npm. If you encounter problems with gulp, try running the node scripts. The gulp scripts should run a bit more quickly and smoothly, however.
-
-### Gulp
-
-```shell
-gulp # runs all of the scripts and starts the livereload server
-gulp assets # compiles all of the JS/SCSS assets
-gulp clean # cleans the compiled files
-gulp jekyll # runs the jekyll server
-gulp data # gets data from Google Drive
-gulp build # clean compile assets and jekyll, but don’t serve
-gulp serve # start the server but don’t recompile assets first
-```
-
-If the `--nomin` flag is used with any of the above commands (e.g., `gulp build --nomin`), scripts/stylesheets will not be minified and sourcemaps won’t be created. This is simply to speed up recompilation time.
-
-### NPM/Node
-
-Compile everything and start the live server: `npm start`
-
-The following build scripts are included in package.json (you can view these by running `npm run`). Run these from the command line `npm run [script name]`:
-
-- `clean`: cleans temporary files created by these scripts. Run this if something is being wonky and you suspect it might be due to leftover artifacts from earlier builds.
-- `data`: retrieves data from Google Sheets and saves it to the `_data` folder in yaml format.
-- `assets`: build all of the styles and scripts, and copies vendor stuff to the appropriate places. Also gets data from Google Docs.
-- `assets:vendor`: just build vendor assets
-- `lint:js`: syntax check javascript (only main.js)
-- `lint:sass`: syntax check sass (only style.scss)
-- `scripts`: build javavscript (only main.js)
-- `styles`: build sass (only style.scss)
-- `watch:scripts`: build javascript + recompile on changes (using `serve` is more useful).
-- `watch:styles`: ditto above for sass
-- `jekyll:build`: build jekyll site to the `_site` directory (or whatever is defined in `_config.yml`)
-- `jekyll:serve`: build jekyll and run the server + rebuild on changes
-- `livereload`: start live reload server (pointless to run alone)
-- `serve`: build and start the server, rebuild + reload on changes
+  ```shell
+  jekyll serve
+  ```
 
 ## Directory Structure
 
