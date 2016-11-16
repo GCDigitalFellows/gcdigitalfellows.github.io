@@ -4,12 +4,9 @@
 
 Website for the GC Digital Fellows Digital Research Bootcamp. 
 
-1. Clone the repo, then run:
+1. Update data via `node get_data`
+2. Test changes via `bundle exec jekyll serve` 
 
-   ```sh
-   node getdata
-   ```
-2. run `jekyll serve` 
 to set everything up and start the development server.
 
 ## Setup (OS X and Linux)
@@ -17,33 +14,44 @@ to set everything up and start the development server.
 
 - Node.js + NPM (use LTF version): JS build server and package management
 - Ruby + Rubygems + Bundler: for Jekyll
+
+### Manual Installation (all OSes)
+
+### Requirements
+
+- Node.js + NPM (might need to use version 5.x): JS build server and package management
+- Ruby + Rubygems + Bundler: for Jekyll
 - Bower (via npm): web dependency package management
 
 ### Manual Installation (all OSes)
 
-1. Install [Node.js](https://nodejs.org/en/). 
+1. Install [Node.js](https://nodejs.org/en/). It is recommended that you use [homebrew](https://brew.sh) to install node since it will help prevent permissions issues.
 
-    ```shell
-    npm install jekyll
-    ```
+2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) if it's not already installed on your computer. You might want to install ruby using homebrew for the same reasons as above.
 
-5. Clone this repo and `cd` into the new repo directory:
+3. Clone this repo and `cd` into the new repo directory:
 
     ```shell
     git clone git@github.com:GCDigitalFellows/gcdigitalfellows.github.io.git
     cd gcdigitalfellows.github.io
     ```
 
-6. Install node, bower, and ruby components:
+4. Install node and ruby components:
 
     ```shell
     npm install jekyll
     ```
+    
+5. Run the update data script 
+   ```shell
+   node get_data
+   ```
+ Try to resolve `Error: Cannot find module 'X'` error with `npm install X`. Repeat until all packages are installed.
 
 ## Running the Development Server
 
   ```shell
-  jekyll serve
+  bundle exec jekyll serve
   ```
 
 ## Directory Structure
