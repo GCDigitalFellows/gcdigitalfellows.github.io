@@ -7,7 +7,6 @@ Website for the GC Digital Fellows Digital Research Bootcamp.
 1. Update data via `node get_data`
 2. Test changes via `bundle exec jekyll serve` 
 
-to set everything up and start the development server.
 
 ## Setup (OS X and Linux)
 ### Requirements
