@@ -10,7 +10,7 @@ scripts: google_forms.js
     <div class="col-md-8 offset-md-2">
       <p>Thank you for your interest in participating in the GC Digital Research Institute (GCDRI), June 6-10, 2016.</p>
       <p>Participation is free; however, applications are required. All levels of experience are welcome. If you applied to the January <a href="{{ '/gcdrb/' | prepend: site.baseurl }}">Digital Research Bootcamp</a> but were not accepted, you must submit a new application to be considered for the June GCDRI.</p>
-      <p>Applications are due before 11:59pm on April 18, 2016. We will notify you of the status of your application in early May.</p>
+      <p>Applications are due before 11:59pm on November 30, 2016. We will notify you of the status of your application by late December.</p>
       <p>If you have any questions, please <a href="{{ '/contact/' | prepend: site.baseurl }}">contact us</a>. We look forward to seeing you there!</p>
     </div>
   </div>
