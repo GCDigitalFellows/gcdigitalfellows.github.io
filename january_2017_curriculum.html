@@ -1,0 +1,59 @@
+---
+layout: default
+title: Workshops
+regenerate: true
+---
+
+<section id="content" class="container">
+  {% include section-header.html title="Workshops" color="primary" %}
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <!--Each day of the Bootcamp is divided into four workshop sessions--two in the
+      morning and two in the afternoon, with breaks between each session.-->
+      Workshops build on each other such that successive workshops use skills developed
+      in earlier ones. All participants attend workshops on core skills, 
+      then choose which skills they wish to develop further through advanced workshops.  
+      <!-- The following table lists all of the topics that will be covered
+      over the course of the Bootcamp, with links to additional information, workshop
+      materials, and the schedule. -->
+      </p>
+    </div>
+  </div>
+  <div class="row m-b-3">
+    <div class="col-md-6 offset-md-3">
+      <table class="table table-striped" id="top">
+        {% for topic in site.data.workshops | sort: 'sort' %}
+        <tr>
+          <td>{{topic.title}}</td>
+          <td><a href="#{{ topic.link | slugify }}" class="page-scroll">details</a></td>
+          <td><a href="{{ topic.repo }}" target="_blank">repo</a></td>
+          {% if topic.more_info_link != '' %}
+            <td><a href="{{ topic.more_info_link }}" target="_blank">more info</a></td>
+          {% endif %}
+          <!-- <td><a href="{{ '/schedule/#{{topic.session}}' | prepend: site.baseurl }}">schedule</a></td> -->
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  {% include section-header.html title="Workshop Details" color="secondary" %}
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      {% for topic in site.data.workshops | sort: 'sort' %}
+      <div class="card" id="{{ topic.link | slugify }}">
+        {% comment %}<img class="card-img-top" src="{{ '/images/header.jpg" alt="Card image cap' | prepend: site.baseurl }}">{% endcomment %}
+        <div class="card-block">
+          <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{topic.title}}">
+            <a href="{{ topic.day | slugify | prepend: '/schedule/#' | prepend: site.baseurl }}" class="btn btn-primary"><i class="fa fa-calendar"></i></a>
+            <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a>
+                 <a href="{{topic.repo}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
+          </div>
+          <h4 class="card-title"><a
+              href="{{ topic.link | slugify | prepend: '#' | prepend: site.baseurl }}">{{topic.title}}</a></h4>
+          <p class="card-text">{{ topic.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
