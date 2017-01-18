@@ -4,6 +4,7 @@
 
 Website for the GC Digital Fellows Digital Research Bootcamp. 
 
+0. Edit [spreadsheet](https://docs.google.com/spreadsheets/d/1e5y9HYYq-dtuGrHxVmsEieY2jB3EErWoVYxytTMnAHw/edit#gid=863043106)
 1. Update data via `node get_data`
 2. Test changes via `bundle exec jekyll serve` 
 
