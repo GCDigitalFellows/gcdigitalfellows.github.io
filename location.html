@@ -9,33 +9,36 @@ regenerate: true
     {% include section-header.html title="GCDRI Location and Rooms" color="secondary" %}
     <div class="row" id="top">
       <div class="col-md-8 offset-md-2">
-        <p>The Digital Research Institute will be held at the Graduate Center, CUNY, located at 365 Fifth Avenue, New York, NY 10016. Individual sessions will take place in various rooms according to the <a href="/schedule/#detail">schedule</a>.</p>
+        <p>The Digital Research Institute will be held at the Graduate Center, CUNY, located at 365 Fifth Avenue, New York, NY 10016. Sessions will take place in the Science Center (room 4102).</p>
+	<p>To get to the Science Center, head to the fourth floor. When you get off the elevator, walk toward the monitors. The Science Center is the first door to the right of the monitors, across from the kitchenette.</p>
         <div class="alert alert-warning"><strong>Warning!</strong> The climate control system is inconsistent throughout the building. Some of the rooms will be very cold while others may get warm from body heat. Participants are advised to dress accordingly!</div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <h3 class="text-xs-center m-t-3 m-b-1">Room Locations</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Room</th>
-              <th>Capacity</th>
-              <th>Location</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for room in site.data.rooms %}
-            <tr>
-              <td id="{{room[0]}}">{{room[1].name}}</td>
-              <td>{{room[1].capacity}}</td>
-              <td>{{room[1].location}}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
+
+<!-- Room specifics removed for January 2018 since everything in Science Center -->
+    <!-- <div class="row">
+	 <div class="col-md-8 offset-md-2">
+         <h3 class="text-xs-center m-t-3 m-b-1">Room Locations</h3>
+         <table class="table table-striped">
+         <thead>
+         <tr>
+         <th>Room</th>
+         <th>Capacity</th>
+         <th>Location</th>
+         </tr>
+         </thead>
+         <tbody>
+         {% for room in site.data.rooms %}
+         <tr>
+         <td id="{{room[0]}}">{{room[1].name}}</td>
+         <td>{{room[1].capacity}}</td>
+         <td>{{room[1].location}}</td>
+         </tr>
+         {% endfor %}
+         </tbody>
+         </table>
+	 </div>
+	 </div> -->
     <div class="row">
       <div class="col-md-8 offset-md-2">
         <h3 class="text-xs-center m-t-3 m-b-1">Getting to the Graduate Center</h3>

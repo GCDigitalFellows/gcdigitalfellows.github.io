@@ -3,8 +3,6 @@ main:
     href: '/'
   - name: About
     href: '/#about'
-  - name: Apply
-    href: 'https://docs.google.com/forms/d/e/1FAIpQLSdYiq7k1BMePnl1hhl1FD_f05ByLF3Jvs2Ts_BfTBekoGLiJA/viewform'
   - name: Curricula
     href: dropdown
     children:

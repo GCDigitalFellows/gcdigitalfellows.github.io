@@ -48,8 +48,8 @@ regenerate: true
           <div class="btn-group btn-group-sm pull-right" role="group" aria-label="{{topic.title}}">
 
             <a href="{{ "/schedule.html" | site.baseurl}}" class="btn btn-primary"><i class="fa fa-calendar"></i></a>
-	    <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa {{topic.icon}}"></i></a>
-            <!--a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a-->
+	    <a href="{{ topic.more_info_link }}" class="btn btn-primary page-scroll"><i class="fa {{topic.icon}}"></i></a>
+            <!-- <a href="#page-top" class="btn btn-primary page-scroll"><i class="fa fa-chevron-up"></i></a -->
             <a href="{{topic.repo}}" class="btn btn-primary"><i class="fa fa-github"></i></a>
           </div>
           <h4 class="card-title"><a
