@@ -13,19 +13,19 @@ header-color: secondary
     <table class="table table-hover table-bordered">
             <thead class="thead-inverse">    
     <th style="width:20%">Session</th>
-    <th style="width:20%">Tue</th>
-    <th style="width:20%">Wed</th>
-    <th style="width:20%">Thu</th>
-    <th style="width:20%">Fri</th>
+    <th style="width:20%">Monday</th>
+    <th style="width:20%">Tuesday</th>
+    <th style="width:20%">Wednesday</th>
+    <th style="width:20%">Thursday</th>
     </head>
     <tbody>
 {% for item in site.data.overview %}
     <tr>
       <td>{{ item.time }}</td>
+      <td>{{ item..M }}</td>
       <td>{{ item..Tu }}</td>
       <td>{{ item..W }}</td>
       <td>{{ item..Th }}</td>
-      <td>{{ item..F }}</td>      
     </tr>
 {% endfor %}
 
