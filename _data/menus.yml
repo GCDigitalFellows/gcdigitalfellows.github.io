@@ -6,6 +6,8 @@ main:
   - name: Curricula
     href: dropdown
     children:
+    - name: January 2019
+      href: 'january_2019_curriculum.html'
     - name: January 2018
       href: 'january_2018_curriculum.html'
     - name: January 2017
