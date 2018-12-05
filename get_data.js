@@ -5,8 +5,8 @@ const fs = require('fs-extra');
 const escape = require('escape-html');
 
 
-# sheet to update
-uggcf://qbpf.tbbtyr.pbz/fcernqfurrgf/q/1r5l9ULLd-qghTeUkIzfRvrL2wO3RReJbILklgGZaNUj/rqvg#tvq=863043106
+// sheet to update
+// uggcf://qbpf.tbbtyr.pbz/fcernqfurrgf/q/1r5l9ULLd-qghTeUkIzfRvrL2wO3RReJbILklgGZaNUj/rqvg#tvq=863043106
 
 var oldurl = 'https://docs.google.com/spreadsheets/d/16RfbdrnDHhRgP2iZwNw6AVSyWy5VoKn0nB0CpyMa658/pub?';
 var jun16dri = 'https://docs.google.com/spreadsheets/d/1e5y9HYYq-dtuGrHxVmsEieY2jB3EErWoVYxytTMnAHw/pub?';
